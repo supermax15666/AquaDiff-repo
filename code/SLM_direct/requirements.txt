@@ -1,0 +1,2 @@
+# The benchmark runner itself uses only the Python standard library.
+# It reuses py/LLM_API_direct for transport, persistence, parsing, and scoring.

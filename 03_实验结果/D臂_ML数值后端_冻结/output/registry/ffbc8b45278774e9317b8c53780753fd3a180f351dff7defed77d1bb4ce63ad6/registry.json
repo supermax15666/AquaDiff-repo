@@ -1,0 +1,159 @@
+{
+  "artifact_type": "ml_backend_d_registry",
+  "created_at_utc": "2026-08-15T12:19:38.435750+00:00",
+  "dataset_sha256": "069d1fcedd4a9dea42cbe77651f8cc551cd05531d6e1316b3a816138b19536d0",
+  "evaluation_sha256": "f107c1d09acf006af2c28b83b9e50b4cbca8d78f8bb9dc043c2890d8ecd504be",
+  "evaluation_source": "E:\\Desktop\\CET_docment\\CET_docment\\py\\3.D_ML\\output\\evaluation\\ffbc8b45278774e9317b8c53780753fd3a180f351dff7defed77d1bb4ce63ad6\\results.json",
+  "pooled_control_explanation": "Pooled 对照按该体系入选模型家族在全部四体系数据上重训；仅用于'分体系建模是否必要'的比较，不作为 Agent 后端。",
+  "protocol_fingerprint": "ffbc8b45278774e9317b8c53780753fd3a180f351dff7defed77d1bb4ce63ad6",
+  "protocol_frozen": true,
+  "registry_content_sha256": "875095c23fc44c8dc2ed450ab39d2263d3354dc4c07afe6e1a5e84c802d6e755",
+  "schema_version": "ml_backend_d/v1",
+  "selection_metric": "macro_lineage_mdape_percent",
+  "systems": [
+    {
+      "applicability_domain": {
+        "concentration_mol_L": {
+          "max": 5.4,
+          "min": 2e-05
+        },
+        "kind": "rectangular_box",
+        "rejection_policy": "structured_refusal",
+        "temperature_K": {
+          "max": 353.15,
+          "min": 273.15
+        }
+      },
+      "artifact": {
+        "path": "E:\\Desktop\\CET_docment\\CET_docment\\py\\3.D_ML\\output\\registry\\ffbc8b45278774e9317b8c53780753fd3a180f351dff7defed77d1bb4ce63ad6\\NaCl-H2O.joblib",
+        "sha256": "c268f498c08a2a2e4492dc87c16fbef95e647fd15b5ca6117b633b521623ce76"
+      },
+      "cv_accuracy_10pct": 0.867816091954023,
+      "features": [
+        "temperature_K",
+        "concentration_mol_L"
+      ],
+      "pooled_control_artifact": {
+        "path": "E:\\Desktop\\CET_docment\\CET_docment\\py\\3.D_ML\\output\\registry\\ffbc8b45278774e9317b8c53780753fd3a180f351dff7defed77d1bb4ce63ad6\\NaCl-H2O.pooled_control.joblib",
+        "sha256": "e9696ec6af381da3a0d5a88ee986a6f26b791a620967453f0f6924c507f0c6f2"
+      },
+      "primary_metric": "macro_lineage_mdape_percent",
+      "primary_metric_value_cv": 2.12520872953477,
+      "registered_model_display": "Gaussian Process Regression",
+      "registered_model_key": "gaussian_process",
+      "system": "NaCl-H2O",
+      "target_unit": "10^-9 m^2/s",
+      "tie_break_value_cv": 0.10082207924097042,
+      "trained_on_conditions": 174,
+      "trained_on_lineages": 10
+    },
+    {
+      "applicability_domain": {
+        "concentration_mol_L": {
+          "max": 4.45,
+          "min": 0.0001
+        },
+        "kind": "rectangular_box",
+        "rejection_policy": "structured_refusal",
+        "temperature_K": {
+          "max": 353.15,
+          "min": 273.0
+        }
+      },
+      "artifact": {
+        "path": "E:\\Desktop\\CET_docment\\CET_docment\\py\\3.D_ML\\output\\registry\\ffbc8b45278774e9317b8c53780753fd3a180f351dff7defed77d1bb4ce63ad6\\KCl-H2O.joblib",
+        "sha256": "08838055c611c8abc1c1caaa40f4c8ca223dd3a690c9292f0055965daf6cc99c"
+      },
+      "cv_accuracy_10pct": 0.9959514170040485,
+      "features": [
+        "temperature_K",
+        "concentration_mol_L"
+      ],
+      "pooled_control_artifact": {
+        "path": "E:\\Desktop\\CET_docment\\CET_docment\\py\\3.D_ML\\output\\registry\\ffbc8b45278774e9317b8c53780753fd3a180f351dff7defed77d1bb4ce63ad6\\KCl-H2O.pooled_control.joblib",
+        "sha256": "6e5422b1fa7371d8fcf8dc7eb0393ea21e0804eb5bd8416591682beecbcb9717"
+      },
+      "primary_metric": "macro_lineage_mdape_percent",
+      "primary_metric_value_cv": 2.699820488919343,
+      "registered_model_display": "Polynomial Ridge",
+      "registered_model_key": "polynomial_ridge",
+      "system": "KCl-H2O",
+      "target_unit": "10^-9 m^2/s",
+      "tie_break_value_cv": 0.07965863605435985,
+      "trained_on_conditions": 247,
+      "trained_on_lineages": 13
+    },
+    {
+      "applicability_domain": {
+        "concentration_mol_L": {
+          "max": 8.1108,
+          "min": 0.0001
+        },
+        "kind": "rectangular_box",
+        "rejection_policy": "structured_refusal",
+        "temperature_K": {
+          "max": 323.15,
+          "min": 273.15
+        }
+      },
+      "artifact": {
+        "path": "E:\\Desktop\\CET_docment\\CET_docment\\py\\3.D_ML\\output\\registry\\ffbc8b45278774e9317b8c53780753fd3a180f351dff7defed77d1bb4ce63ad6\\LiCl-H2O.joblib",
+        "sha256": "75b006bad65b57cf35a746d0a6d5e610bac41d39318069a9f429946f6e349be8"
+      },
+      "cv_accuracy_10pct": 0.3560606060606061,
+      "features": [
+        "temperature_K",
+        "concentration_mol_L"
+      ],
+      "pooled_control_artifact": {
+        "path": "E:\\Desktop\\CET_docment\\CET_docment\\py\\3.D_ML\\output\\registry\\ffbc8b45278774e9317b8c53780753fd3a180f351dff7defed77d1bb4ce63ad6\\LiCl-H2O.pooled_control.joblib",
+        "sha256": "add844b11d92a1d80b6940618a8f32dfe59670d6dde1f7d5bde2dd5bbc7660bd"
+      },
+      "primary_metric": "macro_lineage_mdape_percent",
+      "primary_metric_value_cv": 4.679273545188852,
+      "registered_model_display": "Gradient Boosting",
+      "registered_model_key": "gradient_boosting",
+      "system": "LiCl-H2O",
+      "target_unit": "10^-9 m^2/s",
+      "tie_break_value_cv": 0.3621780628205624,
+      "trained_on_conditions": 132,
+      "trained_on_lineages": 5
+    },
+    {
+      "applicability_domain": {
+        "concentration_mol_L": {
+          "max": 6.004,
+          "min": 0.0001
+        },
+        "kind": "rectangular_box",
+        "rejection_policy": "structured_refusal",
+        "temperature_K": {
+          "max": 308.15,
+          "min": 288.15
+        }
+      },
+      "artifact": {
+        "path": "E:\\Desktop\\CET_docment\\CET_docment\\py\\3.D_ML\\output\\registry\\ffbc8b45278774e9317b8c53780753fd3a180f351dff7defed77d1bb4ce63ad6\\CaCl2-H2O.joblib",
+        "sha256": "011e6134e46581d18ac44fecbb7dc20c9f73cca18e1465f9aa190c8d9bad7b2c"
+      },
+      "cv_accuracy_10pct": 0.8314606741573034,
+      "features": [
+        "temperature_K",
+        "concentration_mol_L"
+      ],
+      "pooled_control_artifact": {
+        "path": "E:\\Desktop\\CET_docment\\CET_docment\\py\\3.D_ML\\output\\registry\\ffbc8b45278774e9317b8c53780753fd3a180f351dff7defed77d1bb4ce63ad6\\CaCl2-H2O.pooled_control.joblib",
+        "sha256": "eb31bf05e10b174c1e1f92ce2f13c9539ee861e50994eceaade8af70965fc21e"
+      },
+      "primary_metric": "macro_lineage_mdape_percent",
+      "primary_metric_value_cv": 4.5155685534703895,
+      "registered_model_display": "Gradient Boosting",
+      "registered_model_key": "gradient_boosting",
+      "system": "CaCl2-H2O",
+      "target_unit": "10^-9 m^2/s",
+      "tie_break_value_cv": 0.055490590523613915,
+      "trained_on_conditions": 89,
+      "trained_on_lineages": 7
+    }
+  ]
+}

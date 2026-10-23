@@ -1,0 +1,13 @@
+model,view,acc10_macro_percent,ci_low_percent,ci_high_percent
+deepseek-v4-pro,primary,51.1,42.5,74
+deepseek-v4-pro,sensitivity,52.4,43.6,73.9
+glm-5.2,primary,49.7,41.6,72.7
+glm-5.2,sensitivity,50.7,42.6,72.3
+qwen3.8-max,primary,44.9,36.2,65.7
+qwen3.8-max,sensitivity,47.6,38.6,66.9
+doubao-seed-2-1-pro-260628,primary,52.5,44,76.7
+doubao-seed-2-1-pro-260628,sensitivity,51.9,44.1,75.4
+MiniMax-M3,primary,40.1,32.8,57.2
+MiniMax-M3,sensitivity,39.3,32,57.3
+kimi-k3,primary,62.7,58.8,76.5
+kimi-k3,sensitivity,61.4,56.8,72.8

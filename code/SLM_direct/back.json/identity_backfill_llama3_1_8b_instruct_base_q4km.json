@@ -1,0 +1,31 @@
+{
+  "model_key": "llama3_1_8b_instruct_base_q4km",
+  "repo_used": "LLM-Research/Meta-Llama-3.1-8B-Instruct",
+  "repo_was_fallback": false,
+  "revision": "359efdbb8af05b788a4ad4185215c6b8caa9052c",
+  "snapshot_manifest_sha256": "29248f4d9a24c99da16765cfe1ffb201faba2479b83341462fb1d7da8c4c4dc7",
+  "snapshot_files_sha256_path": "E:\\models\\cet_formal\\llama-3.1-8b-instruct.snapshot_files.sha256",
+  "gguf": {
+    "filename": "llama-3.1-8b-instruct-Q4_K_M.gguf",
+    "local_path": "E:\\gguf\\cet_formal\\llama-3.1-8b-instruct-Q4_K_M.gguf",
+    "sha256": "89e19c221157d7eef6d969c039cf23e61bb795c6c3218c3d286448bda899c688"
+  },
+  "llama_cpp_commit": "d0bfb1981266c271cd0536a8aa7c5e863e7cdf61",
+  "llama_cpp_tag": "b10188",
+  "lm_studio": {
+    "app_version": "0.4.20+1",
+    "runtime_version": "llama.cpp-win-x86_64-avx2-2.29.0",
+    "served_model_id_actual": "llama-3.1-8b-instruct@q4_k_m",
+    "native_model_key": "llama-3.1-8b-instruct@q4_k_m",
+    "native_selected_variant": null,
+    "quantization": "Q4_K_M",
+    "loaded_context_length": 4096,
+    "max_context_length": 131072,
+    "arch": "llama",
+    "publisher": "cet-gguf",
+    "gpu_offload_requested": "max",
+    "inference_verified": true
+  },
+  "backfilled_at_utc": "2026-08-15T12:14:19Z",
+  "notes": "仓库 LLM-Research/Meta-Llama-3.1-8B-Instruct 存在。snapshot 含 18 文件（含根目录 4 个 safetensors 分片 + 子目录原始 Meta 格式 consolidated.00.pth/params.json/tokenizer.model）；convert_hf_to_gguf.py 使用根目录 safetensors 成功转换。lms import 后 LM Studio 实际 id 为 llama-3.1-8b-instruct@q4_k_m（publisher=cet-gguf）。推理验证：模型成功加载（日志确认加载路径 E:\\models\\cet-gguf\\llama-3.1-8b-instruct\\llama-3.1-8b-instruct-Q4_K_M.gguf），返回 'OK'，finish=stop。runtime 同前（CPU AVX2 2.29.0，--gpu max 已请求但 CUDA backend 未启用）。"
+}

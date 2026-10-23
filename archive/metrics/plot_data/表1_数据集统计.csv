@@ -1,0 +1,6 @@
+system,n_records,n_lineages,n_unique_conditions,n_main_questions,n_sensitivity_questions
+NaCl-H2O,256,16,TBD,174,60
+KCl-H2O,268,16,TBD,247,60
+LiCl-H2O,152,6,TBD,132,60
+CaCl2-H2O,109,7,TBD,89,60
+total,785,45,696,642,240

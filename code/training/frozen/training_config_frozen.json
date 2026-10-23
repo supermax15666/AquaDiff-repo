@@ -1,0 +1,94 @@
+{
+  "artifact_type": "training_config_freeze_record",
+  "dataset": {
+    "canonical_jsonl_sha256": "730d1a467057c2fdd0232768ad6983ef013746a72bde4c449c4905de98a3f6f5",
+    "llamafactory_alpaca_json_sha256": "f95b8a5587bf41ce01573ad579be04fe39c43554099c50e509b75af189759ba4",
+    "llamafactory_dataset_info_sha256": "63d405be1414f97aaaeb0e11b1fdd43ad1cfd07f0d57cbc9c6a3b10cd2d80290",
+    "name": "train_642",
+    "server_dataset_dir": "D:\\cet_sft\\data\\llamafactory",
+    "server_note": "dataset_dir/output_dir are environment paths on the training server; if changed at deployment time, the actual paths must be recorded in the deployment report (same convention as 模型身份冻结清单 §五).",
+    "training_data_manifest_content_sha256": "a6672fa914f6ad2be6169a1da7f2f070bf07579555a2411961ddba29ed4e131d",
+    "training_data_manifest_path": "E:\\Desktop\\CET_docment\\CET_docment\\py\\微调\\data\\training_data_manifest.json",
+    "training_data_manifest_sha256": "5de2b3619a7f2c47bfb550e0fe94f07cbeb3a16da5098fe7c69a5253caadb9a8"
+  },
+  "framework": "LLaMA-Factory CLI",
+  "framework_note": "framework chosen 2026-08-16 (pilot-proven on the training server; plan §15 references LLaMA-Factory template defaults). Unsloth evaluated and rejected for this project; switching frameworks requires a plan version bump.",
+  "freeze_record_sha256": "b932fdc4549d401ed4d2a0bdcc926411c8191df4fed43cfdea979d2b07c9acb1",
+  "frozen_at_utc": "2026-08-18T02:45:54.444225+00:00",
+  "hyperparameters": {
+    "bf16": true,
+    "cutoff_len": 512,
+    "dataset": "train_642",
+    "effective_batch_size": 16,
+    "finetuning_type": "lora",
+    "gradient_accumulation_steps": 8,
+    "gradient_checkpointing": true,
+    "learning_rate": 0.0001,
+    "lora_alpha": 128,
+    "lora_dropout": 0,
+    "lora_rank": 64,
+    "lora_target": "omitted_llamafactory_template_default_record_at_training",
+    "lr_scheduler_type": "cosine",
+    "max_grad_norm": 1.0,
+    "num_train_epochs": 5.0,
+    "optim": "paged_adamw_8bit",
+    "overwrite_output_dir": false,
+    "per_device_train_batch_size": 2,
+    "save_steps": 41,
+    "save_total_limit": 6,
+    "seed": 42,
+    "steps_per_epoch": 41,
+    "total_steps": 205,
+    "val_size": 0,
+    "warmup_ratio": 0.1
+  },
+  "models": [
+    {
+      "base_path": "E:\\models\\cet_formal\\qwen3-4b-instruct-2507",
+      "model": "Qwen3-4B-Instruct-2507",
+      "model_key": "qwen3_4b_instruct_2507",
+      "output_dir": "E:\\models\\cet_formal_sft\\qwen3-4b-instruct-2507-lora-r64",
+      "template": "qwen3_nothink",
+      "yaml_path": "E:\\Desktop\\CET_docment\\CET_docment\\py\\微调\\configs\\qwen3_4b_instruct_2507_sft_lora.yaml",
+      "yaml_sha256": "1032e8650a20fb0a554f89e5ccdee6903d30eec4b8c4c9892578d8fe5aba2ce7"
+    },
+    {
+      "base_path": "E:\\models\\cet_formal\\qwen3-8b-instruct",
+      "model": "Qwen3-8B",
+      "model_key": "qwen3_8b_instruct",
+      "output_dir": "E:\\models\\cet_formal_sft\\qwen3-8b-instruct-lora-r64",
+      "template": "qwen3_nothink",
+      "yaml_path": "E:\\Desktop\\CET_docment\\CET_docment\\py\\微调\\configs\\qwen3_8b_instruct_sft_lora.yaml",
+      "yaml_sha256": "c9140592598c8b25a022adfa2eddf9237e0022c67e403af864df1a875fcc01a5"
+    },
+    {
+      "base_path": "E:\\models\\cet_formal\\qwen3.6-27b",
+      "model": "Qwen3.6-27B",
+      "model_key": "qwen3_6_27b",
+      "output_dir": "E:\\models\\cet_formal_sft\\qwen3.6-27b-lora-r64",
+      "template": "qwen3_nothink",
+      "yaml_path": "E:\\Desktop\\CET_docment\\CET_docment\\py\\微调\\configs\\qwen3_6_27b_sft_lora.yaml",
+      "yaml_sha256": "d3623a9381e73dce19b97536a88f766482b9705d098fe7695672bbba23fbc1f9"
+    },
+    {
+      "base_path": "E:\\models\\cet_formal\\llama-3.1-8b-instruct",
+      "model": "Llama-3.1-8B-Instruct",
+      "model_key": "llama3_1_8b_instruct",
+      "output_dir": "E:\\models\\cet_formal_sft\\llama-3.1-8b-instruct-lora-r64",
+      "template": "llama3",
+      "yaml_path": "E:\\Desktop\\CET_docment\\CET_docment\\py\\微调\\configs\\llama3_1_8b_instruct_sft_lora.yaml",
+      "yaml_sha256": "ef921451f51433f42f706ba47de6c052030cb71597eec3f654ce650f1b0c7a61"
+    },
+    {
+      "base_path": "E:\\models\\cet_formal\\gemma-2-9b-it",
+      "model": "Gemma-2-9B-it",
+      "model_key": "gemma2_9b_it",
+      "output_dir": "E:\\models\\cet_formal_sft\\gemma-2-9b-it-lora-r64",
+      "template": "gemma2",
+      "yaml_path": "E:\\Desktop\\CET_docment\\CET_docment\\py\\微调\\configs\\gemma2_9b_it_sft_lora.yaml",
+      "yaml_sha256": "6fa41f6288283f36736d37bd735e4a90e64dc42b9148a3ef41ca1d05a407bd8e"
+    }
+  ],
+  "research_plan_version": "2.11",
+  "training_protocol": "no validation set, no early stopping, epochs fixed at 5 (plan §3.C.5); no post-training tuning or retraining; adapter + merged weight hashes recorded; merge then convert via llama.cpp b10188 (d0bfb198…) to Q4_K_M identically to Base."
+}

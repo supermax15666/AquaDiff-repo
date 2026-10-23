@@ -1,0 +1,425 @@
+{
+ "artifact_type": "e_arm_solubility_table_frozen",
+ "frozen_at_utc": "2026-08-27T07:47:51.209525+00:00",
+ "plan_version": "2.16",
+ "description": "E 臂饱和安全层 c_sat(T) 冻结表：四体系 273.15-373.15 K 各 12 个 CRC 原生温度点。触发阈值 tau=0.01（c > c_sat*(1+tau)）；插值=同体系内按 T 线性；T 超出表范围不做饱和检查。路由顺序按方案 v2.16：DB 命中优先（实测记录不夹取，附亚稳披露），饱和夹取仅作用于 DB 未命中路径。",
+ "records": [
+  {
+   "system_id": "CaCl2-H2O",
+   "temperature_K": 273.15,
+   "c_sat_mol_L": 4.492492701387638,
+   "saturated_wt_pct_CRC": 36.7,
+   "solid_phase": "CaCl2·6H2O",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1067); 行引 Potter & Clynne 1978/1979 (ref 8)"
+  },
+  {
+   "system_id": "CaCl2-H2O",
+   "temperature_K": 283.15,
+   "c_sat_mol_L": 4.892746846278608,
+   "saturated_wt_pct_CRC": 39.19,
+   "solid_phase": "CaCl2·6H2O",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1067); 行引 Potter & Clynne 1978/1979 (ref 8)"
+  },
+  {
+   "system_id": "CaCl2-H2O",
+   "temperature_K": 293.15,
+   "c_sat_mol_L": 5.374365191926473,
+   "saturated_wt_pct_CRC": 42.13,
+   "solid_phase": "CaCl2·6H2O",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1067); 行引 Potter & Clynne 1978/1979 (ref 8)"
+  },
+  {
+   "system_id": "CaCl2-H2O",
+   "temperature_K": 298.15,
+   "c_sat_mol_L": 5.832060650567669,
+   "saturated_wt_pct_CRC": 44.83,
+   "solid_phase": "CaCl2·6H2O",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1067); 行引 Potter & Clynne 1978/1979 (ref 8)"
+  },
+  {
+   "system_id": "CaCl2-H2O",
+   "temperature_K": 303.15,
+   "c_sat_mol_L": 6.590923193368174,
+   "saturated_wt_pct_CRC": 49.12,
+   "solid_phase": "CaCl2·4H2O",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1067); 行引 Potter & Clynne 1978/1979 (ref 8)"
+  },
+  {
+   "system_id": "CaCl2-H2O",
+   "temperature_K": 313.15,
+   "c_sat_mol_L": 7.266279735087402,
+   "saturated_wt_pct_CRC": 52.85,
+   "solid_phase": "CaCl2·4H2O",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1067); 行引 Potter & Clynne 1978/1979 (ref 8)"
+  },
+  {
+   "system_id": "CaCl2-H2O",
+   "temperature_K": 323.15,
+   "c_sat_mol_L": 7.863413993512345,
+   "saturated_wt_pct_CRC": 56.05,
+   "solid_phase": "CaCl2·2H2O",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1067); 行引 Potter & Clynne 1978/1979 (ref 8)"
+  },
+  {
+   "system_id": "CaCl2-H2O",
+   "temperature_K": 333.15,
+   "c_sat_mol_L": 7.962595810055864,
+   "saturated_wt_pct_CRC": 56.73,
+   "solid_phase": "CaCl2·2H2O",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1067); 行引 Potter & Clynne 1978/1979 (ref 8)"
+  },
+  {
+   "system_id": "CaCl2-H2O",
+   "temperature_K": 343.15,
+   "c_sat_mol_L": 8.06380378446567,
+   "saturated_wt_pct_CRC": 57.44,
+   "solid_phase": "CaCl2·2H2O",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1067); 行引 Potter & Clynne 1978/1979 (ref 8)"
+  },
+  {
+   "system_id": "CaCl2-H2O",
+   "temperature_K": 353.15,
+   "c_sat_mol_L": 8.173999468372681,
+   "saturated_wt_pct_CRC": 58.21,
+   "solid_phase": "CaCl2·2H2O",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1067); 行引 Potter & Clynne 1978/1979 (ref 8)"
+  },
+  {
+   "system_id": "CaCl2-H2O",
+   "temperature_K": 363.15,
+   "c_sat_mol_L": 8.29411454316093,
+   "saturated_wt_pct_CRC": 59.04,
+   "solid_phase": "CaCl2·2H2O",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1067); 行引 Potter & Clynne 1978/1979 (ref 8)"
+  },
+  {
+   "system_id": "CaCl2-H2O",
+   "temperature_K": 373.15,
+   "c_sat_mol_L": 8.427624490899259,
+   "saturated_wt_pct_CRC": 59.94,
+   "solid_phase": "CaCl2·2H2O",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1067); 行引 Potter & Clynne 1978/1979 (ref 8)"
+  },
+  {
+   "system_id": "KCl-H2O",
+   "temperature_K": 273.15,
+   "c_sat_mol_L": 3.359478846411804,
+   "saturated_wt_pct_CRC": 21.74,
+   "solid_phase": "anhydrous",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1068); 行引 IUPAC SDS Vol.47"
+  },
+  {
+   "system_id": "KCl-H2O",
+   "temperature_K": 283.15,
+   "c_sat_mol_L": 3.685566921529175,
+   "saturated_wt_pct_CRC": 23.61,
+   "solid_phase": "anhydrous",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1068); 行引 IUPAC SDS Vol.47"
+  },
+  {
+   "system_id": "KCl-H2O",
+   "temperature_K": 293.15,
+   "c_sat_mol_L": 3.995612890677398,
+   "saturated_wt_pct_CRC": 25.39,
+   "solid_phase": "anhydrous",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1068); 行引 IUPAC SDS Vol.47"
+  },
+  {
+   "system_id": "KCl-H2O",
+   "temperature_K": 298.15,
+   "c_sat_mol_L": 4.140016659959759,
+   "saturated_wt_pct_CRC": 26.22,
+   "solid_phase": "anhydrous",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1068); 行引 IUPAC SDS Vol.47"
+  },
+  {
+   "system_id": "KCl-H2O",
+   "temperature_K": 303.15,
+   "c_sat_mol_L": 4.282874849094568,
+   "saturated_wt_pct_CRC": 27.04,
+   "solid_phase": "anhydrous",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1068); 行引 IUPAC SDS Vol.47"
+  },
+  {
+   "system_id": "KCl-H2O",
+   "temperature_K": 313.15,
+   "c_sat_mol_L": 4.552770543259557,
+   "saturated_wt_pct_CRC": 28.59,
+   "solid_phase": "anhydrous",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1068); 行引 IUPAC SDS Vol.47"
+  },
+  {
+   "system_id": "KCl-H2O",
+   "temperature_K": 323.15,
+   "c_sat_mol_L": 4.805271737089202,
+   "saturated_wt_pct_CRC": 30.04,
+   "solid_phase": "anhydrous",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1068); 行引 IUPAC SDS Vol.47"
+  },
+  {
+   "system_id": "KCl-H2O",
+   "temperature_K": 333.15,
+   "c_sat_mol_L": 5.042321931589536,
+   "saturated_wt_pct_CRC": 31.4,
+   "solid_phase": "anhydrous",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1068); 行引 IUPAC SDS Vol.47"
+  },
+  {
+   "system_id": "KCl-H2O",
+   "temperature_K": 343.15,
+   "c_sat_mol_L": 5.262137142857142,
+   "saturated_wt_pct_CRC": 32.66,
+   "solid_phase": "anhydrous",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1068); 行引 IUPAC SDS Vol.47"
+  },
+  {
+   "system_id": "KCl-H2O",
+   "temperature_K": 353.15,
+   "c_sat_mol_L": 5.472738886653253,
+   "saturated_wt_pct_CRC": 33.86,
+   "solid_phase": "anhydrous",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1068); 行引 IUPAC SDS Vol.47"
+  },
+  {
+   "system_id": "KCl-H2O",
+   "temperature_K": 363.15,
+   "c_sat_mol_L": 5.672557209926224,
+   "saturated_wt_pct_CRC": 34.99,
+   "solid_phase": "anhydrous",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1068); 行引 IUPAC SDS Vol.47"
+  },
+  {
+   "system_id": "KCl-H2O",
+   "temperature_K": 373.15,
+   "c_sat_mol_L": 5.862053990610328,
+   "saturated_wt_pct_CRC": 36.05,
+   "solid_phase": "anhydrous",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1068); 行引 IUPAC SDS Vol.47"
+  },
+  {
+   "system_id": "LiCl-H2O",
+   "temperature_K": 273.15,
+   "c_sat_mol_L": 12.03156098136353,
+   "saturated_wt_pct_CRC": 40.45,
+   "solid_phase": "LiCl·2H2O",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1068); 行引 IUPAC SDS Vol.47"
+  },
+  {
+   "system_id": "LiCl-H2O",
+   "temperature_K": 283.15,
+   "c_sat_mol_L": 12.76544524652041,
+   "saturated_wt_pct_CRC": 42.46,
+   "solid_phase": "LiCl·2H2O",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1068); 行引 IUPAC SDS Vol.47"
+  },
+  {
+   "system_id": "LiCl-H2O",
+   "temperature_K": 293.15,
+   "c_sat_mol_L": 13.81980705355036,
+   "saturated_wt_pct_CRC": 45.29,
+   "solid_phase": "LiCl·H2O",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1068); 行引 IUPAC SDS Vol.47"
+  },
+  {
+   "system_id": "LiCl-H2O",
+   "temperature_K": 298.15,
+   "c_sat_mol_L": 14.00474055201699,
+   "saturated_wt_pct_CRC": 45.81,
+   "solid_phase": "LiCl·H2O",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1068); 行引 IUPAC SDS Vol.47"
+  },
+  {
+   "system_id": "LiCl-H2O",
+   "temperature_K": 303.15,
+   "c_sat_mol_L": 14.15769344184949,
+   "saturated_wt_pct_CRC": 46.25,
+   "solid_phase": "LiCl·H2O",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1068); 行引 IUPAC SDS Vol.47"
+  },
+  {
+   "system_id": "LiCl-H2O",
+   "temperature_K": 313.15,
+   "c_sat_mol_L": 14.52988157584336,
+   "saturated_wt_pct_CRC": 47.3,
+   "solid_phase": "LiCl·H2O",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1068); 行引 IUPAC SDS Vol.47"
+  },
+  {
+   "system_id": "LiCl-H2O",
+   "temperature_K": 323.15,
+   "c_sat_mol_L": 14.95034795942439,
+   "saturated_wt_pct_CRC": 48.47,
+   "solid_phase": "LiCl·H2O",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1068); 行引 IUPAC SDS Vol.47"
+  },
+  {
+   "system_id": "LiCl-H2O",
+   "temperature_K": 333.15,
+   "c_sat_mol_L": 15.42909903279075,
+   "saturated_wt_pct_CRC": 49.78,
+   "solid_phase": "LiCl·H2O",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1068); 行引 IUPAC SDS Vol.47"
+  },
+  {
+   "system_id": "LiCl-H2O",
+   "temperature_K": 343.15,
+   "c_sat_mol_L": 15.98441125265393,
+   "saturated_wt_pct_CRC": 51.27,
+   "solid_phase": "LiCl·H2O",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1068); 行引 IUPAC SDS Vol.47"
+  },
+  {
+   "system_id": "LiCl-H2O",
+   "temperature_K": 353.15,
+   "c_sat_mol_L": 16.63464515215852,
+   "saturated_wt_pct_CRC": 52.98,
+   "solid_phase": "LiCl·H2O",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1068); 行引 IUPAC SDS Vol.47"
+  },
+  {
+   "system_id": "LiCl-H2O",
+   "temperature_K": 363.15,
+   "c_sat_mol_L": 17.41176003774475,
+   "saturated_wt_pct_CRC": 54.98,
+   "solid_phase": "LiCl·H2O",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1068); 行引 IUPAC SDS Vol.47"
+  },
+  {
+   "system_id": "LiCl-H2O",
+   "temperature_K": 373.15,
+   "c_sat_mol_L": 17.92127685774947,
+   "saturated_wt_pct_CRC": 56.34,
+   "solid_phase": "anhydrous",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1068); 行引 IUPAC SDS Vol.47"
+  },
+  {
+   "system_id": "NaCl-H2O",
+   "temperature_K": 273.15,
+   "c_sat_mol_L": 5.437360780287475,
+   "saturated_wt_pct_CRC": 26.28,
+   "solid_phase": "anhydrous",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1070); 行引 IUPAC SDS Vol.47"
+  },
+  {
+   "system_id": "NaCl-H2O",
+   "temperature_K": 283.15,
+   "c_sat_mol_L": 5.428297330595482,
+   "saturated_wt_pct_CRC": 26.32,
+   "solid_phase": "anhydrous",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1070); 行引 IUPAC SDS Vol.47"
+  },
+  {
+   "system_id": "NaCl-H2O",
+   "temperature_K": 293.15,
+   "c_sat_mol_L": 5.426296937029432,
+   "saturated_wt_pct_CRC": 26.41,
+   "solid_phase": "anhydrous",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1070); 行引 IUPAC SDS Vol.47"
+  },
+  {
+   "system_id": "NaCl-H2O",
+   "temperature_K": 298.15,
+   "c_sat_mol_L": 5.423155201916495,
+   "saturated_wt_pct_CRC": 26.45,
+   "solid_phase": "anhydrous",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1070); 行引 IUPAC SDS Vol.47"
+  },
+  {
+   "system_id": "NaCl-H2O",
+   "temperature_K": 303.15,
+   "c_sat_mol_L": 5.4269340862423,
+   "saturated_wt_pct_CRC": 26.52,
+   "solid_phase": "anhydrous",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1070); 行引 IUPAC SDS Vol.47"
+  },
+  {
+   "system_id": "NaCl-H2O",
+   "temperature_K": 313.15,
+   "c_sat_mol_L": 5.435952053388092,
+   "saturated_wt_pct_CRC": 26.67,
+   "solid_phase": "anhydrous",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1070); 行引 IUPAC SDS Vol.47"
+  },
+  {
+   "system_id": "NaCl-H2O",
+   "temperature_K": 323.15,
+   "c_sat_mol_L": 5.449107871321012,
+   "saturated_wt_pct_CRC": 26.84,
+   "solid_phase": "anhydrous",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1070); 行引 IUPAC SDS Vol.47"
+  },
+  {
+   "system_id": "NaCl-H2O",
+   "temperature_K": 333.15,
+   "c_sat_mol_L": 5.466868377823408,
+   "saturated_wt_pct_CRC": 27.03,
+   "solid_phase": "anhydrous",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1070); 行引 IUPAC SDS Vol.47"
+  },
+  {
+   "system_id": "NaCl-H2O",
+   "temperature_K": 343.15,
+   "c_sat_mol_L": 5.491826232032855,
+   "saturated_wt_pct_CRC": 27.25,
+   "solid_phase": "anhydrous",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1070); 行引 IUPAC SDS Vol.47"
+  },
+  {
+   "system_id": "NaCl-H2O",
+   "temperature_K": 353.15,
+   "c_sat_mol_L": 5.524328370978782,
+   "saturated_wt_pct_CRC": 27.5,
+   "solid_phase": "anhydrous",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1070); 行引 IUPAC SDS Vol.47"
+  },
+  {
+   "system_id": "NaCl-H2O",
+   "temperature_K": 363.15,
+   "c_sat_mol_L": 5.56474661190965,
+   "saturated_wt_pct_CRC": 27.78,
+   "solid_phase": "anhydrous",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1070); 行引 IUPAC SDS Vol.47"
+  },
+  {
+   "system_id": "NaCl-H2O",
+   "temperature_K": 373.15,
+   "c_sat_mol_L": 5.603664271047229,
+   "saturated_wt_pct_CRC": 28.05,
+   "solid_phase": "anhydrous",
+   "source_citation": "CRC 92nd ed.(2011) 表 5-190–5-195 (PDF p.1070); 行引 IUPAC SDS Vol.47"
+  }
+ ],
+ "records_content_sha256": "b7d40c4f3b24235ef70d051774c08de899d981b5aab3c81686995c79c9e46c88",
+ "sources": {
+  "solubility": "CRC Handbook 92nd ed. (2011), Sec.5, 表 5-190-5-195（NaCl/KCl/LiCl 行引 IUPAC SDS Vol.47；CaCl2 行引 Potter & Clynne 1978/Clynne & Potter 1979）",
+  "density_NaCl_KCl_LiCl": "Novotny & Sohnel 1988, J.Chem.Eng.Data 33(1) 49-55, Table I Eq.1 常数计算（自洽解；vs CRC 20C/Perry 锚点残差 <=1.8 kg/m3）",
+  "density_CaCl2": "Conde 2004, Int.J.Thermal Sci. 43(4) 367-382, DOI 10.1016/j.ijthermalsci.2003.09.003, Sec.4 密度方程（xi<=0.60 覆盖全部 12 点；vs Bogatykh 117 点/Perry/CRC 三重验证）",
+  "cross_validation": "溶解度 vs Apelblat/Clynne&Potter <=0.08%；CaCl2 高温段原始测量黄金验证 <=0.08%；LiCl 固相分段经 C&P 1979 实测相变温度修正（2H2O 0-10C / H2O 20-90C / 无水 100C）"
+ },
+ "verification_by_assistant_20260827": {
+  "precheck_rerun": "0 错误 3 警告（复现一致）",
+  "independent_recompute": "48 行全部重算：N&S 1988 三体系密度差 <=0.004 kg/m3、c_sat 相对差 <=4e-6；CaCl2 Conde 重算密度差 <=0.21 kg/m3（水密度方程差异量级）、c_sat 相对差 <=1.3e-4 —— 换算链正确",
+  "accepted_warnings": "3 个 NaCl 段内微降（5.4374->5.4232 M, 0->25 C, -0.26%）确认为真实物理行为：wt% +0.65% 而饱和密度 -0.90%，摩尔浓度存在 ~25 C 极浅极小值；密度已过独立锚点验证。人工确认接受。",
+  "trigger_scan_642": "按 v2.15 旧顺序发现 3 个池内条件超饱和（KCl 293K/4.45M Nienow 1968；KCl 291K/4.0M Rysselberghe 1938；CaCl2 298.15K/6.004M Lyons&Riley 1954）——亚稳过饱和实测记录；已升版 v2.16（DB 命中优先+披露，不夹取）。按 v2.16 顺序 642 主集无夹取触发。",
+  "trigger_scan_external": "外部 64 题 0 触发（7 题深冷 LiCl T 低于表范围，跳过饱和检查、由域盒拒绝）"
+ },
+ "files": {
+  "source_xlsx": {
+   "path": "py/E_Agent/溶解度录入_CRC92_v2.xlsx",
+   "sha256": "56861c82179ce756a4c3477f765130081cb25ad609c075efc1b1a9a0cff12f48",
+   "bytes": 11859
+  },
+  "source_csv": {
+   "path": "py/E_Agent/溶解度录入_CRC92_v2.csv",
+   "sha256": "2534cf7300aed19fc6a956e70c0e788c5ccb8c03f21436c9c0dad096cf4c095e",
+   "bytes": 31941
+  },
+  "density_intermediate": {
+   "path": "py/E_Agent/密度待填表.csv（48 行密度中间表）"
+  },
+  "collection_log": {
+   "path": "py/E_Agent/溶解度收集日志.md"
+  }
+ },
+ "freeze_rule": "冻结后不得改动；任何修改需新版本号并重新走复核流程（方案 v2.16 §7）。"
+}

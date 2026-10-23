@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "slm_direct_config_v1",
+  "title": "SLM direct-answer benchmark configuration",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "research_plan_version",
+    "protocol_frozen",
+    "question_file",
+    "question_manifest_file",
+    "evaluator_gold_file",
+    "analysis_sets_file",
+    "answer_schema",
+    "output_root",
+    "repetitions",
+    "order_seed",
+    "server",
+    "inference",
+    "models"
+  ],
+  "properties": {
+    "schema_version": {"const": "slm_direct/v1"},
+    "research_plan_version": {"const": "2.14"},
+    "protocol_frozen": {"type": "boolean"},
+    "pipeline_test": {"type": "boolean"},
+    "question_file": {"type": "string", "minLength": 1},
+    "question_manifest_file": {"type": "string", "minLength": 1},
+    "evaluator_gold_file": {"type": "string", "minLength": 1},
+    "analysis_sets_file": {"type": "string", "minLength": 1},
+    "answer_schema": {"type": "string", "minLength": 1},
+    "output_root": {"const": "../results/SLM_direct/protocol_v2_2"},
+    "repetitions": {"type": "integer", "minimum": 1},
+    "order_seed": {"type": "integer"},
+    "timeout_seconds": {"type": "number", "exclusiveMinimum": 0},
+    "inter_request_seconds": {"type": "number", "minimum": 0},
+    "retry": {"type": "object"},
+    "server": {
+      "type": "object",
+      "required": ["base_url", "native_models_url", "api_key_env", "require_native_metadata"],
+      "properties": {
+        "base_url": {"type": "string", "minLength": 1},
+        "native_models_url": {"type": "string", "minLength": 1},
+        "api_key_env": {"type": "string", "minLength": 1},
+        "require_loopback": {"type": "boolean"},
+        "require_native_metadata": {"const": true},
+        "require_single_loaded_instance": {"type": "boolean"},
+        "preflight_timeout_seconds": {"type": "number", "exclusiveMinimum": 0}
+      },
+      "additionalProperties": false
+    },
+    "inference": {
+      "type": "object",
+      "required": ["structured_output", "temperature", "max_output_tokens"],
+      "properties": {
+        "structured_output": {"enum": ["json_schema", "json_object", "none"]},
+        "temperature": {"type": ["number", "null"]},
+        "top_p": {"type": ["number", "null"]},
+        "seed": {"type": ["integer", "null"]},
+        "max_output_tokens": {"type": "integer", "minimum": 1},
+        "extra_body": {"type": "object"}
+      },
+      "additionalProperties": false
+    },
+    "models": {
+      "type": "object",
+      "minProperties": 5,
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "enabled",
+          "formal_ready",
+          "display_name",
+          "model_family",
+          "expected_lmstudio_architecture",
+          "served_model_id",
+          "pair_id",
+          "pair_role",
+          "model_variant",
+          "experiment_arm",
+          "chat_template",
+          "system_message_policy",
+          "base_checkpoint",
+          "gguf",
+          "deployment"
+        ],
+        "properties": {
+          "enabled": {"type": "boolean"},
+          "formal_ready": {"type": "boolean"},
+          "display_name": {"type": "string", "minLength": 1},
+          "model_family": {"type": "string", "minLength": 1},
+          "expected_lmstudio_architecture": {"type": "string", "minLength": 1},
+          "served_model_id": {"type": "string", "minLength": 1},
+          "pair_id": {"type": "string", "minLength": 1},
+          "pair_role": {"enum": ["base", "sft"]},
+          "model_variant": {"enum": ["original_instruct", "domain_sft"]},
+          "experiment_arm": {"enum": ["A_base_direct", "C_sft_direct"]},
+          "fold_id": {"type": ["integer", "null"], "minimum": 0, "maximum": 4},
+          "chat_template": {"type": "string", "minLength": 1},
+          "system_message_policy": {
+            "enum": ["native_system_role", "fold_system_into_first_user"]
+          },
+          "paired_model_keys": {
+            "type": "array",
+            "items": {"type": "string", "minLength": 1},
+            "uniqueItems": true
+          },
+          "question_ids_file": {"type": ["string", "null"]},
+          "base_checkpoint": {"type": "object"},
+          "parent_base": {"type": "object"},
+          "sft_artifacts": {"type": "object"},
+          "training_provenance": {"type": "object"},
+          "gguf": {"type": "object"},
+          "deployment": {"type": "object"}
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

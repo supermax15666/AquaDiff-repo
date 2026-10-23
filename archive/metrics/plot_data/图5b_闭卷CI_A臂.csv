@@ -1,0 +1,11 @@
+model,view,acc10_macro_percent,ci_low_percent,ci_high_percent
+qwen3_4b_instruct_2507_base_q4km,primary,5.2,3,9.4
+qwen3_4b_instruct_2507_base_q4km,sensitivity,5.4,2.8,10.8
+gemma2_9b_it_base_q4km,primary,15.6,8.2,26.1
+gemma2_9b_it_base_q4km,sensitivity,15,8.2,27
+llama3_1_8b_instruct_base_q4km,primary,14,8,31.1
+llama3_1_8b_instruct_base_q4km,sensitivity,13.7,7.5,30.4
+qwen3_6_27b_base_q4km,primary,24,18.1,34.8
+qwen3_6_27b_base_q4km,sensitivity,26.2,18.7,40.2
+qwen3_8b_instruct_base_q4km,primary,11.6,4.5,22
+qwen3_8b_instruct_base_q4km,sensitivity,12.1,4.6,23

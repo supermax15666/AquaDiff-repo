@@ -1,0 +1,20 @@
+{
+  "artifact_type": "pilot_artifacts_manifest",
+  "pilot_records": 64,
+  "pilot_source": "train_642.json first 64 records (frozen dataset)",
+  "note": "pilot for full-chain connectivity only (plan §3.C.6); results never enter the paper",
+  "files": {
+    "train_642_pilot.json": {
+      "path": "E:\\Desktop\\CET_docment\\CET_docment\\py\\微调\\data\\pilot\\train_642_pilot.json",
+      "sha256": "06a0e8b4e79cf6d1bb25b0e11910cfa78b31133e302da9ea6e0b13cae121415e"
+    },
+    "dataset_info.json": {
+      "path": "E:\\Desktop\\CET_docment\\CET_docment\\py\\微调\\data\\pilot\\dataset_info.json",
+      "sha256": "7e53a83fd485486cf910c95e1e83a63372353e48ed93cbc2f8851cf0e803d8aa"
+    },
+    "qwen3_6_27b_sft_lora_pilot.yaml": {
+      "path": "E:\\Desktop\\CET_docment\\CET_docment\\py\\微调\\configs\\qwen3_6_27b_sft_lora_pilot.yaml",
+      "sha256": "4a5f02c54f90654572f4892d5e0e5b8d7a5a9fc633429cb8f14acabe23d066f0"
+    }
+  }
+}

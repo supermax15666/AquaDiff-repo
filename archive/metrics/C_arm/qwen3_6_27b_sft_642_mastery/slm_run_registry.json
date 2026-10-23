@@ -1,0 +1,28 @@
+[
+  {
+    "base_checkpoint_id": "Qwen/Qwen3.6-27B",
+    "base_checkpoint_revision": "cea40373b9214dd387123e68841890af30dcd469",
+    "base_checkpoint_sha256": "6f82553ba0f2ac2eb83e72909c89111363a2db7a6653942549294212e41f2afc",
+    "context_length": 4096,
+    "experiment_arm": "C_sft_direct",
+    "experiment_name": "qwen3_6_27b_sft_642_mastery",
+    "fold_id": 0,
+    "gguf_filename": "qwen3.6-27b-lora-r64-q4_k_m.gguf",
+    "gguf_sha256": "7EDE95F348E2764668C97E404CCAA917058A600DE86B9A09655163EB58A56B8B",
+    "gpu_offload": "max",
+    "inference_protocol_sha256": "5bbc130551316a204fa17f93c954640b1ef5199f19b0daa365582713ca6a981d",
+    "language_model_artifact_id": "slm-deployment-30c12d131a7ee6a1",
+    "llama_cpp_commit": "d0bfb1981266c271cd0536a8aa7c5e863e7cdf61",
+    "lm_studio_app_version": "0.4.20+1",
+    "lm_studio_runtime_version": "llama.cpp-win-x86_64-nvidia-cuda12-avx2-2.29.0",
+    "model_key": "qwen3_6_27b_sft_q4km",
+    "model_variant": "domain_sft",
+    "pair_id": "qwen3_6_27b",
+    "pair_role": "sft",
+    "quantization": "Q4_K_M",
+    "requested_model_id": "qwen3.6-27b-lora-r64",
+    "run_dir": "E:\\Desktop\\CET_docment\\CET_docment\\py\\results\\SLM_direct\\protocol_v2_2\\lm_studio__qwen3_6_27b_sft_q4km__qwen3.6-27b-lora-r64\\runs\\qwen3_6_27b_sft_642_mastery__20260821T143614809995Z_8ee8e4c9a1",
+    "run_id": "qwen3_6_27b_sft_642_mastery__20260821T143614809995Z_8ee8e4c9a1",
+    "run_manifest_sha256": "35c960d1d8b42054a0cb817bff55f85e9f701e8ed93d4c89a72e89f454422ea6"
+  }
+]

@@ -1,0 +1,7 @@
+model,request_success_percent,schema_valid_percent,valid_numeric_percent,latency_median_s
+deepseek-v4-pro,99.9,99.9,99.9,1.11
+doubao-seed-2-1-pro-260628,100,100,100,1.21
+glm-5.2,100,100,100,1.47
+kimi-k3,100,99.4,99.4,6.02
+MiniMax-M3,100,99.9,99.9,1.67
+qwen3.8-max,100,100,100,0.84

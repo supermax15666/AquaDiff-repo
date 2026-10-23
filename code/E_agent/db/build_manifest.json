@@ -1,0 +1,37 @@
+{
+ "artifact_type": "e_arm_duckdb_build",
+ "created_at_utc": "2026-08-27T07:53:32.078095+00:00",
+ "plan_version": "2.16",
+ "db_path": "C:\\Users\\AS\\Desktop\\CET\\py\\E_Agent\\db\\experimental_records.duckdb",
+ "db_sha256": "785ab83afd75a4b5addd14f57bdf9c55168a216d97be119b441a153a60725cd1",
+ "n_records": 785,
+ "n_unique_conditions": 696,
+ "n_lineages": 45,
+ "sources": [
+  "CaCl2-H2O分谱系数据.xlsx",
+  "KCl分谱系数据.xlsx",
+  "LiCl-H2O分谱系数据.xlsx",
+  "NaCl分谱系数据.xlsx"
+ ],
+ "verification": {
+  "q642_exact_hits": 642,
+  "q642_misses": 0,
+  "expect": "642/642",
+  "q642_gold_median_identical": 642,
+  "expect_gold": "642/642（gold 策略=同条件记录中位数）",
+  "q64_external_hits": 7,
+  "q64_external_total": 64,
+  "expect_external": "7 命中（2026-08-27 实测；均为 298.15 K 圆整条件：NaCl 1.0/1.5、LiCl 0.5/1.0、CaCl2 0.01/0.05/0.1——属池内多谱系冲突条件，未进 642 训练集，外部审计基线为 642 故合规；设计内行为）",
+  "external_hit_ids": [
+   "external::nacl-h2o::3a56bd7afdc891285a67",
+   "external::nacl-h2o::a55c3f5e381b91d0b23a",
+   "external::licl-h2o::e72b6daa0e4cccc63a69",
+   "external::licl-h2o::016f6f12070d18960995",
+   "external::cacl2-h2o::a817af35aa43a329fcc1",
+   "external::cacl2-h2o::00765175f4da5d286c5f",
+   "external::cacl2-h2o::1f477b4059089822f57b"
+  ],
+  "match_rule": "精确匹配 (system, temperature_K, concentration_mol_L)（浮点等值；题目条件由池内记录生成）"
+ },
+ "immutable": "库文件构建后不再改动；如需变更（如第五体系加入）须新建文件并留档"
+}

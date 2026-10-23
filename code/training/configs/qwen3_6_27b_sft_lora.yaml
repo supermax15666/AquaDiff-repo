@@ -1,0 +1,53 @@
+### ============================================================
+### Qwen3.6-27B SFT LoRA 训练配置（C 臂，方案第 15 条统一 LoRA，已冻结）
+### 数据集: train_642（642 全量、家族 C instruction / 家族 A system，无验证集）
+### 硬件: 服务器单卡 RTX 6000 Ada 84GB；LLaMA-Factory CLI
+### 冻结依据: py/微调/训练配置冻结清单.md（任何改动须先升版方案）
+### ============================================================
+
+### --- 模型 ---
+model_name_or_path: E:\models\cet_formal\qwen3.6-27b
+trust_remote_code: true
+
+### --- 阶段 / 方法（统一 LoRA，方案第 15 条，禁止改动）---
+stage: sft
+do_train: true
+finetuning_type: lora
+### lora_target 省略 = 按各模型 LLaMA-Factory 模板默认；训练时记录实际 target_modules 留档
+lora_rank: 64
+lora_alpha: 128
+lora_dropout: 0
+
+### --- 数据 ---
+dataset_dir: D:\cet_sft\data\llamafactory
+dataset: train_642
+template: qwen3_nothink
+cutoff_len: 512
+val_size: 0
+overwrite_cache: true
+preprocessing_num_workers: 1
+
+### --- 输出 ---
+output_dir: E:\models\cet_formal_sft\qwen3.6-27b-lora-r64
+logging_steps: 5
+save_steps: 41
+save_total_limit: 6
+overwrite_output_dir: false
+plot_loss: true
+
+### --- 训练（方案第 15 条超参，禁止改动）---
+per_device_train_batch_size: 2
+gradient_accumulation_steps: 8
+learning_rate: 1.0e-4
+num_train_epochs: 5.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.1
+bf16: true
+ddp_timeout: 180000000
+max_grad_norm: 1.0
+optim: paged_adamw_8bit
+gradient_checkpointing: true
+seed: 42
+
+### --- 报告 ---
+report_to: none

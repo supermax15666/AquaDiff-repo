@@ -1,0 +1,12 @@
+model,unique_predictions
+deepseek-v4-pro,34
+doubao-seed-2-1-pro-260628,74
+glm-5.2,139
+kimi-k3,215
+MiniMax-M3,276
+qwen3.8-max,63
+gemma2_9b_it_base_q4km,12
+llama3_1_8b_instruct_base_q4km,30
+qwen3_4b_instruct_2507_base_q4km,12
+qwen3_6_27b_base_q4km,30
+qwen3_8b_instruct_base_q4km,4

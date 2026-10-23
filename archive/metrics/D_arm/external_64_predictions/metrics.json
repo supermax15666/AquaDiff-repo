@@ -1,0 +1,77 @@
+{
+ "artifact_type": "ml_backend_d_external_prediction",
+ "created_at_utc": "2026-08-25T09:31:54.393522+00:00",
+ "registry_protocol_fingerprint": "ffbc8b45278774e9317b8c53780753fd3a180f351dff7defed77d1bb4ce63ad6",
+ "registered_models": {
+  "NaCl-H2O": "gaussian_process",
+  "KCl-H2O": "polynomial_ridge",
+  "LiCl-H2O": "gradient_boosting",
+  "CaCl2-H2O": "gradient_boosting"
+ },
+ "questions_file_sha256": "624db157768072d2d453e6fb46e87a0983a974254def39b8a782daab677fe637",
+ "gold_file_sha256": "c09eb6d25c0b8086b4e0e136a7dc94aca202525b950c6ce66511935820a0bed5",
+ "gold_handling": "密封 gold 仅在脚本内程序化评分；输出仅含聚合指标与模型侧预测，无 gold 值、无逐题误差列。",
+ "accuracy_denominator": "全题口径（域外拒绝计错，与 LLM 各臂拒答计错一致）；另报域内口径与拒绝数。",
+ "per_system": {
+  "NaCl-H2O": {
+   "n_questions": 12,
+   "n_refused_out_of_domain": 0,
+   "n_predicted": 12,
+   "accuracy_5pct_all_question_denominator": 1.0,
+   "accuracy_10pct_all_question_denominator": 1.0,
+   "accuracy_10pct_in_domain_denominator": 1.0,
+   "mae_1e9_m2_s": 0.01305025378904312,
+   "rmse_1e9_m2_s": 0.014848223825519613,
+   "mdape_percent": 0.835170364894637,
+   "p95_ape_percent": 1.621975749455971,
+   "bias_1e9_m2_s": -5.064630163476025e-05
+  },
+  "KCl-H2O": {
+   "n_questions": 15,
+   "n_refused_out_of_domain": 3,
+   "n_predicted": 12,
+   "accuracy_5pct_all_question_denominator": 0.6,
+   "accuracy_10pct_all_question_denominator": 0.7333333333333333,
+   "accuracy_10pct_in_domain_denominator": 0.9166666666666666,
+   "mae_1e9_m2_s": 0.141210346550149,
+   "rmse_1e9_m2_s": 0.2033700509237746,
+   "mdape_percent": 3.3251674954533974,
+   "p95_ape_percent": 9.532552211520095,
+   "bias_1e9_m2_s": 0.12689859899611297
+  },
+  "LiCl-H2O": {
+   "n_questions": 27,
+   "n_refused_out_of_domain": 7,
+   "n_predicted": 20,
+   "accuracy_5pct_all_question_denominator": 0.7407407407407407,
+   "accuracy_10pct_all_question_denominator": 0.7407407407407407,
+   "accuracy_10pct_in_domain_denominator": 1.0,
+   "mae_1e9_m2_s": 0.0126925746485692,
+   "rmse_1e9_m2_s": 0.014368490486709922,
+   "mdape_percent": 0.888334109149244,
+   "p95_ape_percent": 1.9561740460979937,
+   "bias_1e9_m2_s": 0.0126925746485692
+  },
+  "CaCl2-H2O": {
+   "n_questions": 10,
+   "n_refused_out_of_domain": 6,
+   "n_predicted": 4,
+   "accuracy_5pct_all_question_denominator": 0.4,
+   "accuracy_10pct_all_question_denominator": 0.4,
+   "accuracy_10pct_in_domain_denominator": 1.0,
+   "mae_1e9_m2_s": 0.027994532125754923,
+   "rmse_1e9_m2_s": 0.031072689585540145,
+   "mdape_percent": 2.1725908715425617,
+   "p95_ape_percent": 3.67915010744911,
+   "bias_1e9_m2_s": -0.01235272544831395
+  }
+ },
+ "overall": {
+  "n_questions": 64,
+  "n_refused_out_of_domain": 16,
+  "accuracy_5pct_micro": 0.703125,
+  "accuracy_10pct_micro": 0.734375,
+  "accuracy_5pct_macro_system": 0.6851851851851852,
+  "accuracy_10pct_macro_system": 0.7185185185185184
+ }
+}

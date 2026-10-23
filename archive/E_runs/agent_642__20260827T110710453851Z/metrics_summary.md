@@ -1,0 +1,18 @@
+# E 臂 Agent 评测指标 · 642（1926 样本）
+
+- set: 642
+- n_samples: 1926
+- route_accuracy: 0.9751
+- route_confusion: {'db_hit->ml': 48}
+- intent_accuracy: None
+- intent_json_parse_success: 1.0
+- faithfulness: 1.0
+- faithfulness_violations: {}
+- refusal_precision: None
+- refusal_recall: None
+- refusal_counts: {'true_refusal_questions': 0, 'agent_refusal_questions': 0, 'both': 0}
+- acc10_any_repeat: 1.0
+- acc10_all_repeats: 1.0
+- per_system_acc10: {'NaCl-H2O': '174/174', 'KCl-H2O': '247/247', 'LiCl-H2O': '132/132', 'CaCl2-H2O': '89/89'}
+- latency_s: {'intent_mean': 0.98, 'final_mean': 1.01}
+- intent_fail_examples: []

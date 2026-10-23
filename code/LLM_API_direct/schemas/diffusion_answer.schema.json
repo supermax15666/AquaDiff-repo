@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "diffusion_internal_knowledge_answer_v1",
+  "title": "Diffusion coefficient internal-knowledge answer",
+  "description": "A direct, no-tool estimate of a binary aqueous mutual diffusion coefficient.",
+  "type": "object",
+  "properties": {
+    "diffusion_1e9_m2_s": {
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "description": "Positive multiplier x in D = x * 10^-9 m^2/s."
+    }
+  },
+  "required": [
+    "diffusion_1e9_m2_s"
+  ],
+  "additionalProperties": false
+}

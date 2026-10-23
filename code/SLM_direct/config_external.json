@@ -1,0 +1,837 @@
+{
+  "$schema": "schemas/config.schema.json",
+  "schema_version": "slm_direct/v1",
+  "research_plan_version": "2.14",
+  "protocol_frozen": true,
+  "question_file": "../微调/external/frozen/questions/external_questions.jsonl",
+  "question_manifest_file": "external_questions.manifest.json",
+  "evaluator_gold_file": "../微调/external/frozen/gold/external_gold.evaluator.jsonl",
+  "analysis_sets_file": "analysis_sets_external.json",
+  "answer_schema": "schemas/diffusion_answer.schema.json",
+  "output_root": "../results/SLM_direct/protocol_v2_2",
+  "repetitions": 3,
+  "order_seed": 42,
+  "timeout_seconds": 180,
+  "inter_request_seconds": 0.1,
+  "retry": {
+    "max_attempts_per_sample": 5,
+    "max_elapsed_seconds_per_sample": 900,
+    "base_wait_seconds": 2,
+    "max_wait_seconds": 30,
+    "jitter_fraction": 0.2
+  },
+  "server": {
+    "base_url": "http://localhost:1234/v1",
+    "native_models_url": "http://localhost:1234/api/v1/models",
+    "api_key_env": "LM_STUDIO_API_KEY",
+    "require_loopback": false,
+    "require_native_metadata": true,
+    "require_single_loaded_instance": true,
+    "preflight_timeout_seconds": 10
+  },
+  "inference": {
+    "structured_output": "json_schema",
+    "temperature": 0,
+    "top_p": 1.0,
+    "seed": null,
+    "max_output_tokens": 256,
+    "extra_body": {}
+  },
+  "models": {
+    "qwen3_4b_instruct_2507_base_q4km": {
+      "enabled": true,
+      "formal_ready": true,
+      "display_name": "Qwen3-4B-Instruct-2507",
+      "model_family": "qwen3",
+      "expected_lmstudio_architecture": "qwen3",
+      "served_model_id": "cet-gguf/qwen3-4b-instruct-2507@q4_k_m",
+      "pair_id": "qwen3_4b_instruct_2507",
+      "pair_role": "base",
+      "paired_model_keys": [],
+      "model_variant": "original_instruct",
+      "experiment_arm": "A_base_direct",
+      "fold_id": null,
+      "primary_anchor": true,
+      "chat_template": "qwen3_nothink",
+      "gguf_template_family": "qwen_chatml",
+      "reasoning_mode": "disabled",
+      "system_message_policy": "native_system_role",
+      "question_ids_file": null,
+      "base_checkpoint": {
+        "modelscope_id": "Qwen/Qwen3-4B-Instruct-2507",
+        "revision": "2de2439ea21be1dc5cb21f22f88af07e43393cbb",
+        "snapshot_manifest_sha256": "94a9995f03402bc19d1a2f5f718c9b82d883302c56be12ae6fe75e4d5a0e4df2"
+      },
+      "parent_base": {},
+      "sft_artifacts": {},
+      "training_provenance": {},
+      "gguf": {
+        "connectivity_repo": "unsloth/Qwen3-4B-Instruct-2507-GGUF",
+        "connectivity_filename": "Qwen3-4B-Instruct-2507-Q4_K_M.gguf",
+        "source_kind": "self_converted",
+        "filename": "qwen3-4b-instruct-2507-Q4_K_M.gguf",
+        "local_path": "E:\\gguf\\cet_formal\\qwen3-4b-instruct-2507-Q4_K_M.gguf",
+        "sha256": "0f5e5250018ea2e4384e8b440f3a51fd1fff31d6694906e63fca3b5abd8a9a28",
+        "quantization": "Q4_K_M",
+        "converter": "llama.cpp",
+        "converter_commit": "d0bfb1981266c271cd0536a8aa7c5e863e7cdf61",
+        "imatrix_policy": "none",
+        "imatrix_sha256": null
+      },
+      "deployment": {
+        "lmstudio_load_key": "cet-gguf/qwen3-4b-instruct-2507@q4_k_m",
+        "native_model_key": "cet-gguf/qwen3-4b-instruct-2507@q4_k_m",
+        "native_selected_variant": null,
+        "lm_studio_app_version": "0.4.20+1",
+        "lm_studio_runtime_version": "llama.cpp-win-x86_64-avx2-2.29.0",
+        "context_length": 4096,
+        "gpu_offload": "max",
+        "prompt_template_override": false
+      }
+    },
+    "qwen3_8b_instruct_base_q4km": {
+      "enabled": true,
+      "formal_ready": true,
+      "display_name": "Qwen3-8B",
+      "model_family": "qwen3",
+      "expected_lmstudio_architecture": "qwen3",
+      "served_model_id": "qwen3-8b-instruct@q4_k_m",
+      "pair_id": "qwen3_8b_instruct",
+      "pair_role": "base",
+      "paired_model_keys": [],
+      "model_variant": "original_instruct",
+      "experiment_arm": "A_base_direct",
+      "fold_id": null,
+      "primary_anchor": false,
+      "chat_template": "qwen3_nothink",
+      "gguf_template_family": "qwen_chatml",
+      "reasoning_mode": "disabled",
+      "system_message_policy": "native_system_role",
+      "question_ids_file": null,
+      "base_checkpoint": {
+        "modelscope_id": "Qwen/Qwen3-8B",
+        "revision": "26028140be3ee69b82b1d1450179ab71bb1121b9",
+        "snapshot_manifest_sha256": "a34491bce8871fef5f3fed8c70ce51db59fff2797acb3e49dc861b81d7ddc7f9"
+      },
+      "parent_base": {},
+      "sft_artifacts": {},
+      "training_provenance": {},
+      "gguf": {
+        "connectivity_repo": "Qwen/Qwen3-8B-GGUF",
+        "connectivity_filename": "qwen3-8b-q4_k_m.gguf",
+        "connectivity_source_kind": "upstream_official",
+        "source_kind": "self_converted",
+        "filename": "qwen3-8b-instruct-Q4_K_M.gguf",
+        "local_path": "E:\\gguf\\cet_formal\\qwen3-8b-instruct-Q4_K_M.gguf",
+        "sha256": "1554ac6e4b8ae5c463e1b6478961394e5895588a4aa381825e065ae1b7fac007",
+        "quantization": "Q4_K_M",
+        "converter": "llama.cpp",
+        "converter_commit": "d0bfb1981266c271cd0536a8aa7c5e863e7cdf61",
+        "imatrix_policy": "none",
+        "imatrix_sha256": null
+      },
+      "deployment": {
+        "lmstudio_load_key": "qwen3-8b-instruct@q4_k_m",
+        "native_model_key": "qwen3-8b-instruct@q4_k_m",
+        "native_selected_variant": null,
+        "lm_studio_app_version": "0.4.20+1",
+        "lm_studio_runtime_version": "llama.cpp-win-x86_64-avx2-2.29.0",
+        "context_length": 4096,
+        "gpu_offload": "max",
+        "prompt_template_override": false
+      }
+    },
+    "llama3_1_8b_instruct_base_q4km": {
+      "enabled": true,
+      "formal_ready": true,
+      "display_name": "Llama-3.1-8B-Instruct",
+      "model_family": "llama",
+      "expected_lmstudio_architecture": "llama",
+      "served_model_id": "llama-3.1-8b-instruct@q4_k_m",
+      "pair_id": "llama3_1_8b_instruct",
+      "pair_role": "base",
+      "paired_model_keys": [],
+      "model_variant": "original_instruct",
+      "experiment_arm": "A_base_direct",
+      "fold_id": null,
+      "primary_anchor": false,
+      "chat_template": "llama3",
+      "gguf_template_family": "llama3_header",
+      "reasoning_mode": "not_applicable",
+      "system_message_policy": "native_system_role",
+      "question_ids_file": null,
+      "base_checkpoint": {
+        "modelscope_id": "LLM-Research/Meta-Llama-3.1-8B-Instruct",
+        "revision": "359efdbb8af05b788a4ad4185215c6b8caa9052c",
+        "snapshot_manifest_sha256": "29248f4d9a24c99da16765cfe1ffb201faba2479b83341462fb1d7da8c4c4dc7"
+      },
+      "parent_base": {},
+      "sft_artifacts": {},
+      "training_provenance": {},
+      "gguf": {
+        "connectivity_repo": "QuantFactory/Meta-Llama-3.1-8B-Instruct-GGUF",
+        "connectivity_filename": "Meta-Llama-3.1-8B-Instruct.Q4_K_M.gguf",
+        "source_kind": "self_converted",
+        "filename": "llama-3.1-8b-instruct-Q4_K_M.gguf",
+        "local_path": "E:\\gguf\\cet_formal\\llama-3.1-8b-instruct-Q4_K_M.gguf",
+        "sha256": "89e19c221157d7eef6d969c039cf23e61bb795c6c3218c3d286448bda899c688",
+        "quantization": "Q4_K_M",
+        "converter": "llama.cpp",
+        "converter_commit": "d0bfb1981266c271cd0536a8aa7c5e863e7cdf61",
+        "imatrix_policy": "none",
+        "imatrix_sha256": null
+      },
+      "deployment": {
+        "lmstudio_load_key": "llama-3.1-8b-instruct@q4_k_m",
+        "native_model_key": "llama-3.1-8b-instruct@q4_k_m",
+        "native_selected_variant": null,
+        "lm_studio_app_version": "0.4.20+1",
+        "lm_studio_runtime_version": "llama.cpp-win-x86_64-avx2-2.29.0",
+        "context_length": 4096,
+        "gpu_offload": "max",
+        "prompt_template_override": false
+      }
+    },
+    "qwen3_6_27b_base_q4km": {
+      "enabled": true,
+      "formal_ready": true,
+      "display_name": "Qwen3.6-27B",
+      "model_family": "qwen3",
+      "expected_lmstudio_architecture": "qwen35",
+      "served_model_id": "qwen3.6-27b@q4_k_m",
+      "pair_id": "qwen3_6_27b",
+      "pair_role": "base",
+      "paired_model_keys": [],
+      "model_variant": "original_instruct",
+      "experiment_arm": "A_base_direct",
+      "fold_id": null,
+      "primary_anchor": false,
+      "chat_template": "qwen3_nothink",
+      "gguf_template_family": "qwen_chatml",
+      "reasoning_mode": "disabled",
+      "system_message_policy": "native_system_role",
+      "question_ids_file": null,
+      "base_checkpoint": {
+        "modelscope_id": "Qwen/Qwen3.6-27B",
+        "revision": "cea40373b9214dd387123e68841890af30dcd469",
+        "snapshot_manifest_sha256": "6f82553ba0f2ac2eb83e72909c89111363a2db7a6653942549294212e41f2afc"
+      },
+      "parent_base": {},
+      "sft_artifacts": {},
+      "training_provenance": {},
+      "gguf": {
+        "connectivity_repo": "Qwen/Qwen3.6-27B-GGUF",
+        "connectivity_filename": "qwen3.6-27b-q4_k_m.gguf",
+        "connectivity_source_kind": "upstream_official",
+        "source_kind": "self_converted",
+        "filename": "qwen3.6-27b-Q4_K_M.gguf",
+        "local_path": "E:\\gguf\\cet_formal\\qwen3.6-27b-Q4_K_M.gguf",
+        "sha256": "0b4d82bcbb9f36cbb9df6f6e3060d9fea6be5ee970305312c3436575ddfb4a96",
+        "quantization": "Q4_K_M",
+        "converter": "llama.cpp",
+        "converter_commit": "d0bfb1981266c271cd0536a8aa7c5e863e7cdf61",
+        "imatrix_policy": "none",
+        "imatrix_sha256": null
+      },
+      "deployment": {
+        "lmstudio_load_key": "qwen3.6-27b@q4_k_m",
+        "native_model_key": "qwen3.6-27b@q4_k_m",
+        "native_selected_variant": null,
+        "lm_studio_app_version": "0.4.20+1",
+        "lm_studio_runtime_version": "llama.cpp-win-x86_64-avx2-2.29.0",
+        "context_length": 4096,
+        "gpu_offload": "max",
+        "prompt_template_override": false
+      }
+    },
+    "gemma2_9b_it_base_q4km": {
+      "enabled": true,
+      "formal_ready": true,
+      "display_name": "Gemma-2-9B-it",
+      "model_family": "gemma2",
+      "expected_lmstudio_architecture": "gemma2",
+      "served_model_id": "cet-gguf/gemma-2-9b-it@q4_k_m",
+      "pair_id": "gemma2_9b_it",
+      "pair_role": "base",
+      "paired_model_keys": [],
+      "model_variant": "original_instruct",
+      "experiment_arm": "A_base_direct",
+      "fold_id": null,
+      "primary_anchor": false,
+      "chat_template": "gemma2",
+      "gguf_template_family": "gemma_turn",
+      "reasoning_mode": "not_applicable",
+      "system_message_policy": "fold_system_into_first_user",
+      "question_ids_file": null,
+      "base_checkpoint": {
+        "modelscope_id": "google/gemma-2-9b-it",
+        "revision": "6f56b72fa2d7f99058d0b01590e86f18016b127e",
+        "snapshot_manifest_sha256": "62897ae7d6f028929ce228c16fa2fdb4f84e980888cfb4e538b4c8c7494f7171"
+      },
+      "parent_base": {},
+      "sft_artifacts": {},
+      "training_provenance": {},
+      "gguf": {
+        "connectivity_repo": "google/gemma-2-9b-it-GGUF",
+        "connectivity_filename": "gemma-2-9b-it-Q4_K_M.gguf",
+        "source_kind": "self_converted",
+        "filename": "gemma-2-9b-it-Q4_K_M.gguf",
+        "local_path": "E:\\gguf\\cet_formal\\gemma-2-9b-it-Q4_K_M.gguf",
+        "sha256": "57931feaea4f9f2d711d4f2cf17dcb67ece876881f21b2c6ade2e7848837c3aa",
+        "quantization": "Q4_K_M",
+        "converter": "llama.cpp",
+        "converter_commit": "d0bfb1981266c271cd0536a8aa7c5e863e7cdf61",
+        "imatrix_policy": "none",
+        "imatrix_sha256": null
+      },
+      "deployment": {
+        "lmstudio_load_key": "cet-gguf/gemma-2-9b-it@q4_k_m",
+        "native_model_key": "cet-gguf/gemma-2-9b-it@q4_k_m",
+        "native_selected_variant": null,
+        "lm_studio_app_version": "0.4.20+1",
+        "lm_studio_runtime_version": "llama.cpp-win-x86_64-avx2-2.29.0",
+        "context_length": 4096,
+        "gpu_offload": "max",
+        "prompt_template_override": false
+      }
+    },
+    "qwen3_6_27b_sft_q4km": {
+      "enabled": true,
+      "formal_ready": true,
+      "display_name": "Qwen3.6-27B-SFT-LoRA-r64",
+      "model_family": "qwen3",
+      "expected_lmstudio_architecture": "qwen35",
+      "served_model_id": "qwen3.6-27b-lora-r64",
+      "pair_id": "qwen3_6_27b",
+      "pair_role": "sft",
+      "paired_model_keys": [],
+      "model_variant": "domain_sft",
+      "experiment_arm": "C_sft_direct",
+      "fold_id": 0,
+      "primary_anchor": false,
+      "chat_template": "qwen3_nothink",
+      "gguf_template_family": "qwen_chatml",
+      "reasoning_mode": "disabled",
+      "system_message_policy": "native_system_role",
+      "question_ids_file": "questions_external_full.json",
+      "base_checkpoint": {
+        "modelscope_id": "Qwen/Qwen3.6-27B",
+        "revision": "cea40373b9214dd387123e68841890af30dcd469",
+        "snapshot_manifest_sha256": "6f82553ba0f2ac2eb83e72909c89111363a2db7a6653942549294212e41f2afc"
+      },
+      "parent_base": {
+        "model_key": "qwen3_6_27b_base_q4km"
+      },
+      "sft_artifacts": {
+        "adapter_sha256": "C56104FBC50461F20156AC04A195F94C202EC4C9AD28839B4AFAADFACB6FB186",
+        "merged_model_sha256": "0f7958a79452b9e033f28d5bea719fd823881abf85ff81bf1f2db3e6363e93cc",
+        "merged_model_sha256_definition": "sha256 of canonical JSON list of 12 shard filenames+hashes",
+        "merged_shard_sha256s": [
+          [
+            "model-00001-of-00012.safetensors",
+            "994D372DA0812952C05A3FB1093DB5B1245E314385290892F0DCE3883F4C2643"
+          ],
+          [
+            "model-00002-of-00012.safetensors",
+            "3E4AA812450AAA21D21304F280377183AAF39EBEB0F167E26D7156A35EEB5D15"
+          ],
+          [
+            "model-00003-of-00012.safetensors",
+            "FE57B54ECE333D5C401D23DDC4A9BA6B81B5FA0B2F2C7B4DF2C5F8DD77D26C4D"
+          ],
+          [
+            "model-00004-of-00012.safetensors",
+            "19A518D5D9C9E14FCDC9F5FC41AA1610FF14AB71CB9C44E83C84DB7D6BF58DE9"
+          ],
+          [
+            "model-00005-of-00012.safetensors",
+            "62DB1065A8D0C4E91D6933D8D2FF6F8BE673CCE4C8E247747090A70E09296000"
+          ],
+          [
+            "model-00006-of-00012.safetensors",
+            "FB126B5184EFD1E0DF8988D1265277BEAA7F0363E3138CAD1580FB02EA962326"
+          ],
+          [
+            "model-00007-of-00012.safetensors",
+            "5A40E6FE28C871D151350B08056292945C1AAB27B601692BE107540EFFA209E9"
+          ],
+          [
+            "model-00008-of-00012.safetensors",
+            "B11AE8E77AADC399E0E9920008F7DDA56E87C75712E470FA28EF4F8A0BB698F4"
+          ],
+          [
+            "model-00009-of-00012.safetensors",
+            "98C050313AF8E41DCFD10FD97C687F23E4AF154F9F187148E7E3349900F78474"
+          ],
+          [
+            "model-00010-of-00012.safetensors",
+            "8F219F1D903456CB80AF6CC45D19C0E0258F0B94CACC6BC17F357AEE4F4E0C42"
+          ],
+          [
+            "model-00011-of-00012.safetensors",
+            "73691F6A0E77427718EAC9A2220D8CD50C1DADA3A4DBC1BBF8587EFCFFF01367"
+          ],
+          [
+            "model-00012-of-00012.safetensors",
+            "380B337E40DE1F9A2903A327765D87C1AE217FF984949A3070CCB7FEFC3D374D"
+          ]
+        ],
+        "gguf_q4_km_sha256": "7EDE95F348E2764668C97E404CCAA917058A600DE86B9A09655163EB58A56B8B",
+        "adapter_dir": "E:\\models\\cet_formal_sft\\qwen3.6-27b-lora-r64",
+        "merged_dir": "E:\\models\\cet_formal_sft\\qwen3.6-27b-lora-r64-merged"
+      },
+      "training_provenance": {
+        "split_manifest_sha256": "a6672fa914f6ad2be6169a1da7f2f070bf07579555a2411961ddba29ed4e131d",
+        "split_note": "v2.10 full-642 design: no validation set, no folds; hash = training_data_manifest.json content sha",
+        "training_config_sha256": "d3623a9381e73dce19b97536a88f766482b9705d098fe7695672bbba23fbc1f9",
+        "llamafactory_version": "0.9.5",
+        "dataset_sha256": "f95b8a5587bf41ce01573ad579be04fe39c43554099c50e509b75af189759ba4",
+        "dataset": "train_642 (642 records, family C instruction, family A system)",
+        "target_modules": [
+          "in_proj_qkv",
+          "out_proj",
+          "o_proj",
+          "k_proj",
+          "up_proj",
+          "v_proj",
+          "down_proj",
+          "in_proj_b",
+          "gate_proj",
+          "in_proj_z",
+          "in_proj_a",
+          "q_proj"
+        ],
+        "lora": "r=64, alpha=128, dropout=0, lr=1e-4, 5 epochs, effective batch 16, cosine, warmup 0.1, cutoff 512, bf16, seed 42, paged_adamw_8bit, gradient_checkpointing, max_grad_norm 1.0",
+        "train_loss_initial_step5": 1.0403,
+        "train_loss_final_step205": 0.2082,
+        "train_runtime_seconds": 7876,
+        "gpu_peak_mb": 63471,
+        "python_version": "3.13.12",
+        "chat_template_matches_base": true,
+        "chat_template_sha256": "e84f32a23fdda27689f868aa4a1a5621f41133e51a48d7f3efcbea2839574259"
+      },
+      "gguf": {
+        "connectivity_repo": "cet-sft/qwen3.6-27b-lora-r64",
+        "connectivity_filename": "qwen3.6-27b-lora-r64-q4_k_m.gguf",
+        "connectivity_source_kind": "self_converted",
+        "source_kind": "self_converted",
+        "filename": "qwen3.6-27b-lora-r64-q4_k_m.gguf",
+        "local_path": "E:\\gguf\\cet_sft\\qwen3.6-27b-lora-r64-q4_k_m.gguf",
+        "sha256": "7EDE95F348E2764668C97E404CCAA917058A600DE86B9A09655163EB58A56B8B",
+        "quantization": "Q4_K_M",
+        "converter": "llama.cpp",
+        "converter_commit": "d0bfb1981266c271cd0536a8aa7c5e863e7cdf61",
+        "conversion_note": "--no-mtp (CUDA12 runtime cannot load MTP-head GGUFs; MTP unused at inference; recorded deviation)",
+        "imatrix_policy": "none",
+        "imatrix_sha256": null
+      },
+      "deployment": {
+        "lmstudio_load_key": "qwen3.6-27b-lora-r64",
+        "native_model_key": "qwen3.6-27b-lora-r64",
+        "native_selected_variant": null,
+        "lm_studio_app_version": "0.4.20+1",
+        "lm_studio_runtime_version": "llama.cpp-win-x86_64-nvidia-cuda12-avx2-2.29.0",
+        "runtime_note": "v2.14: SFT on CUDA12 runtime; A-arm Base was avx2 (recorded deviation)",
+        "context_length": 4096,
+        "gpu_offload": "max",
+        "prompt_template_override": false
+      }
+    },
+    "qwen3_4b_instruct_2507_sft_q4km": {
+      "enabled": true,
+      "formal_ready": true,
+      "display_name": "Qwen3-4B-Instruct-2507-SFT-LoRA-r64",
+      "model_family": "qwen3",
+      "expected_lmstudio_architecture": "qwen3",
+      "served_model_id": "qwen3-4b-instruct-2507-lora-r64",
+      "pair_id": "qwen3_4b_instruct_2507",
+      "pair_role": "sft",
+      "paired_model_keys": [],
+      "model_variant": "domain_sft",
+      "experiment_arm": "C_sft_direct",
+      "fold_id": 0,
+      "primary_anchor": false,
+      "chat_template": "qwen3_nothink",
+      "gguf_template_family": "qwen_chatml",
+      "reasoning_mode": "disabled",
+      "system_message_policy": "native_system_role",
+      "question_ids_file": "questions_external_full.json",
+      "base_checkpoint": {
+        "modelscope_id": "Qwen/Qwen3-4B-Instruct-2507",
+        "revision": "2de2439ea21be1dc5cb21f22f88af07e43393cbb",
+        "snapshot_manifest_sha256": "94a9995f03402bc19d1a2f5f718c9b82d883302c56be12ae6fe75e4d5a0e4df2"
+      },
+      "parent_base": {
+        "model_key": "qwen3_4b_instruct_2507_base_q4km"
+      },
+      "sft_artifacts": {
+        "adapter_sha256": "E0099C5313AF248BAA81CAE5A12FD4217427852C470859E41DD955253BAB2F91",
+        "adapter_config_sha256": "CF9455A1A3754E9FF27CBD68FFEE19A074876175D93168CEA2F1D36B619E2404",
+        "merged_model_sha256": "0c5139328a80b6f826d5211420d578afc2c7b39fca71c984316f3610de73ab8e",
+        "merged_model_sha256_definition": "sha256 of canonical JSON list of shard filenames+hashes",
+        "merged_shard_sha256s": [
+          [
+            "model-00001-of-00002.safetensors",
+            "BEEA7DAF4E8447D8D7C38959E3F2F1015CCF5C4A49288270669B229B2966AC94"
+          ],
+          [
+            "model-00002-of-00002.safetensors",
+            "444158794BEF06A86B289D82038624E7D79CEA35456479AD3DE5F31142B7C9F7"
+          ]
+        ],
+        "gguf_q4_km_sha256": "56ED01A11BD8995DF0A6A1E10F065C586098346A5303AE9A79DBE6283E4DB2F6"
+      },
+      "training_provenance": {
+        "split_manifest_sha256": "a6672fa914f6ad2be6169a1da7f2f070bf07579555a2411961ddba29ed4e131d",
+        "split_note": "v2.10 full-642 design: no folds; hash = training_data_manifest.json content sha",
+        "training_config_sha256": "1032e8650a20fb0a554f89e5ccdee6903d30eec4b8c4c9892578d8fe5aba2ce7",
+        "llamafactory_version": "0.9.5",
+        "dataset_sha256": "f95b8a5587bf41ce01573ad579be04fe39c43554099c50e509b75af189759ba4",
+        "dataset": "train_642 (642 records, family C instruction, family A system)",
+        "target_modules": [
+          "v_proj",
+          "k_proj",
+          "q_proj",
+          "down_proj",
+          "o_proj",
+          "gate_proj",
+          "up_proj"
+        ],
+        "lora": "r=64, alpha=128, dropout=0, lr=1e-4, 5 epochs, effective batch 16, cosine, warmup 0.1, cutoff 512, bf16, seed 42, paged_adamw_8bit, gradient_checkpointing, max_grad_norm 1.0",
+        "train_loss_initial_step5": 1.647,
+        "train_loss_final_step205": 0.2114,
+        "train_runtime_seconds": 803,
+        "gpu_peak_mb": 29443,
+        "python_version": "3.13.12"
+      },
+      "gguf": {
+        "connectivity_repo": "cet-sft/qwen3-4b-instruct-2507-lora-r64",
+        "connectivity_filename": "qwen3-4b-instruct-2507-lora-r64-q4_k_m.gguf",
+        "connectivity_source_kind": "self_converted",
+        "source_kind": "self_converted",
+        "filename": "qwen3-4b-instruct-2507-lora-r64-q4_k_m.gguf",
+        "local_path": "E:\\gguf\\cet_sft\\qwen3-4b-instruct-2507-lora-r64-q4_k_m.gguf",
+        "sha256": "56ED01A11BD8995DF0A6A1E10F065C586098346A5303AE9A79DBE6283E4DB2F6",
+        "quantization": "Q4_K_M",
+        "converter": "llama.cpp",
+        "converter_commit": "d0bfb1981266c271cd0536a8aa7c5e863e7cdf61",
+        "imatrix_policy": "none",
+        "imatrix_sha256": null
+      },
+      "deployment": {
+        "lmstudio_load_key": "qwen3-4b-instruct-2507-lora-r64",
+        "native_model_key": "qwen3-4b-instruct-2507-lora-r64",
+        "native_selected_variant": null,
+        "lm_studio_app_version": "0.4.20+1",
+        "lm_studio_runtime_version": "llama.cpp-win-x86_64-nvidia-cuda12-avx2-2.29.0",
+        "runtime_note": "v2.14: SFT on CUDA12 runtime; A-arm Base was avx2 (recorded deviation)",
+        "context_length": 4096,
+        "gpu_offload": "max",
+        "prompt_template_override": false
+      }
+    },
+    "qwen3_8b_instruct_sft_q4km": {
+      "enabled": true,
+      "formal_ready": true,
+      "display_name": "Qwen3-8B-SFT-LoRA-r64",
+      "model_family": "qwen3",
+      "expected_lmstudio_architecture": "qwen3",
+      "served_model_id": "qwen3-8b-instruct-lora-r64",
+      "pair_id": "qwen3_8b_instruct",
+      "pair_role": "sft",
+      "paired_model_keys": [],
+      "model_variant": "domain_sft",
+      "experiment_arm": "C_sft_direct",
+      "fold_id": 0,
+      "primary_anchor": false,
+      "chat_template": "qwen3_nothink",
+      "gguf_template_family": "qwen_chatml",
+      "reasoning_mode": "disabled",
+      "system_message_policy": "native_system_role",
+      "question_ids_file": "questions_external_full.json",
+      "base_checkpoint": {
+        "modelscope_id": "Qwen/Qwen3-8B",
+        "revision": "26028140be3ee69b82b1d1450179ab71bb1121b9",
+        "snapshot_manifest_sha256": "a34491bce8871fef5f3fed8c70ce51db59fff2797acb3e49dc861b81d7ddc7f9"
+      },
+      "parent_base": {
+        "model_key": "qwen3_8b_instruct_base_q4km"
+      },
+      "sft_artifacts": {
+        "adapter_sha256": "B564ED69DEF6EB1FE3915D9FE21B23CA7FD4D1D5CF1536FF3FA96B872F453254",
+        "adapter_config_sha256": "E03A82D841B6BF880DB9D14B187CE64A8DE918F26B8A8D7387F774D4413C357F",
+        "merged_model_sha256": "5801cc2e24b7071b8f295f324b3d55dc747bf7bc1c274e1e0a0e7085bc8ff83e",
+        "merged_model_sha256_definition": "sha256 of canonical JSON list of shard filenames+hashes",
+        "merged_shard_sha256s": [
+          [
+            "model-00001-of-00004.safetensors",
+            "6B9C1C6C6A4F439BD9B3B051601E60F7A69373EF3418E26B0225DAB61FFFBFFA"
+          ],
+          [
+            "model-00002-of-00004.safetensors",
+            "FAF1C3FADA272B49A6E1053AB72141C42715234179420BC16606F6F5EAAA77E0"
+          ],
+          [
+            "model-00003-of-00004.safetensors",
+            "5325D57E64A221505A51103716420A5195A184445429805FEE2471E7E46682B3"
+          ],
+          [
+            "model-00004-of-00004.safetensors",
+            "51ABDBCDF19ACCD15F493D1D7E729C52704A8898CC0298E14C020539E5D14773"
+          ]
+        ],
+        "gguf_q4_km_sha256": "51C58E127FF391F7334F4A881DBA57F414688A9EED3F87F3366F5B23140770CE"
+      },
+      "training_provenance": {
+        "split_manifest_sha256": "a6672fa914f6ad2be6169a1da7f2f070bf07579555a2411961ddba29ed4e131d",
+        "split_note": "v2.10 full-642 design: no folds; hash = training_data_manifest.json content sha",
+        "training_config_sha256": "c9140592598c8b25a022adfa2eddf9237e0022c67e403af864df1a875fcc01a5",
+        "llamafactory_version": "0.9.5",
+        "dataset_sha256": "f95b8a5587bf41ce01573ad579be04fe39c43554099c50e509b75af189759ba4",
+        "dataset": "train_642 (642 records, family C instruction, family A system)",
+        "target_modules": [
+          "up_proj",
+          "v_proj",
+          "q_proj",
+          "gate_proj",
+          "down_proj",
+          "o_proj",
+          "k_proj"
+        ],
+        "lora": "r=64, alpha=128, dropout=0, lr=1e-4, 5 epochs, effective batch 16, cosine, warmup 0.1, cutoff 512, bf16, seed 42, paged_adamw_8bit, gradient_checkpointing, max_grad_norm 1.0",
+        "train_loss_initial_step5": 3.916,
+        "train_loss_final_step205": 0.223,
+        "train_runtime_seconds": 827,
+        "gpu_peak_mb": 37891,
+        "python_version": "3.13.12"
+      },
+      "gguf": {
+        "connectivity_repo": "cet-sft/qwen3-8b-instruct-lora-r64",
+        "connectivity_filename": "qwen3-8b-instruct-lora-r64-q4_k_m.gguf",
+        "connectivity_source_kind": "self_converted",
+        "source_kind": "self_converted",
+        "filename": "qwen3-8b-instruct-lora-r64-q4_k_m.gguf",
+        "local_path": "E:\\gguf\\cet_sft\\qwen3-8b-instruct-lora-r64-q4_k_m.gguf",
+        "sha256": "51C58E127FF391F7334F4A881DBA57F414688A9EED3F87F3366F5B23140770CE",
+        "quantization": "Q4_K_M",
+        "converter": "llama.cpp",
+        "converter_commit": "d0bfb1981266c271cd0536a8aa7c5e863e7cdf61",
+        "imatrix_policy": "none",
+        "imatrix_sha256": null
+      },
+      "deployment": {
+        "lmstudio_load_key": "qwen3-8b-instruct-lora-r64",
+        "native_model_key": "qwen3-8b-instruct-lora-r64",
+        "native_selected_variant": null,
+        "lm_studio_app_version": "0.4.20+1",
+        "lm_studio_runtime_version": "llama.cpp-win-x86_64-nvidia-cuda12-avx2-2.29.0",
+        "runtime_note": "v2.14: SFT on CUDA12 runtime; A-arm Base was avx2 (recorded deviation)",
+        "context_length": 4096,
+        "gpu_offload": "max",
+        "prompt_template_override": false
+      }
+    },
+    "llama3_1_8b_instruct_sft_q4km": {
+      "enabled": true,
+      "formal_ready": true,
+      "display_name": "Llama-3.1-8B-Instruct-SFT-LoRA-r64",
+      "model_family": "llama",
+      "expected_lmstudio_architecture": "llama",
+      "served_model_id": "llama-3.1-8b-instruct-lora-r64",
+      "pair_id": "llama3_1_8b_instruct",
+      "pair_role": "sft",
+      "paired_model_keys": [],
+      "model_variant": "domain_sft",
+      "experiment_arm": "C_sft_direct",
+      "fold_id": 0,
+      "primary_anchor": false,
+      "chat_template": "llama3",
+      "gguf_template_family": "llama3_header",
+      "reasoning_mode": "not_applicable",
+      "system_message_policy": "native_system_role",
+      "question_ids_file": "questions_external_full.json",
+      "base_checkpoint": {
+        "modelscope_id": "LLM-Research/Meta-Llama-3.1-8B-Instruct",
+        "revision": "359efdbb8af05b788a4ad4185215c6b8caa9052c",
+        "snapshot_manifest_sha256": "29248f4d9a24c99da16765cfe1ffb201faba2479b83341462fb1d7da8c4c4dc7"
+      },
+      "parent_base": {
+        "model_key": "llama3_1_8b_instruct_base_q4km"
+      },
+      "sft_artifacts": {
+        "adapter_sha256": "60EFE33417F729E7AF62F181D37C8092D78132B77F6377394491AD2A9A928CD0",
+        "adapter_config_sha256": "9D6A3CE1244357938744B8DE7C214C49F69E1A97AF9D16175E9A8CE6F3FCEFD9",
+        "merged_model_sha256": "f752e8e5f821a8b02ce5fe13a7864ed3dd3ad2628d302ba365b8374e0da6a814",
+        "merged_model_sha256_definition": "sha256 of canonical JSON list of shard filenames+hashes",
+        "merged_shard_sha256s": [
+          [
+            "model-00001-of-00004.safetensors",
+            "7C44BC0E9426BDF56AD45F53CD6DC0D15236E32FB35767319944472634B3AFA2"
+          ],
+          [
+            "model-00002-of-00004.safetensors",
+            "D2F0F924D5B18A58A3C4C16EB7E2B1BD909FCBC49FEBF88B54A041D24FE5665A"
+          ],
+          [
+            "model-00003-of-00004.safetensors",
+            "AEF2FE2CCF853A1FF586A03FD4F239D5AEDAC8CF16BB62A5EAD550A62084DE9C"
+          ],
+          [
+            "model-00004-of-00004.safetensors",
+            "BDF44CAE17296F8C8148884D32A68323A26B9D81625208F8FACDF8CE0AC29EA3"
+          ]
+        ],
+        "gguf_q4_km_sha256": "BF13BD54EF6451E3385704C99BCE7B9B8BE0D299F0E1348A7BF3B311CC4E1C7E"
+      },
+      "training_provenance": {
+        "split_manifest_sha256": "a6672fa914f6ad2be6169a1da7f2f070bf07579555a2411961ddba29ed4e131d",
+        "split_note": "v2.10 full-642 design: no folds; hash = training_data_manifest.json content sha",
+        "training_config_sha256": "ef921451f51433f42f706ba47de6c052030cb71597eec3f654ce650f1b0c7a61",
+        "llamafactory_version": "0.9.5",
+        "dataset_sha256": "f95b8a5587bf41ce01573ad579be04fe39c43554099c50e509b75af189759ba4",
+        "dataset": "train_642 (642 records, family C instruction, family A system)",
+        "target_modules": [
+          "down_proj",
+          "v_proj",
+          "k_proj",
+          "up_proj",
+          "o_proj",
+          "gate_proj",
+          "q_proj"
+        ],
+        "lora": "r=64, alpha=128, dropout=0, lr=1e-4, 5 epochs, effective batch 16, cosine, warmup 0.1, cutoff 512, bf16, seed 42, paged_adamw_8bit, gradient_checkpointing, max_grad_norm 1.0",
+        "train_loss_initial_step5": 0.6306,
+        "train_loss_final_step205": 0.1712,
+        "train_runtime_seconds": 647,
+        "gpu_peak_mb": 35968,
+        "python_version": "3.13.12"
+      },
+      "gguf": {
+        "connectivity_repo": "cet-sft/llama-3.1-8b-instruct-lora-r64",
+        "connectivity_filename": "llama-3.1-8b-instruct-lora-r64-q4_k_m.gguf",
+        "connectivity_source_kind": "self_converted",
+        "source_kind": "self_converted",
+        "filename": "llama-3.1-8b-instruct-lora-r64-q4_k_m.gguf",
+        "local_path": "E:\\gguf\\cet_sft\\llama-3.1-8b-instruct-lora-r64-q4_k_m.gguf",
+        "sha256": "BF13BD54EF6451E3385704C99BCE7B9B8BE0D299F0E1348A7BF3B311CC4E1C7E",
+        "quantization": "Q4_K_M",
+        "converter": "llama.cpp",
+        "converter_commit": "d0bfb1981266c271cd0536a8aa7c5e863e7cdf61",
+        "imatrix_policy": "none",
+        "imatrix_sha256": null
+      },
+      "deployment": {
+        "lmstudio_load_key": "llama-3.1-8b-instruct-lora-r64",
+        "native_model_key": "llama-3.1-8b-instruct-lora-r64",
+        "native_selected_variant": null,
+        "lm_studio_app_version": "0.4.20+1",
+        "lm_studio_runtime_version": "llama.cpp-win-x86_64-nvidia-cuda12-avx2-2.29.0",
+        "runtime_note": "v2.14: SFT on CUDA12 runtime; A-arm Base was avx2 (recorded deviation)",
+        "context_length": 4096,
+        "gpu_offload": "max",
+        "prompt_template_override": false
+      }
+    },
+    "gemma2_9b_it_sft_q4km": {
+      "enabled": true,
+      "formal_ready": true,
+      "display_name": "Gemma-2-9B-it-SFT-LoRA-r64",
+      "model_family": "gemma2",
+      "expected_lmstudio_architecture": "gemma2",
+      "served_model_id": "gemma-2-9b-it-lora-r64",
+      "pair_id": "gemma2_9b_it",
+      "pair_role": "sft",
+      "paired_model_keys": [],
+      "model_variant": "domain_sft",
+      "experiment_arm": "C_sft_direct",
+      "fold_id": 0,
+      "primary_anchor": false,
+      "chat_template": "gemma2",
+      "gguf_template_family": "gemma_turn",
+      "reasoning_mode": "not_applicable",
+      "system_message_policy": "fold_system_into_first_user",
+      "question_ids_file": "questions_external_full.json",
+      "base_checkpoint": {
+        "modelscope_id": "google/gemma-2-9b-it",
+        "revision": "6f56b72fa2d7f99058d0b01590e86f18016b127e",
+        "snapshot_manifest_sha256": "62897ae7d6f028929ce228c16fa2fdb4f84e980888cfb4e538b4c8c7494f7171"
+      },
+      "parent_base": {
+        "model_key": "gemma2_9b_it_base_q4km"
+      },
+      "sft_artifacts": {
+        "adapter_sha256": "48420851B386D60798CCE7D0B1E8CC33FD1A9978864BE965AB27F68F449DB86A",
+        "adapter_config_sha256": "A859106DD4E01974F9CDDF496FB449D434C56ED7826E633CF168B6A9ABBA2C86",
+        "merged_model_sha256": "239d87d6c7708ae4199ba5748e96049dba8c292b754bab4ee23e163ddffd9a13",
+        "merged_model_sha256_definition": "sha256 of canonical JSON list of shard filenames+hashes",
+        "merged_shard_sha256s": [
+          [
+            "model-00001-of-00004.safetensors",
+            "55FF212D908004858F689114BAC0F20D1B0EF7D2C033975FDAD3B2BA312F91BC"
+          ],
+          [
+            "model-00002-of-00004.safetensors",
+            "98A67CA9447E2B75D5827C2C5D2E2765659C6BD3DFFD622A7D010BAB4B6E8AF6"
+          ],
+          [
+            "model-00003-of-00004.safetensors",
+            "99764DC133EE17C8C971F5FB1F3943A035E3A7423019AE89B89EC17C1EB47A07"
+          ],
+          [
+            "model-00004-of-00004.safetensors",
+            "684C7632B6F034C9B340AC048B37143D0C9A23421E9B99C431D6F4F62F1BBD77"
+          ]
+        ],
+        "gguf_q4_km_sha256": "52A7EF406CBB62010D5B5027C4441F1AD21AEE7129ECC63F842F76A11E710290"
+      },
+      "training_provenance": {
+        "split_manifest_sha256": "a6672fa914f6ad2be6169a1da7f2f070bf07579555a2411961ddba29ed4e131d",
+        "split_note": "v2.10 full-642 design: no folds; hash = training_data_manifest.json content sha",
+        "training_config_sha256": "6fa41f6288283f36736d37bd735e4a90e64dc42b9148a3ef41ca1d05a407bd8e",
+        "llamafactory_version": "0.9.5",
+        "dataset_sha256": "f95b8a5587bf41ce01573ad579be04fe39c43554099c50e509b75af189759ba4",
+        "dataset": "train_642 (642 records, family C instruction, family A system)",
+        "target_modules": [
+          "v_proj",
+          "k_proj",
+          "gate_proj",
+          "o_proj",
+          "up_proj",
+          "down_proj",
+          "q_proj"
+        ],
+        "lora": "r=64, alpha=128, dropout=0, lr=1e-4, 5 epochs, effective batch 16, cosine, warmup 0.1, cutoff 512, bf16, seed 42, paged_adamw_8bit, gradient_checkpointing, max_grad_norm 1.0",
+        "train_loss_initial_step5": 0.6997,
+        "train_loss_final_step205": 0.0929,
+        "train_runtime_seconds": 1031,
+        "gpu_peak_mb": 42839,
+        "python_version": "3.13.12"
+      },
+      "gguf": {
+        "connectivity_repo": "cet-sft/gemma-2-9b-it-lora-r64",
+        "connectivity_filename": "gemma-2-9b-it-lora-r64-q4_k_m.gguf",
+        "connectivity_source_kind": "self_converted",
+        "source_kind": "self_converted",
+        "filename": "gemma-2-9b-it-lora-r64-q4_k_m.gguf",
+        "local_path": "E:\\gguf\\cet_sft\\gemma-2-9b-it-lora-r64-q4_k_m.gguf",
+        "sha256": "52A7EF406CBB62010D5B5027C4441F1AD21AEE7129ECC63F842F76A11E710290",
+        "quantization": "Q4_K_M",
+        "converter": "llama.cpp",
+        "converter_commit": "d0bfb1981266c271cd0536a8aa7c5e863e7cdf61",
+        "imatrix_policy": "none",
+        "imatrix_sha256": null
+      },
+      "deployment": {
+        "lmstudio_load_key": "gemma-2-9b-it-lora-r64",
+        "native_model_key": "gemma-2-9b-it-lora-r64",
+        "native_selected_variant": null,
+        "lm_studio_app_version": "0.4.20+1",
+        "lm_studio_runtime_version": "llama.cpp-win-x86_64-nvidia-cuda12-avx2-2.29.0",
+        "runtime_note": "v2.14: SFT on CUDA12 runtime; A-arm Base was avx2 (recorded deviation)",
+        "context_length": 4096,
+        "gpu_offload": "max",
+        "prompt_template_override": false
+      }
+    }
+  }
+}

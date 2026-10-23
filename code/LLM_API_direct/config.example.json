@@ -1,0 +1,31 @@
+{
+  "api_key": "SET_YOUR_API_KEY_HERE",
+  "model_name": "kimi-k3",
+  "provider": "kimi",
+  "base_url": "https://api.moonshot.cn/v1",
+  "endpoint": "chat_completions",
+  "question_file": "questions/four_system_all_questions.jsonl",
+  "evaluator_gold_file": "questions/four_system_all_gold.evaluator.jsonl",
+  "analysis_sets_file": "questions/four_system_analysis_sets.json",
+  "answer_schema": "schemas/diffusion_answer.schema.json",
+  "output_root": "../results/LLM_API_direct",
+  "repetitions": 3,
+  "order_seed": 42,
+  "timeout_seconds": 180,
+  "inter_request_seconds": 1.0,
+  "temperature": 1,
+  "seed": null,
+  "max_output_tokens": 1024,
+  "structured_output": "json_object",
+  "thinking": {
+    "type": "disabled"
+  },
+  "snapshot_confirmed": false,
+  "retry": {
+    "max_attempts_per_sample": 12,
+    "max_elapsed_seconds_per_sample": 7200,
+    "base_wait_seconds": 10,
+    "max_wait_seconds": 300,
+    "jitter_fraction": 0.2
+  }
+}

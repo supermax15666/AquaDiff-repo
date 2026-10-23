@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Local secrets / site-specific configs
+.env
+*.key
+code/LLM_API_direct/config.json
+
+# Large artefacts (kept outside the repository)
+*.gguf
+*.safetensors
+*.bin
+*.ckpt
+checkpoints/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/

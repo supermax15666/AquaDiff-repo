@@ -1,0 +1,43 @@
+{
+  "schema_version": "ml_backend_d/v1",
+  "research_plan_version": "2.6",
+  "protocol_frozen": true,
+  "input_dir": "../../../分谱系数据",
+  "sheet_name": "Confirmed_Records",
+  "evaluator_gold_file": "../../LLM_API_direct/questions/four_system_all_gold.evaluator.jsonl",
+  "output_root": "../output",
+  "dataset_file": "dataset/ml_conditions.jsonl",
+  "dataset_manifest_file": "dataset/dataset_manifest.json",
+  "evaluation_dir": "evaluation",
+  "registry_dir": "registry",
+  "features": ["temperature_K", "concentration_mol_L"],
+  "target": "diffusion_1e9_m2_s",
+  "target_unit": "10^-9 m^2/s",
+  "cv": {
+    "n_folds": 5,
+    "group_key": "origin_lineage_id",
+    "shuffle": false
+  },
+  "random_state": 20260814,
+  "selection": {
+    "primary_metric": "macro_lineage_mdape_percent",
+    "direction": "lower",
+    "tie_break_metric": "mae_1e9_m2_s"
+  },
+  "applicability_domain": {
+    "kind": "rectangular_box",
+    "fields": ["temperature_K", "concentration_mol_L"],
+    "rejection_policy": "structured_refusal"
+  },
+  "pooled_control": true,
+  "model_keys": [
+    "polynomial_ridge",
+    "rbf_svr",
+    "random_forest",
+    "gradient_boosting",
+    "gaussian_process",
+    "dummy_median"
+  ],
+  "accuracy_thresholds_percent": [5.0, 10.0],
+  "tail_percentile": 95.0
+}

@@ -1,0 +1,28 @@
+[
+  {
+    "base_checkpoint_id": "LLM-Research/Meta-Llama-3.1-8B-Instruct",
+    "base_checkpoint_revision": "359efdbb8af05b788a4ad4185215c6b8caa9052c",
+    "base_checkpoint_sha256": "29248f4d9a24c99da16765cfe1ffb201faba2479b83341462fb1d7da8c4c4dc7",
+    "context_length": 4096,
+    "experiment_arm": "C_sft_direct",
+    "experiment_name": "llama3_1_8b_sft_642_mastery",
+    "fold_id": 0,
+    "gguf_filename": "llama-3.1-8b-instruct-lora-r64-q4_k_m.gguf",
+    "gguf_sha256": "BF13BD54EF6451E3385704C99BCE7B9B8BE0D299F0E1348A7BF3B311CC4E1C7E",
+    "gpu_offload": "max",
+    "inference_protocol_sha256": "341cee2de8788ca2f6f2493fd7f3625ec062b119feb3f5eca9e5ba44f0117c45",
+    "language_model_artifact_id": "slm-deployment-ef5d8b24c24df6c2",
+    "llama_cpp_commit": "d0bfb1981266c271cd0536a8aa7c5e863e7cdf61",
+    "lm_studio_app_version": "0.4.20+1",
+    "lm_studio_runtime_version": "llama.cpp-win-x86_64-nvidia-cuda12-avx2-2.29.0",
+    "model_key": "llama3_1_8b_instruct_sft_q4km",
+    "model_variant": "domain_sft",
+    "pair_id": "llama3_1_8b_instruct",
+    "pair_role": "sft",
+    "quantization": "Q4_K_M",
+    "requested_model_id": "llama-3.1-8b-instruct-lora-r64",
+    "run_dir": "E:\\Desktop\\CET_docment\\CET_docment\\py\\results\\SLM_direct\\protocol_v2_2\\lm_studio__llama3_1_8b_instruct_sft_q4km__llama-3.1-8b-instruct-lora-r64\\runs\\llama3_1_8b_sft_642_mastery__20260823T032639143905Z_28fbcfd8b9",
+    "run_id": "llama3_1_8b_sft_642_mastery__20260823T032639143905Z_28fbcfd8b9",
+    "run_manifest_sha256": "b36049968617d185150b66188e9a073fd4978d9cb38e728f4da15369f82ce4be"
+  }
+]

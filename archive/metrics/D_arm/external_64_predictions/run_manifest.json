@@ -1,0 +1,24 @@
+{
+ "artifact_type": "ml_backend_d_external_prediction_run",
+ "created_at_utc": "2026-08-25T09:31:54.394613+00:00",
+ "task": "06_未完成事项 P0-1：D 臂冻结 ML 模型在外部前瞻集 64 题上的预测（方案 §3.D/§18 预注册比较）",
+ "registry_dir": "C:\\Users\\AS\\Desktop\\CET\\03_实验结果\\D臂_ML数值后端_冻结\\output\\registry\\ffbc8b45278774e9317b8c53780753fd3a180f351dff7defed77d1bb4ce63ad6",
+ "registry_protocol_fingerprint": "ffbc8b45278774e9317b8c53780753fd3a180f351dff7defed77d1bb4ce63ad6",
+ "questions_file": "C:\\Users\\AS\\Desktop\\CET\\02_数据\\03_外部前瞻集_64题冻结\\frozen\\questions\\external_questions.jsonl",
+ "questions_file_sha256": "624db157768072d2d453e6fb46e87a0983a974254def39b8a782daab677fe637",
+ "gold_file": "C:\\Users\\AS\\Desktop\\CET\\02_数据\\03_外部前瞻集_64题冻结\\frozen\\gold\\external_gold.evaluator.jsonl",
+ "gold_file_sha256": "c09eb6d25c0b8086b4e0e136a7dc94aca202525b950c6ce66511935820a0bed5",
+ "script": "C:\\Users\\AS\\Desktop\\CET\\py\\3.D_ML\\code\\predict_external.py",
+ "script_sha256": "02ac8bbbbfc763bd0703caa30501675bc6a7949c47596f5252f8bb3648766fc6",
+ "python": "3.14.0",
+ "scikit_learn": "1.9.0",
+ "joblib": "1.5.3",
+ "numpy": "2.5.1",
+ "output_files": [
+  "predictions.csv",
+  "metrics.json",
+  "metrics_summary.md",
+  "run_manifest.json"
+ ],
+ "notes": "pooled 对照模型未在本任务范围（P0-1 为 Base/SFT/ML(专用) 三组比较）；如需可另开 run。"
+}

@@ -1,0 +1,12 @@
+{
+  "train_642": {
+    "file_name": "train_642.json",
+    "formatting": "alpaca",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "system": "system"
+    }
+  }
+}

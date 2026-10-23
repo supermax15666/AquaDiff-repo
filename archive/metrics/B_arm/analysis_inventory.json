@@ -1,0 +1,27 @@
+[
+  {
+    "bytes": 721189,
+    "file": "analysis_summary.json",
+    "sha256": "7906cba9f52650e8491ead6bebdc836bc87b905710c10bef3c08b9400cf002a6"
+  },
+  {
+    "bytes": 1518043,
+    "file": "base_prompt_results.csv",
+    "sha256": "505599b55b65ede994c5eaecb2d9c0fa182eb18aeaf164c89e50964a9f70ec71"
+  },
+  {
+    "bytes": 9600,
+    "file": "manuscript_model_metrics.csv",
+    "sha256": "1527b9a4394d189cff6ef0747aa04995ba02b84f61b6c680cac1a2de73a1dc1e"
+  },
+  {
+    "bytes": 2087,
+    "file": "manuscript_summary.md",
+    "sha256": "fe87e94f5998a17aec38685cdeee23db70247808e2fa6a687dee7539f31680aa"
+  },
+  {
+    "bytes": 7860668,
+    "file": "sample_level_results.csv",
+    "sha256": "37d7753f5a79a5ce34ce72b20f9e54451f17164c2c9c89d201bcea2a50cafe43"
+  }
+]

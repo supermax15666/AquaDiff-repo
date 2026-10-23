@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "llm_api_direct_question_v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "question_id",
+    "base_prompt_id",
+    "template_family_id",
+    "system",
+    "temperature_K",
+    "concentration_mol_L",
+    "target_unit",
+    "prompt",
+    "question_sha256"
+  ],
+  "properties": {
+    "schema_version": {"const": "llm_api_direct/v1"},
+    "question_id": {"type": "string", "minLength": 1},
+    "base_prompt_id": {"type": "string", "minLength": 1},
+    "template_family_id": {"type": "string", "minLength": 1},
+    "system": {"type": "string", "minLength": 1},
+    "temperature_K": {"type": "number", "exclusiveMinimum": 0},
+    "concentration_mol_L": {"type": "number", "minimum": 0},
+    "target_unit": {"const": "10^-9 m^2/s"},
+    "prompt": {"type": "string", "minLength": 1},
+    "question_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  },
+  "not": {
+    "anyOf": [
+      {"required": ["gold"]},
+      {"required": ["diffusion_1e9_m2_s"]},
+      {"required": ["observed_diffusion_1e9_m2_s"]}
+    ]
+  },
+  "additionalProperties": true
+}

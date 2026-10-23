@@ -1,0 +1,344 @@
+# CET SFT 服务器 Agent 执行报告
+
+> 服务器：192.168.2.100，Windows，RTX 6000 Ada 84GB，PowerShell 5.1
+> 任务书：D:\cet_sft\服务器agent任务书.md v1（C 臂：Qwen3.6-27B 优先训练）
+> 执行开始时间：2026-08-18
+
+---
+
+## Phase 0：环境与基座（只读核对 + 安装）
+
+| 核对项 | 结果 | 备注 |
+|---|---|---|
+| python --version | **3.13.12** | 超出推荐 3.10–3.12 范围；按任务书"其它版本如实记录"执行，未阻断 |
+| LLaMA-Factory 版本 | **0.9.5** | `llamafactory-cli version` 输出 "Welcome to LLaMA Factory, version 0.9.5" |
+| modelscope | 1.38.1 | 已安装 |
+| torch | 2.11.0+cu128 | CUDA available = True |
+| CUDA version | 12.8 | torch.version.cuda |
+| GPU | NVIDIA RTX 6000D（1 卡） | torch.cuda.get_device_name(0) |
+| 基座模型目录 | `E:\models\cet_formal\qwen3.6-27b\` 存在 | config.json ✓、tokenizer.json ✓、*.safetensors 共 **15** 个 |
+| 磁盘 D: 可用 | 867.53 GB | ≥ 200 GB ✓ |
+| 磁盘 E: 可用 | 10372.57 GB | ≥ 200 GB ✓ |
+| D:\llama.cpp git HEAD | `d0bfb1981266c271cd0536a8aa7c5e863e7cdf61` | 匹配 b10188 ✓ |
+| LM Studio 版本 | 0.4.20 (0.4.20+1) | exe: C:\Program Files\LM Studio\LM Studio.exe |
+| LM Studio Runtime 后端 | 含 llama.cpp cuda12 后端 2.22.0 / 2.23.1 / 2.24.0 / 2.27.1 / 2.29.0 | 最新 cuda12 后端 = 2.29.0 |
+
+### 安装动作
+- 执行 `python -m pip install "llamafactory[torch,metrics,bitsandbytes]" modelscope`
+- 结果：llamafactory 0.9.5 已满足（peft 由 0.20.0 降级至 0.18.1 以满足 llamafactory 约束 `peft<=0.18.1,>=0.18.0`）
+- 注意：llamafactory 0.9.5 不再提供 `bitsandbytes`/`metrics`/`torch` extras（WARNING 已记录），但核心依赖（torch/transformers/trl/peft 等）均已正确安装
+
+### Phase 0 异常记录
+- Python 3.13.12 超出推荐范围（3.10–3.12）。任务书明确"其它版本如实记录"，未要求停止；继续执行，后续若训练报错将立即停止并报告。
+- `llamafactory-cli` 不在系统 PATH 中，需通过 `E:\minianaconda\Scripts\llamafactory-cli.exe` 调用（已确认可执行）。
+
+### Phase 0 结论
+✅ 全部核对项通过（python 版本超范围但按任务书如实记录，不阻断）。进入 Phase 1。
+
+---
+
+## Phase 1：部署文件 + SHA-256 复验
+
+### 目录结构（均已存在）
+- `D:\cet_sft\data\llamafactory\` ✓
+- `D:\cet_sft\data\pilot\` ✓
+- `D:\cet_sft\configs\` ✓
+
+### SHA-256 比对结果
+
+| # | 文件 | 服务器路径 | 实测 SHA-256 | 期望 SHA-256 | 比对 |
+|---|---|---|---|---|---|
+| 1 | train_642.json | `D:\cet_sft\data\llamafactory\train_642.json` | `F95B8A5587BF41CE01573AD579BE04FE39C43554099C50E509B75AF189759BA4` | `f95b8a5587bf41ce01573ad579be04fe39c43554099c50e509b75af189759ba4` | ✅ 一致 |
+| 2 | dataset_info.json | `D:\cet_sft\data\llamafactory\dataset_info.json` | `63D405BE1414F97AAAEB0E11B1FDD43AD1CFD07F0D57CBC9C6A3B10CD2D80290` | `63d405be1414f97aaaeb0e11b1fdd43ad1cfd07f0d57cbc9c6a3b10cd2d80290` | ✅ 一致 |
+| 3 | train_642_pilot.json | `D:\cet_sft\data\pilot\train_642_pilot.json` | `06A0E8B4E79CF6D1BB25B0E11910CFA78B31133E302DA9EA6E0B13CAE121415E` | `06a0e8b4e79cf6d1bb25b0e11910cfa78b31133e302da9ea6e0b13cae121415e` | ✅ 一致 |
+| 4 | dataset_info.json | `D:\cet_sft\data\pilot\dataset_info.json` | `7E53A83FD485486CF910C95E1E83A63372353E48ED93CBC2F8851CF0E803D8AA` | `7e53a83fd485486cf910c95e1e83a63372353e48ed93cbc2f8851cf0e803d8aa` | ✅ 一致 |
+| 5 | qwen3_6_27b_sft_lora.yaml | `D:\cet_sft\configs\qwen3_6_27b_sft_lora.yaml` | `D3623A9381E73DCE19B97536A88F766482B9705D098FE7695672BBBA23FBC1F9` | `d3623a9381e73dce19b97536a88f766482b9705d098fe7695672bbba23fbc1f9` | ✅ 一致 |
+| 6 | qwen3_6_27b_sft_lora_pilot.yaml | `D:\cet_sft\configs\qwen3_6_27b_sft_lora_pilot.yaml` | `4A5F02C54F90654572F4892D5E0E5B8D7A5A9FC633429CB8F14ACABE23D066F0` | `4a5f02c54f90654572f4892d5e0e5b8d7a5a9fc633429cb8f14acabe23d066f0` | ✅ 一致 |
+
+### 数据量核对
+- `train_642.json`：**642** 条 ✓
+- `train_642_pilot.json`：**64** 条 ✓
+
+### 输出目录检查（均不存在，无冲突）
+- `E:\models\cet_formal_sft\qwen3.6-27b-lora-r64-pilot` — 不存在 ✓
+- `E:\models\cet_formal_sft\qwen3.6-27b-lora-r64` — 不存在 ✓
+- `E:\gguf\cet_sft\` — 不存在（GGUF 转换前需创建）
+
+### Phase 1 结论
+✅ 6/6 文件 SHA-256 全部一致，数据量核对通过。进入 Phase 2。
+
+---
+
+## Phase 2：连通性 pilot（27B，前 64 条 × 1 epoch）
+
+### Step 1：训练
+
+| 项目 | 值 |
+|---|---|
+| LLaMA-Factory 版本 | 0.9.5 |
+| 训练日志路径 | `D:\cet_sft\logs\pilot_train.log` |
+| trainer_log.jsonl | `E:\models\cet_formal_sft\qwen3.6-27b-lora-r64-pilot\trainer_log.jsonl` |
+| 数据量 | 64 条（train_642_pilot） |
+| Epochs | 1 |
+| 总步数 | 4（effective batch 16 = 2×8） |
+| 实际 target_modules | `up_proj, in_proj_qkv, in_proj_b, in_proj_z, gate_proj, down_proj, o_proj, out_proj, k_proj, q_proj, v_proj, in_proj_a`（LLaMA-Factory Qwen3.5 模板默认，lora_target 省略） |
+| trainable params | 466,911,232 (1.6781%) |
+| train_loss | 0.7773 |
+| train_runtime | 160.34 秒（2:40） |
+| 总时长（含模型加载） | 9 分 05 秒 |
+| GPU 显存峰值 | 未显式记录（logging_steps=5 > 总步数 4，无中间日志） |
+| 异常 | 无；训练正常完成 |
+
+### Step 2：合并（export）
+
+| 项目 | 值 |
+|---|---|
+| 合并日志 | `D:\cet_sft\logs\pilot_merge.log` |
+| 输出目录 | `E:\models\cet_formal_sft\qwen3.6-27b-lora-r64-pilot-merged` |
+| safetensors 分片数 | 12 |
+| 合并时长 | 6 分 00 秒 |
+| 异常 | 任务书 `-m` flag 在 LLaMA-Factory 0.9.5 中不支持；改用等价直接 CLI 参数（`--model_name_or_path` + `--adapter_name_or_path` + `--template` + `--finetuning_type` + `--export_dir`），未修改任何 yaml 配置 |
+
+#### 合并权重 SHA-256 清单
+
+| 分片 | SHA-256 |
+|---|---|
+| model-00001-of-00012.safetensors | `994D372DA0812952C05A3FB1093DB5B1245E314385290892F0DCE3883F4C2643` |
+| model-00002-of-00012.safetensors | `2940545355F2D266412B85117BE8424ADF826503530D08448D94AB226FF8056D` |
+| model-00003-of-00012.safetensors | `8C988CDE208DE344D2ED397D500830BEF5AA80C67C7D13EF834444D9748E09E6` |
+| model-00004-of-00012.safetensors | `113AE6C80B12ED278305C1BABE03D9C9B5B4D17183A18F994BAFD0AD8589004D` |
+| model-00005-of-00012.safetensors | `74AFB9FAD84146A9A15FB4E91B30F205FC78E9EFC36C702BF34171B5B2AC97A0` |
+| model-00006-of-00012.safetensors | `1979E865FCBE834416F584BF405FF7E9A60E685F8895A7AD318FB18A903A63EA` |
+| model-00007-of-00012.safetensors | `C75198B00D979DF20BACA1FBAA9C7069AF24D78F8A0D48A59C50DD28C428B538` |
+| model-00008-of-00012.safetensors | `2D693F8E2E48DA5E840EB41D7A95F47D913032BB34B1F1FCB1BDF6BA767507E8` |
+| model-00009-of-00012.safetensors | `02ADD16D10857708256ABA0B0F40220B752C0E6AAE8489624722009FCE995E83` |
+| model-00010-of-00012.safetensors | `18327653DAE5BA55BED6D218A4A5DC9C6AFDC0381EA7AFB323B437E11090F0C0` |
+| model-00011-of-00012.safetensors | `0D34114C52508E8BA33B7B7B3D3927F6072426C964A2AF2D7F3FD2C240BCBF79` |
+| model-00012-of-00012.safetensors | `4C0520F68F6A678A5B1DA2627DD9813F9A67A9AD78600C6D494182E8FEE0B0E1` |
+
+### Step 3：GGUF f16 转换
+
+| 项目 | 值 |
+|---|---|
+| 转换日志 | `D:\cet_sft\logs\pilot_gguf_convert_nomtp.log` |
+| 输出文件 | `E:\gguf\cet_sft\qwen3.6-27b-lora-r64-pilot-f16.gguf` |
+| 文件大小 | 53.8 GB（851 tensors） |
+| 转换时长 | 6 分 25 秒 |
+| 异常 | **首次转换未加 `--no-mtp`，GGUF 元数据包含 MTP 头（blk.64），LM Studio 运行时找不到 `blk.64.attn_norm.weight` 张量。重新转换加 `--no-mtp` 排除 MTP 头后成功。** 此调整未修改任何 yaml 配置或重训，仅调整 GGUF 转换参数。 |
+
+### Step 4：Q4_K_M 量化
+
+| 项目 | 值 |
+|---|---|
+| 量化日志 | `D:\cet_sft\logs\pilot_quantize.log` |
+| 输出文件 | `E:\gguf\cet_sft\qwen3.6-27b-lora-r64-pilot-q4_k_m.gguf` |
+| 原始大小 | 51305.09 MiB (16.00 BPW) |
+| 量化后大小 | 15770.35 MiB (4.92 BPW) |
+| 量化时长 | 3 分 08 秒 |
+| Q4_K_M GGUF SHA-256 | `0E53EA6EB535E01E2D25F65578C67D48E888D82654169384292FB10E85A52A67` |
+
+### Step 5：LM Studio 加载验证
+
+| 项目 | 值 |
+|---|---|
+| served model id | `qwen3.6-27b-lora-r64-pilot` |
+| 量化 | Q4_K_M |
+| context length | 4096 |
+| 加载大小 | 15.41 GiB（GPU max offload） |
+| 加载时长 | 9.04 秒 |
+| Runtime 版本 | `llama.cpp-win-x86_64-nvidia-cuda12-avx2@2.29.0`（已选中） |
+| LM Studio 版本 | 0.4.20 |
+| Reasoning=Off 验证 | ✅ 通过 `reasoning_effort: "none"` 参数实现；测试请求返回 `content="Four"`, `reasoning_content=""`, `reasoning_tokens=0` |
+| 异常 | `reasoning: false` 和 `chat_template_kwargs: {enable_thinking: false}` 均未生效；`reasoning_effort: "none"` 生效 |
+
+### Phase 2 结论
+✅ 全链路验证通过：训练 → 合并 → GGUF → Q4_K_M → LM Studio 加载 → Reasoning=Off。Pilot 仅验证链路，不进论文主表。进入 Phase 3。
+
+---
+
+## Phase 3：正式训练（27B，全量 642 × 5 epochs）
+
+### 训练参数
+
+| 项目 | 值 |
+|---|---|
+| LLaMA-Factory 版本 | 0.9.5 |
+| 数据量 | 642 条（train_642） |
+| Epochs | 5 |
+| 每 epoch 步数 | 41 |
+| 总步数 | 205 |
+| effective batch size | 16（per_device 2 × grad_accum 8） |
+| 实际 target_modules | `in_proj_qkv, out_proj, o_proj, k_proj, up_proj, v_proj, down_proj, in_proj_b, gate_proj, in_proj_z, in_proj_a, q_proj`（与 pilot 一致，LLaMA-Factory Qwen3.5 模板默认） |
+| trainable params | 466,911,232 (1.6781%) |
+| learning_rate | 1.0e-4, cosine scheduler, warmup_ratio 0.1 |
+| bf16 | true |
+| gradient_checkpointing | true |
+| optim | paged_adamw_8bit |
+
+### 训练结果
+
+| 项目 | 值 |
+|---|---|
+| 训练日志路径 | `D:\cet_sft\logs\formal_train.log` |
+| trainer_log.jsonl | `E:\models\cet_formal_sft\qwen3.6-27b-lora-r64\trainer_log.jsonl` |
+| training_loss.png | `E:\models\cet_formal_sft\qwen3.6-27b-lora-r64\training_loss.png` |
+| GPU 显存监控日志 | `D:\cet_sft\logs\formal_gpu_monitor.csv` |
+| **GPU 显存峰值** | **63471 MB / 85651 MB**（~61.9 GB / 83.6 GB，时间 13:13:32） |
+| train_loss（总体平均） | **0.3154** |
+| train_runtime | **7876 秒（2:11:16）** |
+| 总时长（含加载） | **2:12:56** |
+| 初始 loss（step 5） | 1.0403 |
+| 最终 loss（step 205） | 0.2082 |
+| Checkpoints | checkpoint-41, checkpoint-82, checkpoint-123, checkpoint-164, checkpoint-205（全部保留，未删除） |
+| 异常 | 无；训练正常完成 |
+
+### Loss 曲线摘要（每 5 步记录，共 41 条 + 1 条最终汇总）
+
+| Step | Epoch | Loss | LR |
+|---|---|---|---|
+| 5 | 0.12 | 1.0403 | 1.90e-05 |
+| 25 | 0.62 | 0.3657 | 9.99e-05 |
+| 45 | 1.10 | 0.3560 | 9.62e-05 |
+| 85 | 2.07 | 0.3091 | 7.38e-05 |
+| 125 | 3.05 | 0.2887 | 4.07e-05 |
+| 165 | 4.02 | 0.2381 | 1.18e-05 |
+| 205 | 5.00 | 0.2082 | 7.29e-09 |
+
+### Adapter 目录 SHA-256 清单
+
+输出目录：`E:\models\cet_formal_sft\qwen3.6-27b-lora-r64\`
+
+| 文件 | SHA-256 |
+|---|---|
+| adapter_config.json | `3E2799614687A445917F77BE7C579BBE11A540636DF38F3BE3008295F139CD9C` |
+| adapter_model.safetensors | `C56104FBC50461F20156AC04A195F94C202EC4C9AD28839B4AFAADFACB6FB186` |
+| all_results.json | `E69B0B32233D1DF1D1DCFD10B12BD8BBEE0D018D337EAECDE969BB82BADF7359` |
+| chat_template.jinja | `E0E0D56B33958389C77C98C4321C3C0FBC2C4A321AFC96B46D4383383FBD6D83` |
+| processor_config.json | `F196D5698D1771C734BB3A24BD658BA75536FC4FEAFC5B83C035B7693511A2DB` |
+| README.md | `5A2C8DCE4A2656CACC1BF77C860D8A9DDFA532ACF7710EE920837E8C54672BC1` |
+| tokenizer.json | `06B9509352D2AF50381AB2247E083B80D32D5C0ABA91C272CA9FF729B6A0E523` |
+| tokenizer_config.json | `FA544B11D05B28D8C42C0DBAB3BFD1901AC1322FCD9D41F66C8634B1143141BA` |
+| trainer_log.jsonl | `814060A24BCDA74D66EE6B35FFD3A3CE179DE8C7C184F19AD73853B39A7CB112` |
+| trainer_state.json | `274CCF4A00024CFAAB1CF6EAD6528624C9ADC51AAECEE810479A78FD43F4E59C` |
+| training_args.bin | `FAE1CE1FB4288CE434C774A962856019F9DDC3162859EC95D62733BBFE17698F` |
+| training_loss.png | `A4CD356B689FB8C6149C661E8BAADD777F6E72F49114CF6F607E1DF08AFEC863` |
+| train_results.json | `E69B0B32233D1DF1D1DCFD10B12BD8BBEE0D018D337EAECDE969BB82BADF7359` |
+
+### Phase 3 结论
+✅ 正式训练成功完成，205 步 × 5 epochs，loss 从 1.04 降至 0.21，显存峰值 61.9 GB。全部 checkpoint 保留。进入 Phase 4。
+
+---
+
+## Phase 4：合并 → GGUF → Q4_K_M → LM Studio 验证
+
+### Step 1：合并（export）
+
+| 项目 | 值 |
+|---|---|
+| 合并日志 | `D:\cet_sft\logs\formal_merge.log` |
+| 输出目录 | `E:\models\cet_formal_sft\qwen3.6-27b-lora-r64-merged` |
+| safetensors 分片数 | 12 |
+| 合并时长 | 5 分 56 秒 |
+| 异常 | 无（同 Phase 2，使用直接 CLI 参数代替 `-m`） |
+
+#### 合并权重 SHA-256 清单
+
+| 分片 | SHA-256 |
+|---|---|
+| model-00001-of-00012.safetensors | `994D372DA0812952C05A3FB1093DB5B1245E314385290892F0DCE3883F4C2643` |
+| model-00002-of-00012.safetensors | `3E4AA812450AAA21D21304F280377183AAF39EBEB0F167E26D7156A35EEB5D15` |
+| model-00003-of-00012.safetensors | `FE57B54ECE333D5C401D23DDC4A9BA6B81B5FA0B2F2C7B4DF2C5F8DD77D26C4D` |
+| model-00004-of-00012.safetensors | `19A518D5D9C9E14FCDC9F5FC41AA1610FF14AB71CB9C44E83C84DB7D6BF58DE9` |
+| model-00005-of-00012.safetensors | `62DB1065A8D0C4E91D6933D8D2FF6F8BE673CCE4C8E247747090A70E09296000` |
+| model-00006-of-00012.safetensors | `FB126B5184EFD1E0DF8988D1265277BEAA7F0363E3138CAD1580FB02EA962326` |
+| model-00007-of-00012.safetensors | `5A40E6FE28C871D151350B08056292945C1AAB27B601692BE107540EFFA209E9` |
+| model-00008-of-00012.safetensors | `B11AE8E77AADC399E0E9920008F7DDA56E87C75712E470FA28EF4F8A0BB698F4` |
+| model-00009-of-00012.safetensors | `98C050313AF8E41DCFD10FD97C687F23E4AF154F9F187148E7E3349900F78474` |
+| model-00010-of-00012.safetensors | `8F219F1D903456CB80AF6CC45D19C0E0258F0B94CACC6BC17F357AEE4F4E0C42` |
+| model-00011-of-00012.safetensors | `73691F6A0E77427718EAC9A2220D8CD50C1DADA3A4DBC1BBF8587EFCFFF01367` |
+| model-00012-of-00012.safetensors | `380B337E40DE1F9A2903A327765D87C1AE217FF984949A3070CCB7FEFC3D374D` |
+
+### Step 2：GGUF f16 转换
+
+| 项目 | 值 |
+|---|---|
+| 转换日志 | `D:\cet_sft\logs\formal_gguf_convert.log` |
+| 输出文件 | `E:\gguf\cet_sft\qwen3.6-27b-lora-r64-f16.gguf` |
+| 文件大小 | 53.8 GB（851 tensors） |
+| 转换时长 | 6 分 24 秒 |
+| `--no-mtp` | 是（基于 Phase 2 经验，排除 MTP 头以兼容 LM Studio） |
+
+### Step 3：Q4_K_M 量化
+
+| 项目 | 值 |
+|---|---|
+| 输出文件 | `E:\gguf\cet_sft\qwen3.6-27b-lora-r64-q4_k_m.gguf` |
+| 原始大小 | 51305.09 MiB (16.00 BPW) |
+| 量化后大小 | 15770.35 MiB (4.92 BPW) |
+| 量化时长 | 3 分 05 秒 |
+| **Q4_K_M GGUF SHA-256** | `7EDE95F348E2764668C97E404CCAA917058A600DE86B9A09655163EB58A56B8B` |
+
+### Step 4：LM Studio 加载验证
+
+| 项目 | 值 |
+|---|---|
+| **served model id** | `qwen3.6-27b-lora-r64` |
+| 量化 | Q4_K_M |
+| context length | 4096 |
+| 加载大小 | 15.41 GiB（GPU max offload） |
+| 加载时长 | 9.26 秒 |
+| Runtime 版本 | `llama.cpp-win-x86_64-nvidia-cuda12-avx2@2.29.0` |
+| LM Studio 版本 | 0.4.20 |
+| **Reasoning=Off 验证** | ✅ 通过 `reasoning_effort: "none"` 参数实现；测试请求返回 `content="4"`, `reasoning_content=""`, `reasoning_tokens=0` |
+| 模型状态 | IDLE（已加载，等待评测指令） |
+| 备注 | served model id 不含 `@q4_k_m` 后缀（因导入时使用自定义 user-repo `cet-sft/qwen3.6-27b-lora-r64`）；量化类型已通过 API 确认为 Q4_K_M |
+
+### Phase 4 结论
+✅ 全链路完成：合并 → GGUF（--no-mtp）→ Q4_K_M → LM Studio 加载 → Reasoning=Off 验证。模型已加载，等待评测指令。
+
+---
+
+## 回传物清单（验收核对）
+
+| 回传物 | 状态 | 路径/位置 |
+|---|---|---|
+| Python 版本 | ✅ 3.13.12 | 见 Phase 0 |
+| LLaMA-Factory 版本 | ✅ 0.9.5 | 见 Phase 0 |
+| llama.cpp commit | ✅ d0bfb198...（b10188） | 见 Phase 0 |
+| LM Studio Runtime 版本 | ✅ llama.cpp cuda12 2.29.0 | 见 Phase 4 |
+| 数据/yaml SHA-256 比对 | ✅ 6/6 全部一致 | 见 Phase 1 |
+| adapter SHA-256 清单 | ✅ 13 文件 | 见 Phase 3 |
+| 合并权重 SHA-256 | ✅ 12 safetensors（pilot + formal） | 见 Phase 2/4 |
+| GGUF SHA-256 | ✅ Q4_K_M（pilot + formal） | 见 Phase 2/4 |
+| 显存峰值 | ✅ 63471 MB（formal） | 见 Phase 3 |
+| 训练日志 | ✅ trainer_log.jsonl + formal_train.log | 见 Phase 3 |
+| LM Studio served model id | ✅ qwen3.6-27b-lora-r64 | 见 Phase 4 |
+| Reasoning=Off 确认 | ✅ reasoning_effort="none" | 见 Phase 4 |
+| 异常记录 | ✅ 见下方汇总 | — |
+
+## 异常汇总
+
+1. **Python 3.13.12**（Phase 0）：超出推荐 3.10-3.12 范围，按任务书"如实记录"执行，未阻断。
+2. **export `-m` flag 不支持**（Phase 2/4）：LLaMA-Factory 0.9.5 的 export 子命令不支持 `-m`，改用等价直接 CLI 参数，未修改 yaml。
+3. **GGUF MTP 兼容性**（Phase 2）：首次 GGUF 转换未加 `--no-mtp`，LM Studio 运行时找不到 `blk.64.attn_norm.weight` 张量。加 `--no-mtp` 重新转换后解决。Phase 4 直接使用 `--no-mtp`。
+4. **Reasoning=Off 参数**（Phase 2/4）：`reasoning: false` 和 `chat_template_kwargs: {enable_thinking: false}` 均未生效；`reasoning_effort: "none"` 生效。
+5. **served model id 无 `@q4_k_m` 后缀**（Phase 4）：因导入时使用自定义 user-repo 名称，model id 不含量化后缀；量化类型已通过 API 确认。
+
+## 产物路径总览
+
+| 产物 | 路径 |
+|---|---|
+| Pilot adapter | `E:\models\cet_formal_sft\qwen3.6-27b-lora-r64-pilot\` |
+| Pilot merged | `E:\models\cet_formal_sft\qwen3.6-27b-lora-r64-pilot-merged\` |
+| Pilot f16 GGUF | `E:\gguf\cet_sft\qwen3.6-27b-lora-r64-pilot-f16.gguf` |
+| Pilot Q4_K_M GGUF | `E:\gguf\cet_sft\qwen3.6-27b-lora-r64-pilot-q4_k_m.gguf` |
+| **Formal adapter** | `E:\models\cet_formal_sft\qwen3.6-27b-lora-r64\` |
+| **Formal merged** | `E:\models\cet_formal_sft\qwen3.6-27b-lora-r64-merged\` |
+| **Formal f16 GGUF** | `E:\gguf\cet_sft\qwen3.6-27b-lora-r64-f16.gguf` |
+| **Formal Q4_K_M GGUF** | `E:\gguf\cet_sft\qwen3.6-27b-lora-r64-q4_k_m.gguf` |
+| 执行报告 | `D:\cet_sft\执行报告.md` |
+| 训练日志 | `D:\cet_sft\logs\` |
+
+---
+
+> 执行完毕。等待评测指令（642 掌握度评测在本地管道执行）。

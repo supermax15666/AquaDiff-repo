@@ -1,0 +1,6 @@
+model,request_success_percent,schema_valid_percent,valid_numeric_percent,latency_median_s
+gemma2_9b_it_base_q4km,100,100,100,1.44
+llama3_1_8b_instruct_base_q4km,100,100,100,1.45
+qwen3_4b_instruct_2507_base_q4km,99.9,99.9,99.9,1.37
+qwen3_6_27b_base_q4km,100,100,100,1.6
+qwen3_8b_instruct_base_q4km,100,100,100,1.55

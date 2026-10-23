@@ -1,0 +1,104 @@
+{
+  "anchor_example": {
+    "concentration_mol_L": 0.3907,
+    "system": "NaCl-H2O",
+    "temperature_K": 298.15
+  },
+  "answer_output_example": "{\"diffusion_1e9_m2_s\": 1.234567}",
+  "answer_output_format": "{\"diffusion_1e9_m2_s\": <gold>}",
+  "answer_output_format_sha256": "11457b37c4a27cd40a4174a1c4d31b8de0aecb114a05bcd142550e5bac021386",
+  "artifact_type": "prompt_family_freeze_record",
+  "families": [
+    {
+      "combined_texts": [
+        "You are participating in a controlled scientific benchmark.\nEstimate the requested binary aqueous mutual diffusion coefficient only from your own internal\nmodel knowledge. Do not use or request tools, databases, retrieval, code execution, fitted\nmodels, external formulas, or additional information. Do not ask follow-up questions. Think\nbriefly: keep your internal reasoning under 100 words, then give one best numerical estimate\nand no derivation. Return only a valid json object, without Markdown or any additional keys.\nThe object must contain exactly one field named diffusion_1e9_m2_s. The benchmark fixes its\nunit as 10^-9 m^2/s, so do not output a unit field or any other field.\nEXAMPLE JSON OUTPUT FORMAT:\n{\"diffusion_1e9_m2_s\": 1.234567}\nThe example number is a format-only placeholder, not a reference answer. Replace it with your\nown estimate for the requested condition and never copy it merely because it appears here.\n",
+        "Predict the mutual diffusion coefficient of {system} at T = {T} K and c = {c} mol/L. Return the multiplier x where D = x * 10^-9 m^2/s. The JSON numeric field must contain x only; do not return x * 10^-9 and do not return D in base SI units."
+      ],
+      "family_id": "A",
+      "notes": "main test family; system prompt copied verbatim from shared core run_benchmark.py SYSTEM_PROMPT; user template copied verbatim from prepare_questions.py template_text (en). Used for 642 mastery and external-set evaluation; guarantees direct SFT-Base pairing.",
+      "rendered_example": {
+        "concentration_mol_L": 0.3907,
+        "prompt": "Predict the mutual diffusion coefficient of NaCl-H2O at T = 298.15 K and c = 0.390700 mol/L. Return the multiplier x where D = x * 10^-9 m^2/s. The JSON numeric field must contain x only; do not return x * 10^-9 and do not return D in base SI units.",
+        "system": "NaCl-H2O",
+        "temperature_K": 298.15
+      },
+      "sha256": {
+        "combined_texts": "d4c8f7ca3497a6e55f0ef5078fedace12280b70801e97a3ed397762930a4dc18",
+        "rendered_example_prompt": "63471ed44550284841528f039acf8f58b5f7a6121cf89091312e527db45951af",
+        "system_text": "2526afa661366b8970bc616ecf664b410e3b60183c4fb6d00a4900719da4aa61",
+        "user_template_text": "c2c532ac809cce02af03a3cb7ba0f31009205f0c8457e932a794f58726a18889"
+      },
+      "system_text": "You are participating in a controlled scientific benchmark.\nEstimate the requested binary aqueous mutual diffusion coefficient only from your own internal\nmodel knowledge. Do not use or request tools, databases, retrieval, code execution, fitted\nmodels, external formulas, or additional information. Do not ask follow-up questions. Think\nbriefly: keep your internal reasoning under 100 words, then give one best numerical estimate\nand no derivation. Return only a valid json object, without Markdown or any additional keys.\nThe object must contain exactly one field named diffusion_1e9_m2_s. The benchmark fixes its\nunit as 10^-9 m^2/s, so do not output a unit field or any other field.\nEXAMPLE JSON OUTPUT FORMAT:\n{\"diffusion_1e9_m2_s\": 1.234567}\nThe example number is a format-only placeholder, not a reference answer. Replace it with your\nown estimate for the requested condition and never copy it merely because it appears here.\n",
+      "user_template_text": "Predict the mutual diffusion coefficient of {system} at T = {T} K and c = {c} mol/L. Return the multiplier x where D = x * 10^-9 m^2/s. The JSON numeric field must contain x only; do not return x * 10^-9 and do not return D in base SI units."
+    },
+    {
+      "combined_texts": [
+        "You are taking part in a scientific recall exercise about aqueous electrolyte solutions. Answer every question using only knowledge already inside you. You are not allowed to use tools, search the web, look up tables, execute code, consult fitted formulas, or request any extra information, and you must not ask clarifying questions. Keep your internal deliberation very short, then give one single numerical guess with no explanation. Your reply must be a JSON object with exactly one key named diffusion_1e9_m2_s and nothing else - no Markdown, no unit field, no additional keys. The value you provide is the multiplier x such that the diffusion coefficient D = x * 10^-9 m^2/s.",
+        "For the binary aqueous solution {system}, what is the mutual diffusion coefficient when the temperature is {T} K and the solute concentration is {c} mol/L? Give the multiplier x defined by D = x * 10^-9 m^2/s, in the required single-field JSON object."
+      ],
+      "family_id": "B",
+      "notes": "synonym check family; semantically equivalent to A but reworded; NEVER used in training; tests template/format generalization.",
+      "rendered_example": {
+        "concentration_mol_L": 0.3907,
+        "prompt": "For the binary aqueous solution NaCl-H2O, what is the mutual diffusion coefficient when the temperature is 298.15 K and the solute concentration is 0.390700 mol/L? Give the multiplier x defined by D = x * 10^-9 m^2/s, in the required single-field JSON object.",
+        "system": "NaCl-H2O",
+        "temperature_K": 298.15
+      },
+      "sha256": {
+        "combined_texts": "83e5b0deb7b401b434a4d547d7cdd6e230fa1e44a5b2a34ca04de539bfafa94f",
+        "rendered_example_prompt": "ad09118ac74cf1943632f72de1b985355af1d5b76a37cd1f0cd9bb70b1c673da",
+        "system_text": "b8ae493de29f7ce481daf6a07312e3b96d64eae5433c7e95988d7a0f62b5c68e",
+        "user_template_text": "90a922ef9b2cbc4f8bdac3b6d06d1c4bc371c2d0676e981635a34b464d8ff09d"
+      },
+      "system_text": "You are taking part in a scientific recall exercise about aqueous electrolyte solutions. Answer every question using only knowledge already inside you. You are not allowed to use tools, search the web, look up tables, execute code, consult fitted formulas, or request any extra information, and you must not ask clarifying questions. Keep your internal deliberation very short, then give one single numerical guess with no explanation. Your reply must be a JSON object with exactly one key named diffusion_1e9_m2_s and nothing else - no Markdown, no unit field, no additional keys. The value you provide is the multiplier x such that the diffusion coefficient D = x * 10^-9 m^2/s.",
+      "user_template_text": "For the binary aqueous solution {system}, what is the mutual diffusion coefficient when the temperature is {T} K and the solute concentration is {c} mol/L? Give the multiplier x defined by D = x * 10^-9 m^2/s, in the required single-field JSON object."
+    },
+    {
+      "combined_texts": [
+        "You are participating in a controlled scientific benchmark.\nEstimate the requested binary aqueous mutual diffusion coefficient only from your own internal\nmodel knowledge. Do not use or request tools, databases, retrieval, code execution, fitted\nmodels, external formulas, or additional information. Do not ask follow-up questions. Think\nbriefly: keep your internal reasoning under 100 words, then give one best numerical estimate\nand no derivation. Return only a valid json object, without Markdown or any additional keys.\nThe object must contain exactly one field named diffusion_1e9_m2_s. The benchmark fixes its\nunit as 10^-9 m^2/s, so do not output a unit field or any other field.\nEXAMPLE JSON OUTPUT FORMAT:\n{\"diffusion_1e9_m2_s\": 1.234567}\nThe example number is a format-only placeholder, not a reference answer. Replace it with your\nown estimate for the requested condition and never copy it merely because it appears here.\n",
+        "Estimate the binary mutual diffusion coefficient of an aqueous {system} solution with temperature {T} K and molar concentration {c} mol/L. Output a JSON object whose single numeric field diffusion_1e9_m2_s holds the multiplier x where D = x * 10^-9 m^2/s."
+      ],
+      "family_id": "C",
+      "notes": "training wording family; system prompt identical to benchmark (family A system); instruction reworded; used only for SFT training data.",
+      "rendered_example": {
+        "concentration_mol_L": 0.3907,
+        "prompt": "Estimate the binary mutual diffusion coefficient of an aqueous NaCl-H2O solution with temperature 298.15 K and molar concentration 0.390700 mol/L. Output a JSON object whose single numeric field diffusion_1e9_m2_s holds the multiplier x where D = x * 10^-9 m^2/s.",
+        "system": "NaCl-H2O",
+        "temperature_K": 298.15
+      },
+      "sha256": {
+        "combined_texts": "e3df5a96efee58e06528fd61655b441e8d1ebac369a3e5971dba0b7877e53951",
+        "rendered_example_prompt": "d7849ed10604561b643d9b78946e6d5659c9eec03a89adffe3bd43399134c0ac",
+        "system_text": "2526afa661366b8970bc616ecf664b410e3b60183c4fb6d00a4900719da4aa61",
+        "user_template_text": "cd53ae6bde93013fb3e534169808ef0121f5cf4fb398d23759d354e2d8d8b905"
+      },
+      "system_text": "You are participating in a controlled scientific benchmark.\nEstimate the requested binary aqueous mutual diffusion coefficient only from your own internal\nmodel knowledge. Do not use or request tools, databases, retrieval, code execution, fitted\nmodels, external formulas, or additional information. Do not ask follow-up questions. Think\nbriefly: keep your internal reasoning under 100 words, then give one best numerical estimate\nand no derivation. Return only a valid json object, without Markdown or any additional keys.\nThe object must contain exactly one field named diffusion_1e9_m2_s. The benchmark fixes its\nunit as 10^-9 m^2/s, so do not output a unit field or any other field.\nEXAMPLE JSON OUTPUT FORMAT:\n{\"diffusion_1e9_m2_s\": 1.234567}\nThe example number is a format-only placeholder, not a reference answer. Replace it with your\nown estimate for the requested condition and never copy it merely because it appears here.\n",
+      "user_template_text": "Estimate the binary mutual diffusion coefficient of an aqueous {system} solution with temperature {T} K and molar concentration {c} mol/L. Output a JSON object whose single numeric field diffusion_1e9_m2_s holds the multiplier x where D = x * 10^-9 m^2/s."
+    }
+  ],
+  "freeze_record_sha256": "765bd2775d4e507960716cce3543b423048fb166afe530666ef20ff55382ac05",
+  "frozen_at_utc": "2026-08-16T15:00:58.307106+00:00",
+  "frozen_by": "C_arm_executor",
+  "research_plan_version": "2.10",
+  "rule": "families A/B/C mutually non-verbatim; A = main test (identical to A arm); B = synonym check (never in training); C = training wording (system identical to benchmark); hashes frozen before training.",
+  "sources": {
+    "family_a_system_source": {
+      "path": "E:\\Desktop\\CET_docment\\CET_docment\\py\\LLM_API_direct\\run_benchmark.py",
+      "sha256": "a5ee6886ae2165a40c977e1189255dbc0397b3ea400e3f0c6ab517040d273327",
+      "symbol": "SYSTEM_PROMPT"
+    },
+    "family_a_user_template_source": {
+      "path": "E:\\Desktop\\CET_docment\\CET_docment\\py\\LLM_API_direct\\prepare_questions.py",
+      "sha256": "af2c20f57ff531c4ca0a6bc5f6e4f00893df08e9f6d567d0f17b5e792903b8d4",
+      "symbol": "template_text(language='en')"
+    },
+    "gold_642": {
+      "path": "E:\\Desktop\\CET_docment\\CET_docment\\py\\LLM_API_direct\\questions\\four_system_all_gold.evaluator.jsonl",
+      "sha256": "a0d0a610285e6499ed3f76c4324dfc969f1ac683083ec3e337cc7cdde2305471"
+    },
+    "questions_642": {
+      "path": "E:\\Desktop\\CET_docment\\CET_docment\\py\\LLM_API_direct\\questions\\four_system_all_questions.jsonl",
+      "sha256": "605eae4eba17e9aff06c80e7e40152f1c6b4fa11fa5a8b31138faa88fd1f8414"
+    }
+  }
+}

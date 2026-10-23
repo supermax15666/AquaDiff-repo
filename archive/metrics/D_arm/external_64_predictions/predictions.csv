@@ -1,0 +1,65 @@
+﻿question_id,system,temperature_K,concentration_mol_L,in_domain,predicted_diffusion_1e9_m2_s,refusal_reason,registered_model
+external::nacl-h2o::3a56bd7afdc891285a67,NaCl-H2O,298.15,1.0,True,1.469856273238099,,gaussian_process
+external::nacl-h2o::8a02a9e00a8bc5765079,NaCl-H2O,298.15,1.00138,True,1.4698661786365188,,gaussian_process
+external::nacl-h2o::67efa204d62fd28e36df,NaCl-H2O,298.15,1.1699,True,1.4727933252834005,,gaussian_process
+external::nacl-h2o::a55c3f5e381b91d0b23a,NaCl-H2O,298.15,1.5,True,1.4864694023201426,,gaussian_process
+external::nacl-h2o::2abe2ffed0a1e927dde6,NaCl-H2O,298.15,1.50002,True,1.4864704740331587,,gaussian_process
+external::nacl-h2o::c460aa247ce28ceb3c81,NaCl-H2O,298.15,1.6874,True,1.4974083482647556,,gaussian_process
+external::nacl-h2o::0b7257f7446db87c979a,NaCl-H2O,298.15,2.4612,True,1.548449214040693,,gaussian_process
+external::nacl-h2o::6bf28464acbe2a9904df,NaCl-H2O,298.15,3.00019,True,1.575613909409648,,gaussian_process
+external::nacl-h2o::46a54e0c84ecee95f327,NaCl-H2O,298.15,3.6376,True,1.5912269754263884,,gaussian_process
+external::nacl-h2o::46ffb6450fc8b5e43d8a,NaCl-H2O,298.15,4.000175,True,1.5934378739511028,,gaussian_process
+external::nacl-h2o::ed205271cd497056c1eb,NaCl-H2O,298.15,4.99938,True,1.5928620391270483,,gaussian_process
+external::nacl-h2o::a7177468b75808ac78af,NaCl-H2O,298.15,5.2466,True,1.594738230649427,,gaussian_process
+external::kcl-h2o::413cc7604bfb3b1aca90,KCl-H2O,298.15,0.008,True,1.8868584269338307,,polynomial_ridge
+external::kcl-h2o::7fa4751daba9bf4296ea,KCl-H2O,298.15,0.05,True,1.8862111637729733,,polynomial_ridge
+external::kcl-h2o::f9df252e6ef16bd4487d,KCl-H2O,298.15,0.2,True,1.8846980370622806,,polynomial_ridge
+external::kcl-h2o::78fdc9eda4efdf7cda9a,KCl-H2O,298.15,0.970638,True,1.896595680934512,,polynomial_ridge
+external::kcl-h2o::081d1c4affec7a3901ba,KCl-H2O,298.15,2.322826,True,1.9970599239689797,,polynomial_ridge
+external::kcl-h2o::0bd77a87d6c3610bc8cb,KCl-H2O,298.15,3.94577,True,2.2515180283419713,,polynomial_ridge
+external::kcl-h2o::1028879b67b056b9ead2,KCl-H2O,323.15,0.970638,True,3.148400548614921,,polynomial_ridge
+external::kcl-h2o::c064e1ecdd26c51664fb,KCl-H2O,323.15,2.322826,True,3.2395390535445454,,polynomial_ridge
+external::kcl-h2o::de0e504b6159188d4074,KCl-H2O,323.15,3.94577,True,3.4828040762581525,,polynomial_ridge
+external::kcl-h2o::f1c9fd43e9763b8ef595,KCl-H2O,348.15,0.970638,True,4.706800257939134,,polynomial_ridge
+external::kcl-h2o::73b16d5ee09f2fd76c10,KCl-H2O,348.15,2.322826,True,4.7886130247639125,,polynomial_ridge
+external::kcl-h2o::7fa47f77cc083f06906e,KCl-H2O,348.15,3.94577,True,5.020684965818142,,polynomial_ridge
+external::kcl-h2o::65dc801d5f16753d4986,KCl-H2O,373.15,0.970638,False,,"temperature_K=373.15 出域 [273.0,353.15]",polynomial_ridge
+external::kcl-h2o::3c101c28eb2211690d7a,KCl-H2O,373.15,2.322826,False,,"temperature_K=373.15 出域 [273.0,353.15]",polynomial_ridge
+external::kcl-h2o::0bbfd9aeee613526bb6b,KCl-H2O,373.15,3.94577,False,,"temperature_K=373.15 出域 [273.0,353.15]",polynomial_ridge
+external::licl-h2o::64e9c8325f47e13391cb,LiCl-H2O,252.85,5.118,False,,"temperature_K=252.85 出域 [273.15,323.15]",gradient_boosting
+external::licl-h2o::b7df9f9c4824e0c5ea8e,LiCl-H2O,253.15,7.753,False,,"temperature_K=253.15 出域 [273.15,323.15]",gradient_boosting
+external::licl-h2o::dc52b340a9983cb69e56,LiCl-H2O,263.15,7.753,False,,"temperature_K=263.15 出域 [273.15,323.15]",gradient_boosting
+external::licl-h2o::6532d6ac269e3b623169,LiCl-H2O,266.05,1.7846,False,,"temperature_K=266.05 出域 [273.15,323.15]",gradient_boosting
+external::licl-h2o::75cc0127a23e38bdb191,LiCl-H2O,270.15,1.7846,False,,"temperature_K=270.15 出域 [273.15,323.15]",gradient_boosting
+external::licl-h2o::ad746119193e5991e620,LiCl-H2O,272.25,0.9127,False,,"temperature_K=272.25 出域 [273.15,323.15]",gradient_boosting
+external::licl-h2o::0de1dcebb43fbc3b7bfe,LiCl-H2O,272.65,0.5531,False,,"temperature_K=272.65 出域 [273.15,323.15]",gradient_boosting
+external::licl-h2o::110d5df411dc8e0743ea,LiCl-H2O,274.55,0.9127,True,0.6122869868909261,,gradient_boosting
+external::licl-h2o::c7f51052f37d7b7ded29,LiCl-H2O,298.15,0.014948,True,1.312149703490584,,gradient_boosting
+external::licl-h2o::0a9efe37a6075d491f16,LiCl-H2O,298.15,0.024906,True,1.312149703490584,,gradient_boosting
+external::licl-h2o::97d85c03831ef82f1512,LiCl-H2O,298.15,0.039833,True,1.279762182561401,,gradient_boosting
+external::licl-h2o::fe63379c9b783da1a6eb,LiCl-H2O,298.15,0.062215,True,1.279762182561401,,gradient_boosting
+external::licl-h2o::ee90290320f809a62f39,LiCl-H2O,298.15,0.0796,True,1.279762182561401,,gradient_boosting
+external::licl-h2o::acf90d9768393fb38554,LiCl-H2O,298.15,0.11498,True,1.2674573092872274,,gradient_boosting
+external::licl-h2o::06b726fbeb5ba5caa89f,LiCl-H2O,298.15,0.16431,True,1.2690916077980474,,gradient_boosting
+external::licl-h2o::6537476a0ed4ce55413c,LiCl-H2O,298.15,0.2678,True,1.2671324063943916,,gradient_boosting
+external::licl-h2o::beceb202f148b5368069,LiCl-H2O,298.15,0.35667,True,1.2692465609495094,,gradient_boosting
+external::licl-h2o::757543fbcf83656d8ae0,LiCl-H2O,298.15,0.36148,True,1.2692465609495094,,gradient_boosting
+external::licl-h2o::2a5e0632b83b9385e62e,LiCl-H2O,298.15,0.47453,True,1.288857833754581,,gradient_boosting
+external::licl-h2o::e72b6daa0e4cccc63a69,LiCl-H2O,298.15,0.5,True,1.288857833754581,,gradient_boosting
+external::licl-h2o::e4970ba68d464bd423cc,LiCl-H2O,298.15,0.63085,True,1.2902817673033211,,gradient_boosting
+external::licl-h2o::72d4fff647e5f6e7bf5f,LiCl-H2O,298.15,0.79592,True,1.2990941213558476,,gradient_boosting
+external::licl-h2o::3495e846ff91f9a5dd9a,LiCl-H2O,298.15,0.97919,True,1.319178836410076,,gradient_boosting
+external::licl-h2o::016f6f12070d18960995,LiCl-H2O,298.15,1.0,True,1.319178836410076,,gradient_boosting
+external::licl-h2o::5732c399127f9b8844eb,LiCl-H2O,298.15,1.0991,True,1.319178836410076,,gradient_boosting
+external::licl-h2o::c5be26888c001cd25e6c,LiCl-H2O,298.15,1.3133,True,1.3269959962749305,,gradient_boosting
+external::licl-h2o::44450f5fe1dfe031350c,LiCl-H2O,298.15,1.5497,True,1.3432800443629123,,gradient_boosting
+external::cacl2-h2o::bde442a99ce6b302d00d,CaCl2-H2O,298.15,0.008,True,1.1894042691080327,,gradient_boosting
+external::cacl2-h2o::a817af35aa43a329fcc1,CaCl2-H2O,298.15,0.01,True,1.1819012157438298,,gradient_boosting
+external::cacl2-h2o::00765175f4da5d286c5f,CaCl2-H2O,298.15,0.05,True,1.1330741719533992,,gradient_boosting
+external::cacl2-h2o::1f477b4059089822f57b,CaCl2-H2O,298.15,0.1,True,1.1232094414014828,,gradient_boosting
+external::cacl2-h2o::298fb3acecf81a3b6f73,CaCl2-H2O,310.15,0.0025,False,,"temperature_K=310.15 出域 [288.15,308.15]",gradient_boosting
+external::cacl2-h2o::01d1ffc4e15ead87745d,CaCl2-H2O,310.15,0.005,False,,"temperature_K=310.15 出域 [288.15,308.15]",gradient_boosting
+external::cacl2-h2o::b12c7a180bcc88f8abab,CaCl2-H2O,310.15,0.008,False,,"temperature_K=310.15 出域 [288.15,308.15]",gradient_boosting
+external::cacl2-h2o::e35b1ff596699327b096,CaCl2-H2O,310.15,0.01,False,,"temperature_K=310.15 出域 [288.15,308.15]",gradient_boosting
+external::cacl2-h2o::16daf37b088cac4bf08c,CaCl2-H2O,310.15,0.05,False,,"temperature_K=310.15 出域 [288.15,308.15]",gradient_boosting
+external::cacl2-h2o::9d034d6d08257207f50f,CaCl2-H2O,310.15,0.1,False,,"temperature_K=310.15 出域 [288.15,308.15]",gradient_boosting

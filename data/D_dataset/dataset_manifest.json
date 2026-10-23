@@ -1,0 +1,114 @@
+{
+  "artifact_type": "ml_backend_d_dataset_manifest",
+  "created_at_utc": "2026-08-15T12:17:35.670587+00:00",
+  "dataset_path": "E:\\Desktop\\CET_docment\\CET_docment\\py\\3.D_ML\\output\\dataset\\ml_conditions.jsonl",
+  "dataset_sha256": "069d1fcedd4a9dea42cbe77651f8cc551cd05531d6e1316b3a816138b19536d0",
+  "eligible_condition_count": 642,
+  "evaluator_gold": {
+    "condition_count": 642,
+    "match": "exact",
+    "path": "E:\\Desktop\\CET_docment\\CET_docment\\py\\LLM_API_direct\\questions\\four_system_all_gold.evaluator.jsonl",
+    "sha256": "a0d0a610285e6499ed3f76c4324dfc969f1ac683083ec3e337cc7cdde2305471"
+  },
+  "filter_log": {
+    "derived_lineage": 1,
+    "multi_lineage": 50,
+    "zero_concentration": 4
+  },
+  "manifest_content_sha256": "ee48df10c135f8e6ee8c0351a1ea735af73261eb1570fce596cd9e2ba10bb72f",
+  "research_plan_version": "2.6",
+  "same_condition_consensus_policy": "median_across_same_condition_records",
+  "schema_version": "ml_backend_d/v1",
+  "source_assets": [
+    {
+      "filename": "NaCl分谱系数据.xlsx",
+      "lineage_count": 16,
+      "path": "E:\\Desktop\\CET_docment\\CET_docment\\分谱系数据\\NaCl分谱系数据.xlsx",
+      "record_count": 256,
+      "sha256": "1ed1434e2e8462fdc4ffbe1bcfd99616ec9bdcad2de6569d04d2fd8da1581379",
+      "sheet": "Confirmed_Records",
+      "system": "NaCl-H2O"
+    },
+    {
+      "filename": "KCl分谱系数据.xlsx",
+      "lineage_count": 16,
+      "path": "E:\\Desktop\\CET_docment\\CET_docment\\分谱系数据\\KCl分谱系数据.xlsx",
+      "record_count": 268,
+      "sha256": "9c180376cd24871433291f350bada67d1bf32b6d7b05d72213717a3c6f1bd5fb",
+      "sheet": "Confirmed_Records",
+      "system": "KCl-H2O"
+    },
+    {
+      "filename": "LiCl-H2O分谱系数据.xlsx",
+      "lineage_count": 6,
+      "path": "E:\\Desktop\\CET_docment\\CET_docment\\分谱系数据\\LiCl-H2O分谱系数据.xlsx",
+      "record_count": 152,
+      "sha256": "940d12d33a483b12bfe4cd5f82fac53475314e22beb3ca090787c3915dedd3f0",
+      "sheet": "Confirmed_Records",
+      "system": "LiCl-H2O"
+    },
+    {
+      "filename": "CaCl2-H2O分谱系数据.xlsx",
+      "lineage_count": 7,
+      "path": "E:\\Desktop\\CET_docment\\CET_docment\\分谱系数据\\CaCl2-H2O分谱系数据.xlsx",
+      "record_count": 109,
+      "sha256": "9faaa900f064008c8f0a4fb82e370e5144e0aafda370d5cf0c74db0274053059",
+      "sheet": "Confirmed_Records",
+      "system": "CaCl2-H2O"
+    }
+  ],
+  "source_record_count": 785,
+  "system_counts": {
+    "CaCl2-H2O": 89,
+    "KCl-H2O": 247,
+    "LiCl-H2O": 132,
+    "NaCl-H2O": 174
+  },
+  "system_lineage_counts": {
+    "CaCl2-H2O": {
+      "BIB:CACL2:LOBO1993:REF_022": 8,
+      "BIB:CACL2:LOBO1993:REF_033": 10,
+      "BIB:CACL2:LOBO1993:REF_039": 17,
+      "BIB:CACL2:LOBO1993:REF_066": 16,
+      "BIB:CACL2:LOBO1993:REF_067": 4,
+      "BIB:CACL2:LOBO1993:REF_081": 4,
+      "PRI:CACL2:RARD_MILLER_1979": 30
+    },
+    "KCl-H2O": {
+      "EXP:KCL:FELL_HUTCHISON_1971": 92,
+      "EXP:KCL:GOSTING_KCL_1950": 11,
+      "EXP:KCL:HARNED_NUTTALL_KCL_1947": 6,
+      "EXP:KCL:LOBO_REF_006": 1,
+      "EXP:KCL:LOBO_REF_007": 2,
+      "EXP:KCL:LOBO_REF_023": 5,
+      "EXP:KCL:LOBO_REF_032": 18,
+      "EXP:KCL:LOBO_REF_067": 7,
+      "EXP:KCL:LOBO_REF_072": 8,
+      "EXP:KCL:LOBO_REF_082": 13,
+      "EXP:KCL:LOBO_REF_089": 62,
+      "EXP:KCL:RARD_BACL2_KCL_1980": 18,
+      "EXP:KCL:RARD_NACL_CACL2_1979": 4
+    },
+    "LiCl-H2O": {
+      "BIB:LICL:LOBO1993:REF_006": 1,
+      "BIB:LICL:LOBO1993:REF_029": 14,
+      "BIB:LICL:LOBO1993:REF_067": 5,
+      "BIB:LICL:LOBO1993:REF_084": 4,
+      "BIB:LICL:LOBO1993:REF_087": 108
+    },
+    "NaCl-H2O": {
+      "BIB:NACL:LOBO1993:REF_007": 2,
+      "BIB:NACL:LOBO1993:REF_021": 10,
+      "BIB:NACL:LOBO1993:REF_029": 1,
+      "BIB:NACL:LOBO1993:REF_067": 3,
+      "BIB:NACL:LOBO1993:REF_071": 3,
+      "BIB:NACL:LOBO1993:REF_082": 15,
+      "BIB:NACL:LOBO1993:REF_088": 69,
+      "EXP:NACL:FELL_HUTCHISON_1971": 31,
+      "EXP:NACL:RARD_NACL_CACL2_1979": 26,
+      "EXP:NACL:VITAGLIANO_LYONS_1956": 14
+    }
+  },
+  "unique_condition_count": 696,
+  "warning": "The four lineage workbooks and their reference values are already available in the project; this dataset is retrospective/exploratory, not a sealed blind or prospective external evaluation."
+}

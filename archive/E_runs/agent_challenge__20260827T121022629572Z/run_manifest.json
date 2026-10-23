@@ -1,0 +1,22 @@
+{
+ "artifact_type": "e_arm_agent_eval_run",
+ "created_at_utc": "2026-08-27T12:13:46.495305+00:00",
+ "plan_version": "2.16",
+ "set": "challenge",
+ "n_items": 54,
+ "repeats": 3,
+ "completed": 162,
+ "errors": 0,
+ "llm": {
+  "base_url": "http://127.0.0.1:1234/v1",
+  "model": "cet-gguf/qwen3-4b-instruct-2507@q4_k_m",
+  "temperature": 0.0
+ },
+ "dependencies": {
+  "duckdb_sha256": "785ab83afd75a4b5addd14f57bdf9c55168a216d97be119b441a153a60725cd1",
+  "solubility_records_sha256": "b7d40c4f3b24235ef70d051774c08de899d981b5aab3c81686995c79c9e46c88",
+  "registry_fingerprint": "ffbc8b45278774e9317b8c53780753fd3a180f351dff7defed77d1bb4ce63ad6"
+ },
+ "agent_core_sha256": "fba67019994a460c96c72fbb24b86cf2decb72ab9b01e3bb2140147b1f9e4b3b",
+ "retry_provenance": null
+}

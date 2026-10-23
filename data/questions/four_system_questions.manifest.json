@@ -1,0 +1,141 @@
+{
+  "artifact_type": "four_system_question_set_manifest",
+  "available_unique_condition_counts": {
+    "CaCl2-H2O": 99,
+    "KCl-H2O": 256,
+    "LiCl-H2O": 141,
+    "NaCl-H2O": 200
+  },
+  "created_at_utc": "2026-08-12T10:27:32.693971+00:00",
+  "eligible_unique_condition_counts": {
+    "CaCl2-H2O": 89,
+    "KCl-H2O": 247,
+    "LiCl-H2O": 132,
+    "NaCl-H2O": 174
+  },
+  "evaluator_gold_path": "C:\\Users\\苗晓昂\\Desktop\\CET_docment\\CET_docment\\py\\LLM_API_direct\\questions\\four_system_gold.evaluator.jsonl",
+  "evaluator_gold_sha256": "a7b8f87949689398bda7ca608db04e38d23513aa9b130f07eb718173af161e53",
+  "evidence_level": "retrospective_opened_four_system_lineage_pool",
+  "formal_confirmatory_use_allowed": false,
+  "generator_path": "C:\\Users\\苗晓昂\\Desktop\\CET_docment\\CET_docment\\py\\LLM_API_direct\\prepare_questions.py",
+  "generator_sha256": "1b88103e2554d724028a8d3e680cccf97ec30a3c808fb7aeb0a1d8148ac71cbb",
+  "gold_present_in_question_set": false,
+  "gold_sent_to_model": false,
+  "gold_stored_separately": true,
+  "language": "en",
+  "manifest_content_sha256": "51709a71d1b676d2cf644467f27cee922654ac2417b37d1bf1d205e22a6d0625",
+  "question_count": 240,
+  "question_set_path": "C:\\Users\\苗晓昂\\Desktop\\CET_docment\\CET_docment\\py\\LLM_API_direct\\questions\\four_system_questions.jsonl",
+  "question_set_sha256": "320741fbe81f04a85b22fe13cd51070993fa346d7a780dc93ce27dfc8de2774a",
+  "same_condition_consensus_policy": "median",
+  "same_condition_duplicate_group_count": 52,
+  "same_condition_extra_record_count": 89,
+  "schema_version": "llm_api_direct/v1",
+  "selected_lineage_cluster_counts": {
+    "CaCl2-H2O": {
+      "BIB:CACL2:LOBO1993:REF_022": 5,
+      "BIB:CACL2:LOBO1993:REF_033": 7,
+      "BIB:CACL2:LOBO1993:REF_039": 11,
+      "BIB:CACL2:LOBO1993:REF_066": 11,
+      "BIB:CACL2:LOBO1993:REF_067": 3,
+      "BIB:CACL2:LOBO1993:REF_081": 3,
+      "PRI:CACL2:RARD_MILLER_1979": 20
+    },
+    "KCl-H2O": {
+      "EXP:KCL:FELL_HUTCHISON_1971": 22,
+      "EXP:KCL:GOSTING_KCL_1950": 3,
+      "EXP:KCL:HARNED_NUTTALL_KCL_1947": 1,
+      "EXP:KCL:LOBO_REF_006": 1,
+      "EXP:KCL:LOBO_REF_007": 1,
+      "EXP:KCL:LOBO_REF_023": 1,
+      "EXP:KCL:LOBO_REF_032": 4,
+      "EXP:KCL:LOBO_REF_067": 2,
+      "EXP:KCL:LOBO_REF_072": 2,
+      "EXP:KCL:LOBO_REF_082": 3,
+      "EXP:KCL:LOBO_REF_089": 15,
+      "EXP:KCL:RARD_BACL2_KCL_1980": 4,
+      "EXP:KCL:RARD_NACL_CACL2_1979": 1
+    },
+    "LiCl-H2O": {
+      "BIB:LICL:LOBO1993:REF_006": 1,
+      "BIB:LICL:LOBO1993:REF_029": 6,
+      "BIB:LICL:LOBO1993:REF_067": 2,
+      "BIB:LICL:LOBO1993:REF_084": 2,
+      "BIB:LICL:LOBO1993:REF_087": 49
+    },
+    "NaCl-H2O": {
+      "BIB:NACL:LOBO1993:REF_007": 1,
+      "BIB:NACL:LOBO1993:REF_021": 3,
+      "BIB:NACL:LOBO1993:REF_029": 1,
+      "BIB:NACL:LOBO1993:REF_067": 1,
+      "BIB:NACL:LOBO1993:REF_071": 1,
+      "BIB:NACL:LOBO1993:REF_082": 5,
+      "BIB:NACL:LOBO1993:REF_088": 24,
+      "EXP:NACL:FELL_HUTCHISON_1971": 10,
+      "EXP:NACL:RARD_NACL_CACL2_1979": 9,
+      "EXP:NACL:VITAGLIANO_LYONS_1956": 5
+    }
+  },
+  "selected_system_counts": {
+    "CaCl2-H2O": 60,
+    "KCl-H2O": 60,
+    "LiCl-H2O": 60,
+    "NaCl-H2O": 60
+  },
+  "selection": {
+    "confirmatory_split_role": null,
+    "eligible_unique_condition_count_after_all_filters": 642,
+    "explicit_derived_lineage_conditions_excluded_from_selection": 1,
+    "include_multi_lineage_conditions": false,
+    "include_zero_concentration": false,
+    "multi_lineage_conditions_excluded_from_selection": 50,
+    "per_system": 60,
+    "policy": "lineage_coverage_then_proportional_allocation_seeded_without_replacement",
+    "reason_no_confirmatory_split": "The current four workbooks contain lineage grouping but no frozen, leakage-safe holdout assignments.",
+    "selection_seed": 20260812,
+    "system_balance": "equal_when_per_system_is_positive",
+    "zero_concentration_conditions_excluded_from_selection": 4
+  },
+  "source_assets": [
+    {
+      "filename": "NaCl分谱系数据.xlsx",
+      "lineage_count": 16,
+      "path": "C:\\Users\\苗晓昂\\Desktop\\CET_docment\\CET_docment\\分谱系数据\\NaCl分谱系数据.xlsx",
+      "record_count": 256,
+      "sha256": "1ed1434e2e8462fdc4ffbe1bcfd99616ec9bdcad2de6569d04d2fd8da1581379",
+      "sheet": "Confirmed_Records",
+      "system": "NaCl-H2O"
+    },
+    {
+      "filename": "KCl分谱系数据.xlsx",
+      "lineage_count": 16,
+      "path": "C:\\Users\\苗晓昂\\Desktop\\CET_docment\\CET_docment\\分谱系数据\\KCl分谱系数据.xlsx",
+      "record_count": 268,
+      "sha256": "9c180376cd24871433291f350bada67d1bf32b6d7b05d72213717a3c6f1bd5fb",
+      "sheet": "Confirmed_Records",
+      "system": "KCl-H2O"
+    },
+    {
+      "filename": "LiCl-H2O分谱系数据.xlsx",
+      "lineage_count": 6,
+      "path": "C:\\Users\\苗晓昂\\Desktop\\CET_docment\\CET_docment\\分谱系数据\\LiCl-H2O分谱系数据.xlsx",
+      "record_count": 152,
+      "sha256": "940d12d33a483b12bfe4cd5f82fac53475314e22beb3ca090787c3915dedd3f0",
+      "sheet": "Confirmed_Records",
+      "system": "LiCl-H2O"
+    },
+    {
+      "filename": "CaCl2-H2O分谱系数据.xlsx",
+      "lineage_count": 7,
+      "path": "C:\\Users\\苗晓昂\\Desktop\\CET_docment\\CET_docment\\分谱系数据\\CaCl2-H2O分谱系数据.xlsx",
+      "record_count": 109,
+      "sha256": "9faaa900f064008c8f0a4fb82e370e5144e0aafda370d5cf0c74db0274053059",
+      "sheet": "Confirmed_Records",
+      "system": "CaCl2-H2O"
+    }
+  ],
+  "source_record_count": 785,
+  "template_family_id": "direct_internalized_numeric_en_v1",
+  "unique_condition_count": 696,
+  "warning": "The four lineage workbooks and their reference values are already available in the project. This benchmark is retrospective/exploratory, not a sealed blind or prospective external evaluation."
+}

@@ -1,0 +1,30 @@
+{
+  "model_key": "qwen3_4b_instruct_2507_base_q4km",
+  "repo_used": "Qwen/Qwen3-4B-Instruct-2507",
+  "repo_was_fallback": false,
+  "revision": "2de2439ea21be1dc5cb21f22f88af07e43393cbb",
+  "snapshot_manifest_sha256": "94a9995f03402bc19d1a2f5f718c9b82d883302c56be12ae6fe75e4d5a0e4df2",
+  "snapshot_files_sha256_path": "E:\\models\\cet_formal\\qwen3-4b-instruct-2507.snapshot_files.sha256",
+  "gguf": {
+    "filename": "qwen3-4b-instruct-2507-Q4_K_M.gguf",
+    "local_path": "E:\\gguf\\cet_formal\\qwen3-4b-instruct-2507-Q4_K_M.gguf",
+    "sha256": "0f5e5250018ea2e4384e8b440f3a51fd1fff31d6694906e63fca3b5abd8a9a28"
+  },
+  "llama_cpp_commit": "d0bfb1981266c271cd0536a8aa7c5e863e7cdf61",
+  "llama_cpp_tag": "b10188",
+  "lm_studio": {
+    "app_version": "0.4.20+1",
+    "runtime_version": "llama.cpp-win-x86_64-avx2-2.29.0",
+    "served_model_id_actual": "cet-gguf/qwen3-4b-instruct-2507@q4_k_m",
+    "native_model_key": "cet-gguf/qwen3-4b-instruct-2507@q4_k_m",
+    "native_selected_variant": null,
+    "quantization": "Q4_K_M",
+    "loaded_context_length": 4096,
+    "max_context_length": 262144,
+    "arch": "qwen3",
+    "gpu_offload_requested": "max",
+    "inference_verified": true
+  },
+  "backfilled_at_utc": "2026-08-15T08:55:53Z",
+  "notes": "GitHub/ghfast.top 不可达(代理127.0.0.1:7897未运行+DNS被墙),llama.cpp 未能 fetch,改用本地已有官方 release tag b10188(checkout后HEAD=d0bfb1981)。lms import 默认放入 LM Studio downloadsFolder=E:\\models,首次用 --user-repo cet_formal/... 与 safetensors 目录冲突污染 snapshot(已清理重算,哈希不变),改用 cet-gguf/<短名> 分离。runtime 实际为 CPU AVX2 build(llama-server进程未加载ggml-cuda.dll),--gpu max 已请求但 CUDA backend 未启用,此点已记录供本地预检核实。推理验证通过(返回OK)。"
+}

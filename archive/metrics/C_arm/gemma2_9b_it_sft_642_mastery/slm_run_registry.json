@@ -1,0 +1,28 @@
+[
+  {
+    "base_checkpoint_id": "google/gemma-2-9b-it",
+    "base_checkpoint_revision": "6f56b72fa2d7f99058d0b01590e86f18016b127e",
+    "base_checkpoint_sha256": "62897ae7d6f028929ce228c16fa2fdb4f84e980888cfb4e538b4c8c7494f7171",
+    "context_length": 4096,
+    "experiment_arm": "C_sft_direct",
+    "experiment_name": "gemma2_9b_it_sft_642_mastery",
+    "fold_id": 0,
+    "gguf_filename": "gemma-2-9b-it-lora-r64-q4_k_m.gguf",
+    "gguf_sha256": "52A7EF406CBB62010D5B5027C4441F1AD21AEE7129ECC63F842F76A11E710290",
+    "gpu_offload": "max",
+    "inference_protocol_sha256": "94c93c3bb5678760b9a88b11fb647173463bce3cf349eef7cc9ac3c6c5903048",
+    "language_model_artifact_id": "slm-deployment-760232235d4c78f1",
+    "llama_cpp_commit": "d0bfb1981266c271cd0536a8aa7c5e863e7cdf61",
+    "lm_studio_app_version": "0.4.20+1",
+    "lm_studio_runtime_version": "llama.cpp-win-x86_64-nvidia-cuda12-avx2-2.29.0",
+    "model_key": "gemma2_9b_it_sft_q4km",
+    "model_variant": "domain_sft",
+    "pair_id": "gemma2_9b_it",
+    "pair_role": "sft",
+    "quantization": "Q4_K_M",
+    "requested_model_id": "gemma-2-9b-it-lora-r64",
+    "run_dir": "E:\\Desktop\\CET_docment\\CET_docment\\py\\results\\SLM_direct\\protocol_v2_2\\lm_studio__gemma2_9b_it_sft_q4km__gemma-2-9b-it-lora-r64\\runs\\gemma2_9b_it_sft_642_mastery__20260823T045415841401Z_9f5af23fe6",
+    "run_id": "gemma2_9b_it_sft_642_mastery__20260823T045415841401Z_9f5af23fe6",
+    "run_manifest_sha256": "f25b66765a4aa03ed1ac4dfa9e16b0f772169a13e5b10c0e11b24fdcdd1b679e"
+  }
+]

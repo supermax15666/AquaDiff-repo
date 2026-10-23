@@ -1,0 +1,723 @@
+{
+ "artifact_type": "e_arm_challenge_set_frozen",
+ "frozen_at_utc": "2026-08-27T07:58:08.697279+00:00",
+ "plan_version": "2.16",
+ "description": "E 臂挑战集（约 40 题手写功能测试：缺参/不支持体系/单位不可换算/单位可换算对照/超饱和/近饱和边界/超范围温度/歧义/正常对照）。探索性、描述性口径；预期路由由 DB(785 条全池)/冻结溶解度表/冻结域盒机械推导。超饱和用例均不在池内；E9 专门测试 v2.16 的 DB 命中+亚稳披露路径。",
+ "items": [
+  {
+   "item_id": "A1",
+   "category": "missing_field",
+   "prompt": "Predict the mutual diffusion coefficient of NaCl-H2O at c = 0.5 mol/L.",
+   "expected_intent": {
+    "status": "missing_fields",
+    "missing": [
+     "temperature_K"
+    ]
+   },
+   "expected_route": {
+    "route": "clarify"
+   }
+  },
+  {
+   "item_id": "A2",
+   "category": "missing_field",
+   "prompt": "Predict the mutual diffusion coefficient of KCl-H2O at T = 298.15 K.",
+   "expected_intent": {
+    "status": "missing_fields",
+    "missing": [
+     "concentration_mol_L"
+    ]
+   },
+   "expected_route": {
+    "route": "clarify"
+   }
+  },
+  {
+   "item_id": "A3",
+   "category": "missing_field",
+   "prompt": "What is the mutual diffusion coefficient of LiCl-H2O?",
+   "expected_intent": {
+    "status": "missing_fields",
+    "missing": [
+     "temperature_K",
+     "concentration_mol_L"
+    ]
+   },
+   "expected_route": {
+    "route": "clarify"
+   }
+  },
+  {
+   "item_id": "A4",
+   "category": "missing_field",
+   "prompt": "Predict the mutual diffusion coefficient of CaCl2-H2O at room temperature and c = 0.1 mol/L.",
+   "expected_intent": {
+    "status": "ambiguous"
+   },
+   "expected_route": {
+    "route": "clarify"
+   }
+  },
+  {
+   "item_id": "A5",
+   "category": "missing_field",
+   "prompt": "Predict the mutual diffusion coefficient of NaCl-H2O at T = 298.15 K and c = 0.5.",
+   "expected_intent": {
+    "status": "ambiguous"
+   },
+   "expected_route": {
+    "route": "clarify"
+   }
+  },
+  {
+   "item_id": "A6",
+   "category": "missing_field",
+   "prompt": "Predict the mutual diffusion coefficient of KCl-H2O at T = 310 K and at the saturated concentration.",
+   "expected_intent": {
+    "status": "ambiguous"
+   },
+   "expected_route": {
+    "route": "clarify"
+   }
+  },
+  {
+   "item_id": "B1",
+   "category": "unsupported",
+   "prompt": "Predict the mutual diffusion coefficient of MgSO4-H2O at T = 298.15 K and c = 1.0 mol/L.",
+   "expected_intent": {
+    "status": "unsupported",
+    "detected_system": "MgSO4-H2O"
+   },
+   "expected_route": {
+    "route": "refuse_unsupported"
+   }
+  },
+  {
+   "item_id": "B2",
+   "category": "unsupported",
+   "prompt": "Predict the mutual diffusion coefficient of Na2SO4-H2O at T = 298.15 K and c = 0.5 mol/L.",
+   "expected_intent": {
+    "status": "unsupported",
+    "detected_system": "Na2SO4-H2O"
+   },
+   "expected_route": {
+    "route": "refuse_unsupported"
+   }
+  },
+  {
+   "item_id": "B3",
+   "category": "unsupported",
+   "prompt": "Predict the mutual diffusion coefficient of KBr-H2O at T = 298.15 K and c = 1.0 mol/L.",
+   "expected_intent": {
+    "status": "unsupported",
+    "detected_system": "KBr-H2O"
+   },
+   "expected_route": {
+    "route": "refuse_unsupported"
+   }
+  },
+  {
+   "item_id": "B4",
+   "category": "unsupported",
+   "prompt": "Predict the mutual diffusion coefficient of glucose-H2O at T = 298.15 K and c = 0.1 mol/L.",
+   "expected_intent": {
+    "status": "unsupported",
+    "detected_system": "glucose-H2O"
+   },
+   "expected_route": {
+    "route": "refuse_unsupported"
+   }
+  },
+  {
+   "item_id": "B5",
+   "category": "unsupported",
+   "prompt": "Predict the mutual diffusion coefficient of seawater at T = 298.15 K and c = 0.6 mol/L.",
+   "expected_intent": {
+    "status": "unsupported",
+    "detected_system": "seawater/mixture"
+   },
+   "expected_route": {
+    "route": "refuse_unsupported"
+   }
+  },
+  {
+   "item_id": "C1",
+   "category": "unit_unconvertible",
+   "prompt": "Predict the mutual diffusion coefficient of NaCl-H2O at T = 298.15 K and c = 10.0 wt%.",
+   "expected_intent": {
+    "status": "ok_but_unit",
+    "concentration_unit": "wt_percent"
+   },
+   "expected_route": {
+    "route": "refuse_unit_unconvertible",
+    "unit": "wt_percent",
+    "reason": "需溶液密度，无法安全换算"
+   }
+  },
+  {
+   "item_id": "C2",
+   "category": "unit_unconvertible",
+   "prompt": "Predict the mutual diffusion coefficient of KCl-H2O at T = 298.15 K and c = 0.5 mol/kg H2O.",
+   "expected_intent": {
+    "status": "ok_but_unit",
+    "concentration_unit": "mol/kg"
+   },
+   "expected_route": {
+    "route": "refuse_unit_unconvertible",
+    "unit": "mol/kg",
+    "reason": "需溶液密度，无法安全换算"
+   }
+  },
+  {
+   "item_id": "C3",
+   "category": "unit_unconvertible",
+   "prompt": "Predict the mutual diffusion coefficient of CaCl2-H2O at T = 77 and c = 0.1 mol/L.",
+   "expected_intent": {
+    "status": "ambiguous",
+    "temperature_unit": "unknown"
+   },
+   "expected_route": {
+    "route": "clarify"
+   }
+  },
+  {
+   "item_id": "D1",
+   "category": "unit_convertible",
+   "prompt": "Predict the mutual diffusion coefficient of NaCl-H2O at T = 25.0 C and c = 0.5 mol/L.",
+   "expected_intent": {
+    "system": "NaCl-H2O",
+    "temperature": 298.15,
+    "c": 0.5
+   },
+   "expected_route": {
+    "route": "db_hit",
+    "db_value": 1.474,
+    "n_records": 6,
+    "supersaturation_advisory": false
+   }
+  },
+  {
+   "item_id": "D2",
+   "category": "unit_convertible",
+   "prompt": "Predict the mutual diffusion coefficient of KCl-H2O at T = 77.0 F and c = 0.3 mol/L.",
+   "expected_intent": {
+    "system": "KCl-H2O",
+    "temperature": 298.15,
+    "c": 0.3
+   },
+   "expected_route": {
+    "route": "ml",
+    "ml_condition": {
+     "system": "KCl-H2O",
+     "temperature_K": 298.15,
+     "concentration_mol_L": 0.3
+    }
+   }
+  },
+  {
+   "item_id": "D3",
+   "category": "unit_convertible",
+   "prompt": "Predict the mutual diffusion coefficient of NaCl-H2O at T = 298.15 K and c = 58.44 g/L.",
+   "expected_intent": {
+    "system": "NaCl-H2O",
+    "temperature": 298.15,
+    "c": 1.0
+   },
+   "expected_route": {
+    "route": "db_hit",
+    "db_value": 1.483,
+    "n_records": 7,
+    "supersaturation_advisory": false
+   }
+  },
+  {
+   "item_id": "D4",
+   "category": "unit_convertible",
+   "prompt": "Predict the mutual diffusion coefficient of KCl-H2O at T = 298.15 K and c = 100 mmol/L.",
+   "expected_intent": {
+    "system": "KCl-H2O",
+    "temperature": 298.15,
+    "c": 0.1
+   },
+   "expected_route": {
+    "route": "db_hit",
+    "db_value": 1.8512,
+    "n_records": 1,
+    "supersaturation_advisory": false
+   }
+  },
+  {
+   "item_id": "E1",
+   "category": "supersaturated",
+   "prompt": "Predict the mutual diffusion coefficient of NaCl-H2O at T = 298.15 K and c = 7.0 mol/L.",
+   "expected_intent": {
+    "system": "NaCl-H2O",
+    "temperature": 298.15,
+    "c": 7.0
+   },
+   "expected_route": {
+    "route": "refuse_out_of_domain",
+    "out_of_domain": [
+     "concentration_mol_L"
+    ],
+    "saturation_clamp": {
+     "input_c": 7.0,
+     "c_sat": 5.423155201916495
+    }
+   }
+  },
+  {
+   "item_id": "E2",
+   "category": "supersaturated",
+   "prompt": "Predict the mutual diffusion coefficient of NaCl-H2O at T = 298.15 K and c = 6.0 mol/L.",
+   "expected_intent": {
+    "system": "NaCl-H2O",
+    "temperature": 298.15,
+    "c": 6.0
+   },
+   "expected_route": {
+    "route": "refuse_out_of_domain",
+    "out_of_domain": [
+     "concentration_mol_L"
+    ],
+    "saturation_clamp": {
+     "input_c": 6.0,
+     "c_sat": 5.423155201916495
+    }
+   }
+  },
+  {
+   "item_id": "E3",
+   "category": "supersaturated",
+   "prompt": "Predict the mutual diffusion coefficient of KCl-H2O at T = 298.15 K and c = 6.0 mol/L.",
+   "expected_intent": {
+    "system": "KCl-H2O",
+    "temperature": 298.15,
+    "c": 6.0
+   },
+   "expected_route": {
+    "route": "ml",
+    "ml_condition": {
+     "system": "KCl-H2O",
+     "temperature_K": 298.15,
+     "concentration_mol_L": 4.140016659959759
+    },
+    "saturation_clamp": {
+     "input_c": 6.0,
+     "c_sat": 4.140016659959759
+    }
+   }
+  },
+  {
+   "item_id": "E4",
+   "category": "supersaturated",
+   "prompt": "Predict the mutual diffusion coefficient of KCl-H2O at T = 273.15 K and c = 4.5 mol/L.",
+   "expected_intent": {
+    "system": "KCl-H2O",
+    "temperature": 273.15,
+    "c": 4.5
+   },
+   "expected_route": {
+    "route": "ml",
+    "ml_condition": {
+     "system": "KCl-H2O",
+     "temperature_K": 273.15,
+     "concentration_mol_L": 3.359478846411804
+    },
+    "saturation_clamp": {
+     "input_c": 4.5,
+     "c_sat": 3.359478846411804
+    }
+   }
+  },
+  {
+   "item_id": "E5",
+   "category": "supersaturated",
+   "prompt": "Predict the mutual diffusion coefficient of LiCl-H2O at T = 298.15 K and c = 20.0 mol/L.",
+   "expected_intent": {
+    "system": "LiCl-H2O",
+    "temperature": 298.15,
+    "c": 20.0
+   },
+   "expected_route": {
+    "route": "refuse_out_of_domain",
+    "out_of_domain": [
+     "concentration_mol_L"
+    ],
+    "saturation_clamp": {
+     "input_c": 20.0,
+     "c_sat": 14.00474055201699
+    }
+   }
+  },
+  {
+   "item_id": "E6",
+   "category": "supersaturated",
+   "prompt": "Predict the mutual diffusion coefficient of LiCl-H2O at T = 273.15 K and c = 15.0 mol/L.",
+   "expected_intent": {
+    "system": "LiCl-H2O",
+    "temperature": 273.15,
+    "c": 15.0
+   },
+   "expected_route": {
+    "route": "refuse_out_of_domain",
+    "out_of_domain": [
+     "concentration_mol_L"
+    ],
+    "saturation_clamp": {
+     "input_c": 15.0,
+     "c_sat": 12.03156098136353
+    }
+   }
+  },
+  {
+   "item_id": "E7",
+   "category": "supersaturated",
+   "prompt": "Predict the mutual diffusion coefficient of CaCl2-H2O at T = 298.15 K and c = 8.0 mol/L.",
+   "expected_intent": {
+    "system": "CaCl2-H2O",
+    "temperature": 298.15,
+    "c": 8.0
+   },
+   "expected_route": {
+    "route": "ml",
+    "ml_condition": {
+     "system": "CaCl2-H2O",
+     "temperature_K": 298.15,
+     "concentration_mol_L": 5.832060650567669
+    },
+    "saturation_clamp": {
+     "input_c": 8.0,
+     "c_sat": 5.832060650567669
+    }
+   }
+  },
+  {
+   "item_id": "E8",
+   "category": "supersaturated",
+   "prompt": "Predict the mutual diffusion coefficient of CaCl2-H2O at T = 373.15 K and c = 10.0 mol/L.",
+   "expected_intent": {
+    "system": "CaCl2-H2O",
+    "temperature": 373.15,
+    "c": 10.0
+   },
+   "expected_route": {
+    "route": "refuse_out_of_domain",
+    "out_of_domain": [
+     "temperature_K",
+     "concentration_mol_L"
+    ],
+    "saturation_clamp": {
+     "input_c": 10.0,
+     "c_sat": 8.427624490899259
+    }
+   }
+  },
+  {
+   "item_id": "E9",
+   "category": "supersaturated_in_pool",
+   "prompt": "Predict the mutual diffusion coefficient of KCl-H2O at T = 293.0 K and c = 4.45 mol/L.",
+   "expected_intent": {
+    "system": "KCl-H2O",
+    "temperature": 293.0,
+    "c": 4.45
+   },
+   "expected_route": {
+    "route": "db_hit",
+    "db_value": 1.94,
+    "n_records": 1,
+    "supersaturation_advisory": true
+   }
+  },
+  {
+   "item_id": "F1",
+   "category": "near_saturation",
+   "prompt": "Predict the mutual diffusion coefficient of NaCl-H2O at T = 298.15 K and c = 5.35 mol/L.",
+   "expected_intent": {
+    "system": "NaCl-H2O",
+    "temperature": 298.15,
+    "c": 5.35
+   },
+   "expected_route": {
+    "route": "ml",
+    "ml_condition": {
+     "system": "NaCl-H2O",
+     "temperature_K": 298.15,
+     "concentration_mol_L": 5.35
+    }
+   }
+  },
+  {
+   "item_id": "F2",
+   "category": "near_saturation",
+   "prompt": "Predict the mutual diffusion coefficient of NaCl-H2O at T = 298.15 K and c = 5.50 mol/L.",
+   "expected_intent": {
+    "system": "NaCl-H2O",
+    "temperature": 298.15,
+    "c": 5.5
+   },
+   "expected_route": {
+    "route": "refuse_out_of_domain",
+    "out_of_domain": [
+     "concentration_mol_L"
+    ],
+    "saturation_clamp": {
+     "input_c": 5.5,
+     "c_sat": 5.423155201916495
+    }
+   }
+  },
+  {
+   "item_id": "F3",
+   "category": "near_saturation",
+   "prompt": "Predict the mutual diffusion coefficient of KCl-H2O at T = 298.15 K and c = 4.18 mol/L.",
+   "expected_intent": {
+    "system": "KCl-H2O",
+    "temperature": 298.15,
+    "c": 4.18
+   },
+   "expected_route": {
+    "route": "ml",
+    "ml_condition": {
+     "system": "KCl-H2O",
+     "temperature_K": 298.15,
+     "concentration_mol_L": 4.18
+    }
+   }
+  },
+  {
+   "item_id": "F4",
+   "category": "near_saturation",
+   "prompt": "Predict the mutual diffusion coefficient of KCl-H2O at T = 298.15 K and c = 4.19 mol/L.",
+   "expected_intent": {
+    "system": "KCl-H2O",
+    "temperature": 298.15,
+    "c": 4.19
+   },
+   "expected_route": {
+    "route": "ml",
+    "ml_condition": {
+     "system": "KCl-H2O",
+     "temperature_K": 298.15,
+     "concentration_mol_L": 4.140016659959759
+    },
+    "saturation_clamp": {
+     "input_c": 4.19,
+     "c_sat": 4.140016659959759
+    }
+   }
+  },
+  {
+   "item_id": "G1",
+   "category": "t_out_of_range",
+   "prompt": "Predict the mutual diffusion coefficient of NaCl-H2O at T = 523.15 K and c = 1.0 mol/L.",
+   "expected_intent": {
+    "system": "NaCl-H2O",
+    "temperature": 523.15,
+    "c": 1.0
+   },
+   "expected_route": {
+    "route": "refuse_out_of_domain",
+    "out_of_domain": [
+     "temperature_K"
+    ]
+   }
+  },
+  {
+   "item_id": "G2",
+   "category": "t_out_of_range",
+   "prompt": "Predict the mutual diffusion coefficient of KCl-H2O at T = 200 K and c = 1.0 mol/L.",
+   "expected_intent": {
+    "system": "KCl-H2O",
+    "temperature": 200.0,
+    "c": 1.0
+   },
+   "expected_route": {
+    "route": "refuse_out_of_domain",
+    "out_of_domain": [
+     "temperature_K"
+    ]
+   }
+  },
+  {
+   "item_id": "G3",
+   "category": "t_out_of_range",
+   "prompt": "Predict the mutual diffusion coefficient of CaCl2-H2O at T = 323.15 K and c = 1.0 mol/L.",
+   "expected_intent": {
+    "system": "CaCl2-H2O",
+    "temperature": 323.15,
+    "c": 1.0
+   },
+   "expected_route": {
+    "route": "refuse_out_of_domain",
+    "out_of_domain": [
+     "temperature_K"
+    ]
+   }
+  },
+  {
+   "item_id": "G4",
+   "category": "t_out_of_range",
+   "prompt": "Predict the mutual diffusion coefficient of LiCl-H2O at T = 250 K and c = 2.0 mol/L.",
+   "expected_intent": {
+    "system": "LiCl-H2O",
+    "temperature": 250.0,
+    "c": 2.0
+   },
+   "expected_route": {
+    "route": "refuse_out_of_domain",
+    "out_of_domain": [
+     "temperature_K"
+    ]
+   }
+  },
+  {
+   "item_id": "G5",
+   "category": "t_out_of_range",
+   "prompt": "Predict the mutual diffusion coefficient of NaCl-H2O at T = 373.15 K and c = 3.0 mol/L.",
+   "expected_intent": {
+    "system": "NaCl-H2O",
+    "temperature": 373.15,
+    "c": 3.0
+   },
+   "expected_route": {
+    "route": "refuse_out_of_domain",
+    "out_of_domain": [
+     "temperature_K"
+    ]
+   }
+  },
+  {
+   "item_id": "H1",
+   "category": "ambiguous",
+   "prompt": "Predict the mutual diffusion coefficient of NaCl-H2O at T = 298.15 K and c = 0.5 mol/L and also at c = 1.0 mol/L.",
+   "expected_intent": {
+    "status": "ambiguous"
+   },
+   "expected_route": {
+    "route": "clarify"
+   }
+  },
+  {
+   "item_id": "H2",
+   "category": "ambiguous",
+   "prompt": "Predict the mutual diffusion coefficient of NaCl-H2O between T = 298.15 K and T = 308.15 K at c = 0.5 mol/L.",
+   "expected_intent": {
+    "status": "ambiguous"
+   },
+   "expected_route": {
+    "route": "clarify"
+   }
+  },
+  {
+   "item_id": "H3",
+   "category": "ambiguous",
+   "prompt": "Predict the mutual diffusion coefficient of KCl-H2O at twice the saturation concentration at T = 298.15 K.",
+   "expected_intent": {
+    "status": "ambiguous"
+   },
+   "expected_route": {
+    "route": "clarify"
+   }
+  },
+  {
+   "item_id": "H4",
+   "category": "ambiguous",
+   "prompt": "Predict the mutual diffusion coefficient of NaCl in ethanol at T = 298.15 K and c = 0.5 mol/L.",
+   "expected_intent": {
+    "status": "unsupported",
+    "detected_system": "NaCl in ethanol"
+   },
+   "expected_route": {
+    "route": "refuse_unsupported"
+   }
+  },
+  {
+   "item_id": "H5",
+   "category": "ambiguous",
+   "prompt": "Predict the diffusion coefficient of water in NaCl-H2O at T = 298.15 K and c = 0.5 mol/L.",
+   "expected_intent": {
+    "status": "ambiguous"
+   },
+   "expected_route": {
+    "route": "clarify"
+   }
+  },
+  {
+   "item_id": "I1",
+   "category": "normal",
+   "prompt": "Predict the mutual diffusion coefficient of NaCl-H2O at T = 298.15 K and c = 1.0 mol/L.",
+   "expected_intent": {
+    "system": "NaCl-H2O",
+    "temperature": 298.15,
+    "c": 1.0
+   },
+   "expected_route": {
+    "route": "db_hit",
+    "db_value": 1.483,
+    "n_records": 7,
+    "supersaturation_advisory": false
+   }
+  },
+  {
+   "item_id": "I2",
+   "category": "normal",
+   "prompt": "Predict the mutual diffusion coefficient of KCl-H2O at T = 320 K and c = 2.0 mol/L.",
+   "expected_intent": {
+    "system": "KCl-H2O",
+    "temperature": 320.0,
+    "c": 2.0
+   },
+   "expected_route": {
+    "route": "ml",
+    "ml_condition": {
+     "system": "KCl-H2O",
+     "temperature_K": 320.0,
+     "concentration_mol_L": 2.0
+    }
+   }
+  },
+  {
+   "item_id": "I3",
+   "category": "normal",
+   "prompt": "Predict the mutual diffusion coefficient of LiCl-H2O at T = 298.15 K and c = 4.0 mol/L.",
+   "expected_intent": {
+    "system": "LiCl-H2O",
+    "temperature": 298.15,
+    "c": 4.0
+   },
+   "expected_route": {
+    "route": "db_hit",
+    "db_value": 1.466,
+    "n_records": 1,
+    "supersaturation_advisory": false
+   }
+  },
+  {
+   "item_id": "I4",
+   "category": "normal",
+   "prompt": "Predict the mutual diffusion coefficient of CaCl2-H2O at T = 303.15 K and c = 2.0 mol/L.",
+   "expected_intent": {
+    "system": "CaCl2-H2O",
+    "temperature": 303.15,
+    "c": 2.0
+   },
+   "expected_route": {
+    "route": "ml",
+    "ml_condition": {
+     "system": "CaCl2-H2O",
+     "temperature_K": 303.15,
+     "concentration_mol_L": 2.0
+    }
+   }
+  }
+ ],
+ "items_content_sha256": "53664256f2eff8e030d162a0e15398f96d35b8772bc1acd19ef23713a32f19b9",
+ "n_items": 45,
+ "depends_on": {
+  "duckdb_sha256": "785ab83afd75a4b5addd14f57bdf9c55168a216d97be119b441a153a60725cd1",
+  "solubility_records_sha256": "b7d40c4f3b24235ef70d051774c08de899d981b5aab3c81686995c79c9e46c88",
+  "registry_fingerprint": "ffbc8b45278774e9317b8c53780753fd3a180f351dff7defed77d1bb4ce63ad6"
+ },
+ "freeze_rule": "冻结后不得改动；修改需新版本并重新推导冻结。"
+}

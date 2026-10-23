@@ -1,0 +1,16 @@
+# If you use this repository, please cite the accompanying manuscript.
+# TODO (before making the repository public): fill in the author list, the paper
+# DOI and the final repository URL; a Zenodo DOI will be added to the version of
+# record.
+cff-version: 1.2.0
+message: "If you use this repository, please cite the accompanying manuscript."
+title: "AquaDiff: A Domain-Aware Tool-Augmented Query System for Mutual Diffusion Coefficients in Aqueous Electrolytes"
+type: software
+version: 1.0.0
+date-released: "2026-10-23"
+license: MIT
+repository-code: "https://github.com/TODO/AquaDiff"
+abstract: "Code, frozen assets, question sets, training artefacts and archived evaluation records for the AquaDiff-Bench five-arm benchmark."
+authors:
+  - family-names: "TODO"
+    given-names: "TODO"

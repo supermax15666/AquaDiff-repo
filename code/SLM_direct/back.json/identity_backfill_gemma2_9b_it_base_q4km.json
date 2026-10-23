@@ -1,0 +1,31 @@
+{
+  "model_key": "gemma2_9b_it_base_q4km",
+  "repo_used": "google/gemma-2-9b-it",
+  "repo_was_fallback": false,
+  "revision": "6f56b72fa2d7f99058d0b01590e86f18016b127e",
+  "snapshot_manifest_sha256": "62897ae7d6f028929ce228c16fa2fdb4f84e980888cfb4e538b4c8c7494f7171",
+  "snapshot_files_sha256_path": "E:\\models\\cet_formal\\gemma-2-9b-it.snapshot_files.sha256",
+  "gguf": {
+    "filename": "gemma-2-9b-it-Q4_K_M.gguf",
+    "local_path": "E:\\gguf\\cet_formal\\gemma-2-9b-it-Q4_K_M.gguf",
+    "sha256": "57931feaea4f9f2d711d4f2cf17dcb67ece876881f21b2c6ade2e7848837c3aa"
+  },
+  "llama_cpp_commit": "d0bfb1981266c271cd0536a8aa7c5e863e7cdf61",
+  "llama_cpp_tag": "b10188",
+  "lm_studio": {
+    "app_version": "0.4.20+1",
+    "runtime_version": "llama.cpp-win-x86_64-avx2-2.29.0",
+    "served_model_id_actual": "cet-gguf/gemma-2-9b-it@q4_k_m",
+    "native_model_key": "cet-gguf/gemma-2-9b-it@q4_k_m",
+    "native_selected_variant": null,
+    "quantization": "Q4_K_M",
+    "loaded_context_length": 4096,
+    "max_context_length": 8192,
+    "arch": "gemma2",
+    "publisher": "cet-gguf",
+    "gpu_offload_requested": "max",
+    "inference_verified": true
+  },
+  "backfilled_at_utc": "2026-08-15T12:48:17Z",
+  "notes": "主仓库 google/gemma-2-9b-it 存在，直接使用。snapshot 含 15 文件。lms import 后 LM Studio 实际 id 为 cet-gguf/gemma-2-9b-it@q4_k_m（publisher=cet-gguf，带前缀）。max_context_length=8192 为 Gemma-2 原生上限（低于加载 ctx 4096 不冲突）。推理验证：模型成功加载（日志确认加载路径 E:\\models\\cet-gguf\\gemma-2-9b-it\\gemma-2-9b-it-Q4_K_M.gguf），返回 'OK'，finish=stop。runtime 同前（CPU AVX2 2.29.0，--gpu max 已请求但 CUDA backend 未启用）。"
+}

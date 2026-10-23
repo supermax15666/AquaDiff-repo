@@ -1,0 +1,42 @@
+[
+  {
+    "bytes": 589334,
+    "file": "analysis_summary.json",
+    "sha256": "a34c3a432085c99920eaf62177ba06a9ea1f157ef9efd22bec17a8b2c86256ea"
+  },
+  {
+    "bytes": 3071964,
+    "file": "base_prompt_results.csv",
+    "sha256": "990cc2cef914dadef0d43e03d5f2e727115c04d7d41b263fa0815ccfe29d75eb"
+  },
+  {
+    "bytes": 13998,
+    "file": "manuscript_model_metrics.csv",
+    "sha256": "009b7224dc546af8bf6d65880cf4640f40c27931195c05af8f0bf27a5815bb76"
+  },
+  {
+    "bytes": 2015,
+    "file": "manuscript_summary.md",
+    "sha256": "397d41aa52d282c4ecad0432e656bf88496db6055f5201be2121cc35c8ae16cf"
+  },
+  {
+    "bytes": 12372681,
+    "file": "sample_level_results.csv",
+    "sha256": "93e165c073aebba7219dc56ce0991acf2f5226aa6418a837d123e3bbd9ff689a"
+  },
+  {
+    "bytes": 1092,
+    "file": "slm_analysis_manifest.json",
+    "sha256": "4db519d14f5b269e811b5d2a0614538cda28334c75fc407f7edc923c38d85d6a"
+  },
+  {
+    "bytes": 4953,
+    "file": "slm_run_registry.csv",
+    "sha256": "18b81c411d9404be5d395a3d673df869d3b9a6fe0614632bf20a243b8b26210c"
+  },
+  {
+    "bytes": 7913,
+    "file": "slm_run_registry.json",
+    "sha256": "1e353d79fdbe6d294f7383b049b8646be3b198a2e9fefd6161cfc796f28c68d7"
+  }
+]

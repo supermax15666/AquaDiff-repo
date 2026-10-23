@@ -1,0 +1,10 @@
+type,model,question_id,system,temperature_K,concentration_mol_L,observed,predicted_median,ape_percent,note
+tail_error,deepseek-v4-pro,four-system::cacl2-h2o::3a2954251667f5884847,CaCl2-H2O,298.15,6.004,0.402,1.19,196.01990049751242,top APE sample
+tail_error,kimi-k3,four-system::cacl2-h2o::3a2954251667f5884847,CaCl2-H2O,298.15,6.004,0.402,1.15,186.06965174129348,top APE sample
+tail_error,doubao-seed-2-1-pro-260628,four-system::cacl2-h2o::3a2954251667f5884847,CaCl2-H2O,298.15,6.004,0.402,1.1,173.6318407960199,top APE sample
+tail_error,deepseek-v4-pro,four-system::cacl2-h2o::a4cd8350a7e1c2414d96,CaCl2-H2O,298.15,5.5703,0.5213,1.19,128.27546518319585,top APE sample
+tail_error,doubao-seed-2-1-pro-260628,four-system::cacl2-h2o::a4cd8350a7e1c2414d96,CaCl2-H2O,298.15,5.5703,0.5213,1.18,126.35718396316899,top APE sample
+tail_error,MiniMax-M3,four-system::cacl2-h2o::3a2954251667f5884847,CaCl2-H2O,298.15,6.004,0.402,0.866,115.4228855721393,top APE sample
+parse_or_format_failure,deepseek-v4-pro,four-system::nacl-h2o::908bcf67a99028a18fcd,NaCl-H2O,298.15,0.39601,,,,parse failure sample
+parse_or_format_failure,kimi-k3,four-system::kcl-h2o::54d8cb92fb0a7a4a7d93,KCl-H2O,298.15,3.0008,,,,parse failure sample
+parse_or_format_failure,kimi-k3,four-system::licl-h2o::b125de736cbe100fd8c0,LiCl-H2O,298.15,0.0073,,,,parse failure sample

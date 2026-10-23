@@ -1,0 +1,12 @@
+{
+  "train_642_pilot": {
+    "file_name": "train_642_pilot.json",
+    "formatting": "alpaca",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "system": "system"
+    }
+  }
+}

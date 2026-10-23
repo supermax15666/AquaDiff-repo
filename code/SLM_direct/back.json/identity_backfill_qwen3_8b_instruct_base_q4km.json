@@ -1,0 +1,31 @@
+{
+  "model_key": "qwen3_8b_instruct_base_q4km",
+  "repo_used": "Qwen/Qwen3-8B",
+  "repo_was_fallback": false,
+  "revision": "26028140be3ee69b82b1d1450179ab71bb1121b9",
+  "snapshot_manifest_sha256": "a34491bce8871fef5f3fed8c70ce51db59fff2797acb3e49dc861b81d7ddc7f9",
+  "snapshot_files_sha256_path": "E:\\models\\cet_formal\\qwen3-8b-instruct.snapshot_files.sha256",
+  "gguf": {
+    "filename": "qwen3-8b-instruct-Q4_K_M.gguf",
+    "local_path": "E:\\gguf\\cet_formal\\qwen3-8b-instruct-Q4_K_M.gguf",
+    "sha256": "1554ac6e4b8ae5c463e1b6478961394e5895588a4aa381825e065ae1b7fac007"
+  },
+  "llama_cpp_commit": "d0bfb1981266c271cd0536a8aa7c5e863e7cdf61",
+  "llama_cpp_tag": "b10188",
+  "lm_studio": {
+    "app_version": "0.4.20+1",
+    "runtime_version": "llama.cpp-win-x86_64-avx2-2.29.0",
+    "served_model_id_actual": "qwen3-8b-instruct@q4_k_m",
+    "native_model_key": "qwen3-8b-instruct@q4_k_m",
+    "native_selected_variant": null,
+    "quantization": "Q4_K_M",
+    "loaded_context_length": 4096,
+    "max_context_length": 40960,
+    "arch": "qwen3",
+    "publisher": "cet-gguf",
+    "gpu_offload_requested": "max",
+    "inference_verified": true
+  },
+  "backfilled_at_utc": "2026-08-15T09:39:10Z",
+  "notes": "2026-08-15 授权修正：原主/备仓库（Qwen/Qwen3-8B-Instruct-2507 与 Qwen/Qwen3-8B-Instruct）经核实均 404，实际仓库为 Qwen/Qwen3-8B（Qwen3 8B 即 instruct+thinking 混合模型，与研究方案所指一致）。lms import 后 LM Studio 实际 id 为 qwen3-8b-instruct@q4_k_m（publisher=cet-gguf，未带 cet-gguf/ 前缀，因 LM Studio 对无斜杠模型名省略 publisher 前缀）。推理验证：模型成功加载并执行生成（日志确认加载路径为 E:\\models\\cet-gguf\\qwen3-8b-instruct\\qwen3-8b-instruct-Q4_K_M.gguf）；短 max_tokens 下 content 为空系 Qwen3 默认开思考消耗 token 所致，非加载失败。runtime 同模型1（CPU AVX2 2.29.0，--gpu max 已请求但 CUDA backend 未启用）。"
+}

@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "llm_api_direct_config_v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "question_file",
+    "evaluator_gold_file",
+    "answer_schema",
+    "output_root",
+    "repetitions",
+    "models"
+  ],
+  "properties": {
+    "schema_version": {"const": "llm_api_direct/v1"},
+    "question_file": {"type": "string"},
+    "evaluator_gold_file": {"type": "string"},
+    "answer_schema": {"type": "string"},
+    "output_root": {"type": "string"},
+    "repetitions": {"type": "integer", "minimum": 1},
+    "order_seed": {"type": "integer"},
+    "timeout_seconds": {"type": "number", "exclusiveMinimum": 0},
+    "inter_request_seconds": {"type": "number", "minimum": 0},
+    "retry": {
+      "type": "object",
+      "properties": {
+        "max_attempts_per_sample": {"type": "integer", "minimum": 1},
+        "max_elapsed_seconds_per_sample": {"type": "number", "exclusiveMinimum": 0},
+        "base_wait_seconds": {"type": "number", "minimum": 0},
+        "max_wait_seconds": {"type": "number", "minimum": 0},
+        "jitter_fraction": {"type": "number", "minimum": 0, "maximum": 1}
+      },
+      "additionalProperties": false
+    },
+    "models": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object",
+        "required": ["provider", "model_id", "api_key_env"],
+        "properties": {
+          "enabled": {"type": "boolean"},
+          "provider": {"type": "string", "minLength": 1},
+          "base_url": {"type": "string", "minLength": 1},
+          "endpoint_url": {"type": "string", "minLength": 1},
+          "endpoint": {"enum": ["responses", "chat_completions"]},
+          "api_key_env": {"type": "string", "minLength": 1},
+          "model_id": {"type": "string", "minLength": 1},
+          "snapshot_confirmed": {"type": "boolean"},
+          "evidence_level": {"type": "string"},
+          "structured_output": {"enum": ["json_schema", "json_object", "none"]},
+          "temperature": {"type": ["number", "null"]},
+          "seed": {"type": ["integer", "null"]},
+          "max_output_tokens": {"type": "integer", "minimum": 1},
+          "timeout_seconds": {"type": "number", "exclusiveMinimum": 0},
+          "inter_request_seconds": {"type": "number", "minimum": 0},
+          "extra_headers": {"type": "object"},
+          "extra_body": {"type": "object"},
+          "retry": {"type": "object"}
+        },
+        "anyOf": [{"required": ["base_url"]}, {"required": ["endpoint_url"]}],
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}
